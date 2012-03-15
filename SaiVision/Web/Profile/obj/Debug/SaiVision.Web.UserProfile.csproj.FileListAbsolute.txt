@@ -1,0 +1,5 @@
+C:\dev\SaiVision\Web\Profile\bin\SaiVision.Web.Profile.dll
+C:\dev\SaiVision\Web\Profile\bin\SaiVision.Web.Profile.pdb
+C:\dev\SaiVision\Web\Profile\obj\Debug\ResolveAssemblyReference.cache
+C:\dev\SaiVision\Web\Profile\obj\Debug\SaiVision.Web.Profile.dll
+C:\dev\SaiVision\Web\Profile\obj\Debug\SaiVision.Web.Profile.pdb
