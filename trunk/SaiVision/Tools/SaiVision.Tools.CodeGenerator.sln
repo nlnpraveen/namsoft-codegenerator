@@ -1,0 +1,92 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaiVision.Tools.CodeGenerator.DataAccess", "CodeGenerator\DataAccess\src\SaiVision.Tools.CodeGenerator.DataAccess.csproj", "{1D942AC5-7942-4BD2-9476-A1CB23BF0DD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaiVision.Tools.CodeGenerator.Manager", "CodeGenerator\Manager\src\SaiVision.Tools.CodeGenerator.Manager.csproj", "{759F9B84-D5E0-40B3-B2ED-933B9526304C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaiVision.Tools.CodeGenerator.ConsoleApp", "CodeGenerator\ConsoleApp\src\SaiVision.Tools.CodeGenerator.ConsoleApp.csproj", "{0395474B-B891-4ED3-9591-854FD0E6A5B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaiVision.Platform.Common", "..\Platform\Common\src\SaiVision.Platform.Common.csproj", "{07D541F9-06D5-4A38-BD26-1E6F93B05918}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2CA7E8EC-1622-4958-8BE8-E6CA50EADDE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platform", "Platform", "{73C25025-BF1D-4817-B163-AEA36C571054}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GeneratedObjects", "GeneratedObjects", "{277244A6-98A1-470C-B8A7-AA977FCF272C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaiVision.Platform.CodeGenerator.DataAccess", "..\Platform\CodeGenerator\DataAccess\src\SaiVision.Platform.CodeGenerator.DataAccess.csproj", "{A7FC0D32-4B20-4937-A4AD-763EACE46BC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaiVision.Platform.CodeGenerator.DataManagers", "..\Platform\CodeGenerator\DataManagers\src\SaiVision.Platform.CodeGenerator.DataManagers.csproj", "{886C0413-8B2E-4C59-8EA4-30F1AE70DA6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaiVision.Platform.CodeGenerator.DataModels", "..\Platform\CodeGenerator\DataModels\src\SaiVision.Platform.CodeGenerator.DataModels.csproj", "{BC192799-7FE0-4E59-80C7-F51FB478A44A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaiVision.Platform.CodeGenerator.DataManagers.Tests", "..\Platform\CodeGenerator\DataManagers\tests\SaiVision.Platform.CodeGenerator.DataManagers.Tests.csproj", "{1C99EC70-0677-43DC-B3AF-0588D0BC7945}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaiVision.Tools.CodeGenerator.Manager.Tests", "CodeGenerator\Manager\tests\SaiVision.Tools.CodeGenerator.Manager.Tests.csproj", "{644AF141-7985-43DB-8453-E26C96BB0A8F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectReferences", "ProjectReferences", "{84B66FBD-323A-4B50-ADE4-2BD37220A748}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{8298478D-D25C-4C91-9100-FAF5B5C7445A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EBD02202-3B3A-44DD-BD9C-EA61824E3EBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D942AC5-7942-4BD2-9476-A1CB23BF0DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D942AC5-7942-4BD2-9476-A1CB23BF0DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D942AC5-7942-4BD2-9476-A1CB23BF0DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D942AC5-7942-4BD2-9476-A1CB23BF0DD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{759F9B84-D5E0-40B3-B2ED-933B9526304C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{759F9B84-D5E0-40B3-B2ED-933B9526304C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{759F9B84-D5E0-40B3-B2ED-933B9526304C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{759F9B84-D5E0-40B3-B2ED-933B9526304C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0395474B-B891-4ED3-9591-854FD0E6A5B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0395474B-B891-4ED3-9591-854FD0E6A5B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0395474B-B891-4ED3-9591-854FD0E6A5B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0395474B-B891-4ED3-9591-854FD0E6A5B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07D541F9-06D5-4A38-BD26-1E6F93B05918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07D541F9-06D5-4A38-BD26-1E6F93B05918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07D541F9-06D5-4A38-BD26-1E6F93B05918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07D541F9-06D5-4A38-BD26-1E6F93B05918}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7FC0D32-4B20-4937-A4AD-763EACE46BC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7FC0D32-4B20-4937-A4AD-763EACE46BC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7FC0D32-4B20-4937-A4AD-763EACE46BC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7FC0D32-4B20-4937-A4AD-763EACE46BC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{886C0413-8B2E-4C59-8EA4-30F1AE70DA6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{886C0413-8B2E-4C59-8EA4-30F1AE70DA6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{886C0413-8B2E-4C59-8EA4-30F1AE70DA6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{886C0413-8B2E-4C59-8EA4-30F1AE70DA6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC192799-7FE0-4E59-80C7-F51FB478A44A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC192799-7FE0-4E59-80C7-F51FB478A44A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC192799-7FE0-4E59-80C7-F51FB478A44A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC192799-7FE0-4E59-80C7-F51FB478A44A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C99EC70-0677-43DC-B3AF-0588D0BC7945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C99EC70-0677-43DC-B3AF-0588D0BC7945}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C99EC70-0677-43DC-B3AF-0588D0BC7945}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C99EC70-0677-43DC-B3AF-0588D0BC7945}.Release|Any CPU.Build.0 = Release|Any CPU
+		{644AF141-7985-43DB-8453-E26C96BB0A8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{644AF141-7985-43DB-8453-E26C96BB0A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{644AF141-7985-43DB-8453-E26C96BB0A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{644AF141-7985-43DB-8453-E26C96BB0A8F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1C99EC70-0677-43DC-B3AF-0588D0BC7945} = {2CA7E8EC-1622-4958-8BE8-E6CA50EADDE4}
+		{644AF141-7985-43DB-8453-E26C96BB0A8F} = {2CA7E8EC-1622-4958-8BE8-E6CA50EADDE4}
+		{07D541F9-06D5-4A38-BD26-1E6F93B05918} = {73C25025-BF1D-4817-B163-AEA36C571054}
+		{A7FC0D32-4B20-4937-A4AD-763EACE46BC6} = {277244A6-98A1-470C-B8A7-AA977FCF272C}
+		{886C0413-8B2E-4C59-8EA4-30F1AE70DA6A} = {277244A6-98A1-470C-B8A7-AA977FCF272C}
+		{BC192799-7FE0-4E59-80C7-F51FB478A44A} = {277244A6-98A1-470C-B8A7-AA977FCF272C}
+		{73C25025-BF1D-4817-B163-AEA36C571054} = {84B66FBD-323A-4B50-ADE4-2BD37220A748}
+		{8298478D-D25C-4C91-9100-FAF5B5C7445A} = {84B66FBD-323A-4B50-ADE4-2BD37220A748}
+		{1D942AC5-7942-4BD2-9476-A1CB23BF0DD0} = {8298478D-D25C-4C91-9100-FAF5B5C7445A}
+		{759F9B84-D5E0-40B3-B2ED-933B9526304C} = {8298478D-D25C-4C91-9100-FAF5B5C7445A}
+	EndGlobalSection
+EndGlobal
