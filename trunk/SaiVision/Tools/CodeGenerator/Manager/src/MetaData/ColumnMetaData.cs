@@ -44,6 +44,14 @@ namespace SaiVision.Tools.CodeGenerator.Manager
         public string ColumnDefault { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether this instance is nullable type.
+        /// </summary>
+        /// <value>
+        /// 	<c>true</c> if this instance is nullable type; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsNullableType { get; set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether this instance is nullable.
         /// </summary>
         /// <value>
@@ -79,6 +87,10 @@ namespace SaiVision.Tools.CodeGenerator.Manager
             IsNullable = (row["IsNullable"] == DBNull.Value) ? IsNullable : (row["IsNullable"].ToString().Equals("NO") ? false : true);
             DataType = (row["DataType"] == DBNull.Value) ? DataType : row["DataType"].ToString();
             IsIdentity = (row["IsNullable"] == DBNull.Value) ? IsIdentity : (row["IsIdentity"].ToString().Equals("0") ? false : true);
+
+            // To diable nullable types. Just make this value false
+            IsNullableType = (IsNullable || ColumnDefault != null);
+            
         }
         #endregion
     }

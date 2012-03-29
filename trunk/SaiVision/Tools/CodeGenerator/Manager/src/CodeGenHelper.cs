@@ -412,6 +412,7 @@ namespace SaiVision.Tools.CodeGenerator.Manager
 
         #region Data Access Methods
 
+        #region [Public Methods]
         public static string Get_DataAccessMethod_AllRecords(GeneratorSettings settings, TableMetaData table)
         {
             string procName = string.Format("{0}_Get", table.TableName);
@@ -605,10 +606,10 @@ namespace SaiVision.Tools.CodeGenerator.Manager
                 methodText.AppendLine(string.Format("{0}throw new DBException(ex.Message, ex);", tab4));
 
             methodText.AppendLine(string.Format("{0}}}", tab3));
-            methodText.AppendLine(string.Format("{0}}}", tab2));            
+            methodText.AppendLine(string.Format("{0}}}", tab2));
 
             return methodText.ToString();
-        }        
+        }
 
         public static string Insert_DataAccessMethod(GeneratorSettings settings, TableMetaData table)
         {
@@ -639,12 +640,12 @@ namespace SaiVision.Tools.CodeGenerator.Manager
                     {
                         if (string.IsNullOrEmpty(parameterText.ToString()))
                         {
-                            parameterText.Append(string.Format("{0} {1}", Utility.GetEquivalentTypeName(mdColumn.DataType), mdColumn.ColumnNameCamel));
+                            parameterText.Append(string.Format("{0} {1}", Utility.GetEquivalentTypeName(mdColumn), mdColumn.ColumnNameCamel));
                             exceptionParameterText.Append(string.Format(@"""{0}"", {0}", mdColumn.ColumnNameCamel));
                         }
                         else
                         {
-                            parameterText.Append(string.Format(", {0} {1}", Utility.GetEquivalentTypeName(mdColumn.DataType), mdColumn.ColumnNameCamel));
+                            parameterText.Append(string.Format(", {0} {1}", Utility.GetEquivalentTypeName(mdColumn), mdColumn.ColumnNameCamel));
                             exceptionParameterText.Append(string.Format(@", ""{0}"", {0}", mdColumn.ColumnNameCamel));
                         }
                     }
@@ -686,34 +687,9 @@ namespace SaiVision.Tools.CodeGenerator.Manager
             sb.AppendLine(string.Format("{0}IDbCommand cmd = connectionManager.GetCommand(\"{1}\");", tab4 + tab1, procName));
             sb.AppendLine(string.Empty);
 
-            foreach (ColumnMetaData column in table.Columns)
-            {
-                string dataType = column.DataType;
-                string dbColumnName = column.ColumnName;
-                if (column.IsIdentity)
-                {
-                    sb.AppendLine(string.Format("{0}cmd.Parameters.Add(connectionManager.GetParameter(\"@{1}\",", tab4 + tab1, dbColumnName));
-                    sb.AppendLine(string.Format("{0}{1},", tab4 + tab2, Utility.GetEquivalentSqlDbTypeEnum(dataType)));
-                    sb.AppendLine(string.Format("{0}ParameterDirection.Output));", tab4 + tab2));
-                    sb.AppendLine(string.Empty);
-                }
-                else
-                {
-                    sb.AppendLine(string.Format("{0}cmd.Parameters.Add(connectionManager.GetParameter(\"@{1}\",", tab4 + tab1, dbColumnName));
-                    sb.AppendLine(string.Format("{0}{1},", tab4 + tab2, Utility.GetEquivalentSqlDbTypeEnum(dataType)));
-                    sb.AppendLine(string.Format("{0}ParameterDirection.Input,", tab4 + tab2));
-                    if (settings.PassDataModelAsObjectParameter)
-                    {
-                        sb.AppendLine(string.Format("{0}{1}.{2}));", tab4 + tab2, table.TableNameCamel, column.ColumnNamePascal));
-                    }
-                    else
-                    {
-                        sb.AppendLine(string.Format("{0}{1}));", tab4 + tab2, column.ColumnNameCamel));
-                    }
-                    sb.AppendLine(string.Empty);
-                }
-            }
-               
+            // Parameters
+            sb.AppendLine(Insert_DataAccessMethod_GetCommand(settings, table));
+
             sb.AppendLine(string.Format("{0}cmd.ExecuteNonQuery();", tab4 + tab1));
             sb.AppendLine(string.Empty);
 
@@ -743,7 +719,7 @@ namespace SaiVision.Tools.CodeGenerator.Manager
             sb.AppendLine(string.Format("{0}}}", tab3));
             sb.AppendLine(string.Format("{0}}}", tab2));
 
-            methodText = sb.ToString();            
+            methodText = sb.ToString();
 
             return methodText;
         }
@@ -808,7 +784,7 @@ namespace SaiVision.Tools.CodeGenerator.Manager
                 sb.AppendLine(string.Empty);
                 sb.AppendLine(string.Format("{0}IDbCommand cmd = connectionManager.GetCommand(\"{1}\");", tab4 + tab1, table.UpdateByPKProc));
                 sb.AppendLine(string.Empty);
-                
+
                 // Prepare the command parameters
                 foreach (ColumnMetaData column in table.Columns)
                 {
@@ -827,7 +803,7 @@ namespace SaiVision.Tools.CodeGenerator.Manager
                     {
                         sb.AppendLine(string.Format("{0}{1}));", tab4 + tab2, column.ColumnNameCamel));
                     }
-                    sb.AppendLine(string.Empty);                    
+                    sb.AppendLine(string.Empty);
                 }
 
                 sb.AppendLine(string.Format("{0}cmd.ExecuteNonQuery();", tab4 + tab1));
@@ -1086,6 +1062,99 @@ namespace SaiVision.Tools.CodeGenerator.Manager
             return methodText.ToString();
         }
 
+        #endregion
+
+        #region [Private Methods]
+        private static string Insert_DataAccessMethod_GetCommand(GeneratorSettings settings, TableMetaData table)
+        {
+            StringBuilder sb = new StringBuilder();
+            // Parameters
+            foreach (ColumnMetaData column in table.Columns)
+            {
+                string dataType = column.DataType;
+                string dbColumnName = column.ColumnName;
+                string columnNameFormat = (settings.PassDataModelAsObjectParameter ? string.Format("{0}.{1}", table.TableNameCamel, column.ColumnNamePascal) : column.ColumnNameCamel);
+                if (column.IsIdentity)
+                {
+                    sb.AppendLine(string.Format("{0}cmd.Parameters.Add(connectionManager.GetParameter(\"@{1}\",", tab4 + tab1, dbColumnName));
+                    sb.AppendLine(string.Format("{0}{1},", tab4 + tab2, Utility.GetEquivalentSqlDbTypeEnum(dataType)));
+                    sb.AppendLine(string.Format("{0}ParameterDirection.Output));", tab4 + tab2));
+                }
+                else
+                {
+                    // Handle nullable types seperately
+                    if (!column.IsNullableType)
+                    {
+                        sb.AppendLine(string.Format("{0}cmd.Parameters.Add(connectionManager.GetParameter(\"@{1}\",", tab4 + tab1, dbColumnName));
+                        sb.AppendLine(string.Format("{0}{1},", tab4 + tab2, Utility.GetEquivalentSqlDbTypeEnum(dataType)));
+                        sb.AppendLine(string.Format("{0}ParameterDirection.Input,", tab4 + tab2));
+                        sb.AppendLine(string.Format("{0}{1}));", tab4 + tab2, columnNameFormat));
+                    }
+                    else
+                    {
+                        string tablen = tab4 + tab1;
+                        switch (column.DataType)
+                        {
+                            case "ntext":
+                            case "varchar":
+                            case "nvarchar":
+                            case "nchar":
+                            case "text":
+                            case "char":
+                                sb.AppendLine(string.Format("{0}if (!string.IsNullOrEmpty({1}))", tablen, columnNameFormat));
+                                tablen = tablen + tab1;
+                                break;
+                            case "bit":
+                            case "uniqueidentifier":
+                            case "tinyint":
+                                sb.AppendLine(string.Format("{0}if ({1}.HasValue)", tablen, columnNameFormat));
+                                tablen = tablen + tab1;
+                                break;
+                        }
+                        sb.AppendLine(string.Format("{0}cmd.Parameters.Add(connectionManager.GetParameter(\"@{1}\",", tablen, dbColumnName));
+                        sb.AppendLine(string.Format("{0}{1},", tablen + tab1, Utility.GetEquivalentSqlDbTypeEnum(dataType)));
+                        sb.AppendLine(string.Format("{0}ParameterDirection.Input,", tablen + tab1));
+                        switch (column.DataType)
+                        {
+                            case "int":
+                            case "smallint":
+                            case "bigint":
+                            case "decimal":
+                            case "numeric":
+                            case "date":
+                            case "datetime":
+                            case "smalldatetime":
+                            case "money":
+                            case "smallmoney":
+                            case "float":
+                                sb.AppendLine(string.Format("{0}{1}.HasValue ? {1} : {2}.MinValue));", tablen + tab1, columnNameFormat, Utility.GetEquivalentTypeName(column.DataType)));
+                                break;                                
+                            default:
+                                sb.AppendLine(string.Format("{0}{1}));", tablen + tab1, columnNameFormat));
+                                break;
+                        }
+
+                        tablen = tab4 + tab1;
+                        switch (column.DataType)
+                        {
+                            case "bit":
+                            case "tinyint":
+                            case "uniqueidentifier":
+                                sb.AppendLine(string.Format("{0}else", tablen));
+                                tablen = tablen + tab1;
+                                sb.AppendLine(string.Format("{0}cmd.Parameters.Add(connectionManager.GetParameter(\"@{1}\",", tablen, dbColumnName));
+                                sb.AppendLine(string.Format("{0}{1},", tablen + tab1, Utility.GetEquivalentSqlDbTypeEnum(dataType)));
+                                sb.AppendLine(string.Format("{0}ParameterDirection.Input,", tablen + tab1));
+                                sb.AppendLine(string.Format("{0}DBNull.Value));", tablen + tab1));
+                                break;
+                        }
+                    }
+                }
+                sb.AppendLine(string.Empty);
+            }
+            return sb.ToString();
+        }
+        #endregion
         #endregion        
     }
 }

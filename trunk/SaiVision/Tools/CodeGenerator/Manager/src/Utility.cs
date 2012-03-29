@@ -425,6 +425,67 @@ namespace SaiVision.Tools.CodeGenerator.Manager
             return dataType;
         }
 
+        public static string GetEquivalentTypeName(ColumnMetaData column)
+        {
+            string dataType = string.Empty;            
+            switch (column.DataType)
+            {
+                case "image":
+                    dataType = "byte[]";
+                    break;
+                case "decimal":
+                    dataType = column.IsNullableType ? "decimal?" : "decimal";
+                    break;
+                case "float":
+                    dataType = column.IsNullableType ? "float?" : "float";
+                    break;
+                
+                case "smalldatetime":
+                    dataType = column.IsNullableType ? "DateTime?" : "DateTime";
+                    break;
+                case "int":
+                case "smallint":
+                    dataType = column.IsNullableType ? "int?" : "int";
+                    break;
+                case "varchar":
+                case "nvarchar":
+                case "text":
+                case "ntext":
+                case "char":
+                case "nchar":
+                    dataType = "string";
+                    break;
+                case "date":
+                case "datetime":
+                    dataType = column.IsNullableType ? "DateTime?" : "DateTime";
+                    break;
+                case "numeric":
+                    dataType = column.IsNullableType ? "decimal?" : "decimal";
+                    break;
+                case "bigint":
+                    dataType = column.IsNullableType ? "long?" : "long";
+                    break;
+                case "bit":
+                    dataType = column.IsNullableType ? "bool?" : "bool";
+                    break;                
+                case "tinyint":
+                    dataType = column.IsNullableType ? "byte?" : "byte";
+                    break;                
+                case "uniqueidentifier":
+                    dataType = column.IsNullableType ? "Guid?" : "Guid";
+                    break;                
+                case "varbinary":
+                    dataType = "byte[]";
+                    break;
+                case "smallmoney":
+                case "money":
+                    dataType = column.IsNullableType ? "decimal?" : "decimal";
+                    break;
+            }
+
+            return dataType;
+        }
+
         public static string GetRowValueByTypeName(string sqlType, string columnName, string pascalColumnName)
         {
             string str = string.Empty;
@@ -435,6 +496,7 @@ namespace SaiVision.Tools.CodeGenerator.Manager
                 case "nvarchar":
                 case "nchar":
                 case "text":
+                case "char":
                     str = string.Format(@"(row[""{0}""] == DBNull.Value) ? string.Empty : row[""{0}""].ToString()", columnName);
                     break;
                 case "varbinary":
@@ -466,14 +528,16 @@ namespace SaiVision.Tools.CodeGenerator.Manager
                 case "bit":
                     str = string.Format(@"(row[""{0}""] == DBNull.Value) ? _{1} : bool.Parse(row[""{0}""].ToString())", columnName, pascalColumnName);
                     break;
+                    /*
                 case "char":
                     str = string.Format(@"(row[""{0}""] == DBNull.Value) ? _{1} : char.Parse(row[""{0}""].ToString())", columnName, pascalColumnName);
                     break;
+                     * */
                 case "tinyint":
                     str = string.Format(@"(row[""{0}""] == DBNull.Value) ? _{1} : byte.Parse(row[""{0}""].ToString())", columnName, pascalColumnName);
                     break;
                 case "uniqueidentifier":
-                    str = string.Format(@"(row[""{0}""] == DBNull.Value) ? _{1} : row[""{0}""].ToString()", columnName, pascalColumnName);
+                    str = string.Format(@"(row[""{0}""] == DBNull.Value) ? _{1} : Guid.Parse(row[""{0}""].ToString())", columnName, pascalColumnName);
                     break;
                 case "smallint":
                     str = string.Format(@"(row[""{0}""] == DBNull.Value) ? _{1} : int.Parse(row[""{0}""].ToString())", columnName, pascalColumnName);
@@ -485,12 +549,6 @@ namespace SaiVision.Tools.CodeGenerator.Manager
             }
 
             return str;
-        }
-
-        public static string GetDefaultValueForType(string sqlType)
-        {
-            string defaultValue = string.Empty;
-            return defaultValue;
         }
 
         public static StreamWriter 

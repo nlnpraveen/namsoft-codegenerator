@@ -72,6 +72,7 @@ namespace SaiVision.Platform.CodeGenerator.DataManagers.Tests
         public void AddJobTest()
         {
             JobDataManager target = JobDataManager.GetInstance(); // TODO: Initialize to an appropriate value
+            /*
             Job job = new Job()
             {
                 Name = "Job Validations"
@@ -98,6 +99,24 @@ namespace SaiVision.Platform.CodeGenerator.DataManagers.Tests
                 TempTinyInt = 10
                 //, TempGuid = new Guid("C4BD1604-7A5B-E111-A5C9-00219B05EF45")
             }; // TODO: Initialize to an appropriate value
+             * */
+            Job job = new Job()
+            {
+                AssemblyName = "JobAssembly",
+                ClassName = "JobClass",
+                Description = "JobDescription",
+                GroupName = "JobGroupName",
+                //IsActive = true,
+                Name = "AutoGeneratorJob",
+                //TempChar = "MyTempChar",
+                TempNChar = "MyTempNChar",
+                TempNText = "MyTempNText",
+                TempNVarCharMax = "MyTempNVarCharMax",
+                TempText = "MyTempText",
+                TempVarchar = "MyTempVarChar",
+                TempFloat = 4.56F//,
+                //TempGuid = new Guid("C4BD1604-7A5B-E111-A5C9-00219B05EF45")
+            };
             target.AddJob(job);
         }
     }
