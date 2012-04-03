@@ -55,6 +55,7 @@
     <Compile Include="JobDataManagerTest.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="JobTestDataManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
