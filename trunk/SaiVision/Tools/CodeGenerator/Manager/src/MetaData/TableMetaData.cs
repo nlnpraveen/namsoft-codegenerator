@@ -10,6 +10,7 @@ namespace SaiVision.Tools.CodeGenerator.Manager
     {
         #region [ Fields ]
         ColumnMetaDataCollection _Columns;
+        private int _rowId;
         #endregion
 
         #region [ Properties ]
@@ -60,6 +61,7 @@ namespace SaiVision.Tools.CodeGenerator.Manager
         public string QueryColumnsNamesPascal { get; set; }
         public string QueryColumnsNamesCamel { get; set; }
 
+        public bool IsPrimary { get; set; }
 
         public ColumnMetaDataCollection Columns
         {
@@ -144,6 +146,15 @@ namespace SaiVision.Tools.CodeGenerator.Manager
                 ColumnMetaData tmd = new ColumnMetaData(rowColumn);
                 _Columns.Add(tmd);
             }
+
+            // Is Primary
+            _rowId = (row["RowId"] == DBNull.Value) ? 1 : int.Parse(row["RowId"].ToString());
+            IsPrimary = (_rowId == 1) ? true : false;
+            IsSelect = IsSelect && IsPrimary;
+            IsInsert = IsInsert && IsPrimary;
+            IsSelectByPK = IsSelectByPK && IsPrimary;
+            IsUpdateByPK = IsUpdateByPK && IsPrimary;
+            IsDeleteByPK = IsDeleteByPK && IsPrimary;
         }
         #endregion
     }

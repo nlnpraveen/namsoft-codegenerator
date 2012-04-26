@@ -19,6 +19,7 @@ namespace SaiVision.Platform.CodeGenerator.DataManagers.Tests
 
 
         private TestContext testContextInstance;
+        private static int _jobId;
 
         /// <summary>
         ///Gets or sets the test context which provides
@@ -39,13 +40,13 @@ namespace SaiVision.Platform.CodeGenerator.DataManagers.Tests
         #region Additional test attributes
         // 
         //You can use the following additional attributes as you write your tests:
-        //
         //Use ClassInitialize to run code before running the first test in the class
-        //[ClassInitialize()]
-        //public static void MyClassInitialize(TestContext testContext)
-        //{
-        //}
-        //
+        [ClassInitialize()]
+        public static void MyClassInitialize(TestContext testContext)
+        {
+            Console.WriteLine("Initializing Test Class");
+        }
+        
         //Use ClassCleanup to run code after all tests in a class have run
         //[ClassCleanup()]
         //public static void MyClassCleanup()
@@ -91,7 +92,7 @@ namespace SaiVision.Platform.CodeGenerator.DataManagers.Tests
                 TempFloat = 36.5F,
                 TempGuid = Guid.NewGuid()
             };
-            target.AddJobTest(job);
+            _jobId = target.AddJobTest(job);
         }
 
 
@@ -117,7 +118,7 @@ namespace SaiVision.Platform.CodeGenerator.DataManagers.Tests
         public void GetJobTestByJobIdTest()
         {
             JobTestDataManager target = new JobTestDataManager(); // TODO: Initialize to an appropriate value
-            int jobId = 4; // TODO: Initialize to an appropriate value
+            int jobId = _jobId; // TODO: Initialize to an appropriate value
             JobTest expected = null; // TODO: Initialize to an appropriate value
             JobTest actual;
             actual = target.GetJobTestByJobId(jobId);
@@ -133,7 +134,7 @@ namespace SaiVision.Platform.CodeGenerator.DataManagers.Tests
         public void UpdateJobTestTest()
         {
             JobTestDataManager target = new JobTestDataManager(); // TODO: Initialize to an appropriate value
-            int jobId = 5; // TODO: Initialize to an appropriate value
+            int jobId = _jobId; // TODO: Initialize to an appropriate value
             JobTest jobTest = target.GetJobTestByJobId(jobId); // TODO: Initialize to an appropriate value
             jobTest.AssemblyName = "Assembly Update " + jobId;
             jobTest.ClassName = "Class Update " + jobId;
@@ -150,7 +151,7 @@ namespace SaiVision.Platform.CodeGenerator.DataManagers.Tests
         public void DeleteByJobIdTest()
         {
             JobTestDataManager target = new JobTestDataManager(); // TODO: Initialize to an appropriate value
-            int jobId = 3; // TODO: Initialize to an appropriate value
+            int jobId = _jobId - 1; // TODO: Initialize to an appropriate value
             target.DeleteByJobId(jobId);
             //Assert.Inconclusive("A method that does not return a value cannot be verified.");
         }
@@ -167,6 +168,33 @@ namespace SaiVision.Platform.CodeGenerator.DataManagers.Tests
             List<JobTest> actual;
             actual = target.GetJobTestBy_IsActive(isActive);
             Console.Write(DataContractSerializationHelper.ToXmlString(actual, false));
+        }
+
+        /// <summary>
+        ///A test for UpdateJobTestBy_GroupName
+        ///</summary>
+        [TestMethod()]
+        public void UpdateJobTestBy_GroupNameTest()
+        {
+            JobTestDataManager target = new JobTestDataManager(); // TODO: Initialize to an appropriate value
+            int jobId = _jobId; // TODO: Initialize to an appropriate value
+            JobTest jobTest = target.GetJobTestByJobId(jobId); // TODO: Initialize to an appropriate value
+            jobTest.Description = "JobDescription updated by group name";
+
+            target.UpdateJobTestBy_GroupName(jobTest);
+            
+        }
+
+        /// <summary>
+        ///A test for DeleteJobTestBy_IsActive
+        ///</summary>
+        [TestMethod()]
+        public void DeleteJobTestBy_IsActiveTest()
+        {
+            JobTestDataManager target = new JobTestDataManager(); // TODO: Initialize to an appropriate value
+            bool isActive = false; // TODO: Initialize to an appropriate value
+            target.DeleteJobTestBy_IsActive(isActive);
+            //Assert.Inconclusive("A method that does not return a value cannot be verified.");
         }
     }
 }
