@@ -265,9 +265,9 @@ namespace SaiVision.Tools.CodeGenerator.Manager
                 StringBuilder parameterText = new StringBuilder();
                 if (!settings.PassDataModelAsObjectParameter)
                 {
-                    table.Columns.ForEach(column =>
+                    table.Columns.ForEach(mdColumn =>
                     {
-                        ColumnMetaData mdColumn = table.Columns.Find(cmd => cmd.ColumnName.Equals(column.ColumnName));
+                        //ColumnMetaData mdColumn = table.Columns.Find(cmd => cmd.ColumnName.Equals(column.ColumnName));
                         if (string.IsNullOrEmpty(parameterText.ToString()))
                             parameterText.Append(string.Format("{0}.{1}", table.TableNameCamel, mdColumn.ColumnNamePascal));
                         else
@@ -301,21 +301,17 @@ namespace SaiVision.Tools.CodeGenerator.Manager
         public static string Update_ManagerMethod_ByColumns(GeneratorSettings settings, TableMetaData table)
         {
             StringBuilder parameterText = new StringBuilder();
-            StringBuilder parameterText1 = new StringBuilder();
-            table.QueryColumnsNames.ForEach(column =>
+            if (!settings.PassDataModelAsObjectParameter)
             {
-                ColumnMetaData mdColumn = table.Columns.Find(cmd => cmd.ColumnName.Equals(column));
-                if (string.IsNullOrEmpty(parameterText.ToString()))
+                table.Columns.ForEach(mdColumn =>
                 {
-                    parameterText.Append(string.Format("{0} {1}", Utility.GetEquivalentTypeName(mdColumn.DataType), mdColumn.ColumnNameCamel));
-                    parameterText1.Append(mdColumn.ColumnNameCamel);
-                }
-                else
-                {
-                    parameterText.Append(string.Format(", {0} {1}", Utility.GetEquivalentTypeName(mdColumn.DataType), mdColumn.ColumnNameCamel));
-                    parameterText1.Append(string.Format(", {0}", mdColumn.ColumnNameCamel));
-                }
-            });
+                    //ColumnMetaData mdColumn = table.Columns.Find(cmd => cmd.ColumnName.Equals(column.ColumnName));
+                    if (string.IsNullOrEmpty(parameterText.ToString()))
+                        parameterText.Append(string.Format("{0}.{1}", table.TableNameCamel, mdColumn.ColumnNamePascal));
+                    else
+                        parameterText.Append(string.Format(", {0}.{1}", table.TableNameCamel, mdColumn.ColumnNamePascal));
+                });
+            }
 
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(string.Format("{0}/// <summary>", tab2));
@@ -323,10 +319,19 @@ namespace SaiVision.Tools.CodeGenerator.Manager
             sb.AppendLine(string.Format("{0}/// </summary>", tab2));
             sb.AppendLine(string.Format("{0}/// <param name=\"{1}\">The {2} object</param>", tab2, table.TableNameCamel, table.TableNamePascal));
 
-            sb.AppendLine(string.Format("{0}public void Update{1}By_{2}({3})", tab2, table.TableNamePascal, table.QueryColumnsNamesPascal.Replace(",", "_"), parameterText.ToString()));
+            sb.AppendLine(string.Format("{0}public void Update{1}By_{2}({3} {4})", tab2, table.TableNamePascal, table.QueryColumnsNamesPascal.Replace(",", "_"), table.TableNamePascal, table.TableNameCamel));
             sb.AppendLine(string.Format("{0}{{", tab2));
 
-            sb.AppendLine(string.Format("{0}{1}DM.Update{1}By_{2}({3});", tab3, table.TableNamePascal, table.QueryColumnsNamesPascal.Replace(",", "_"), parameterText1));
+
+            if (settings.PassDataModelAsObjectParameter)
+            {
+                sb.AppendLine(string.Format("{0}{1}DM.Update{1}By_{2}({3});", tab3, table.TableNamePascal, table.QueryColumnsNamesPascal.Replace(",", "_"), table.TableNameCamel));
+            }
+            else
+            {
+                sb.AppendLine(string.Format("{0}{1}DM.Update{1}By_{2}({3});", tab3, table.TableNamePascal, table.QueryColumnsNamesPascal.Replace(",", "_"), parameterText));
+            }
+
 
             sb.AppendLine(string.Format("{0}}}", tab2));
 
@@ -734,9 +739,9 @@ namespace SaiVision.Tools.CodeGenerator.Manager
                 // Preparing parameters to be passed in method signature
                 StringBuilder parameterText = new StringBuilder();
                 StringBuilder exceptionParameterText = new StringBuilder();
-                table.Columns.ForEach(column =>
+                table.Columns.ForEach(mdColumn =>
                 {
-                    ColumnMetaData mdColumn = table.Columns.Find(cmd => cmd.ColumnName.Equals(column.ColumnName));
+                    //ColumnMetaData mdColumn = table.Columns.Find(cmd => cmd.ColumnName.Equals(column.ColumnName));
                     if (!settings.PassDataModelAsObjectParameter)
                     {
                         if (string.IsNullOrEmpty(parameterText.ToString()))
@@ -841,17 +846,17 @@ namespace SaiVision.Tools.CodeGenerator.Manager
             // Preparing parameters to be passed
             StringBuilder parameterText = new StringBuilder();
             StringBuilder exceptionParameterText = new StringBuilder();
-            table.QueryColumns.ForEach(column =>
+            table.Columns.ForEach(mdColumn =>
             {
-                ColumnMetaData mdColumn = table.Columns.Find(cmd => cmd.ColumnName.Equals(column));
+                //ColumnMetaData mdColumn = table.Columns.Find(cmd => cmd.ColumnName.Equals(column));
                 if (string.IsNullOrEmpty(parameterText.ToString()))
                 {
-                    parameterText.Append(string.Format("{0} {1}", Utility.GetEquivalentTypeName(mdColumn.DataType), mdColumn.ColumnNameCamel));
+                    parameterText.Append(string.Format("{0} {1}", Utility.GetEquivalentTypeName(mdColumn), mdColumn.ColumnNameCamel));
                     exceptionParameterText.Append(string.Format(@"""{0}"", {0}", mdColumn.ColumnNameCamel));
                 }
                 else
                 {
-                    parameterText.Append(string.Format(", {0} {1}", Utility.GetEquivalentTypeName(mdColumn.DataType), mdColumn.ColumnNameCamel));
+                    parameterText.Append(string.Format(", {0} {1}", Utility.GetEquivalentTypeName(mdColumn), mdColumn.ColumnNameCamel));
                     exceptionParameterText.Append(string.Format(@", ""{0}"", {0}", mdColumn.ColumnNameCamel));
                 }
 
@@ -875,6 +880,10 @@ namespace SaiVision.Tools.CodeGenerator.Manager
             methodText.AppendLine(string.Format("{0}IDbCommand cmd = connectionManager.GetCommand(\"{1}\");", tab4 + tab1, table.UpdateByColumnsProc));
             methodText.AppendLine(string.Empty);
 
+            // Parameters
+            methodText.AppendLine(Update_DataAccessMethod_GetCommand(settings, table));
+
+            /*
             table.QueryColumns.ForEach(column =>
             {
                 ColumnMetaData mdColumn = table.Columns.Find(cmd => cmd.ColumnName.Equals(column));
@@ -884,6 +893,7 @@ namespace SaiVision.Tools.CodeGenerator.Manager
                 methodText.AppendLine(string.Format("{0}{1}));", tab4 + tab2, mdColumn.ColumnNameCamel));
                 methodText.AppendLine(string.Empty);
             });
+            */
 
             methodText.AppendLine(string.Format("{0}cmd.ExecuteNonQuery();", tab4 + tab1));
             methodText.AppendLine(string.Empty);
