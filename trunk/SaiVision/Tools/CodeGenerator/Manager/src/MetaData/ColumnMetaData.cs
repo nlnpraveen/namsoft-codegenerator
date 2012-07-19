@@ -88,6 +88,9 @@ namespace SaiVision.Tools.CodeGenerator.Manager
             DataType = (row["DataType"] == DBNull.Value) ? DataType : row["DataType"].ToString();
             IsIdentity = (row["IsNullable"] == DBNull.Value) ? IsIdentity : (row["IsIdentity"].ToString().Equals("0") ? false : true);
 
+            // Column will be a nullable type if it is either nullable in the database
+            // or has a default value associated with it
+
             // To diable nullable types. Just make this value false
             IsNullableType = (IsNullable || ColumnDefault != null);
             
