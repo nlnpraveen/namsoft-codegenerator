@@ -32,6 +32,9 @@ namespace SaiVision.Tools.CodeGenerator.Manager
 
         public bool IsSelect { get; set; }
         public bool IsInsert { get; set; }
+        public bool IsInsertBulk { get; set; }
+        public bool IsUpdateBulk { get; set; }
+        public bool IsDeleteBulk { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is select by PK.
@@ -50,6 +53,9 @@ namespace SaiVision.Tools.CodeGenerator.Manager
         public string SelectByPKProc { get; set; }
         public string UpdateByPKProc { get; set; }
         public string DeleteByPKProc { get; set; }
+        public string InsertBulkProc { get; set; }
+        public string UpdateBulkProc { get; set; }
+        public string DeleteBulkProc { get; set; }
         public string SelectByColumnsProc { get; set; }
         public string UpdateByColumnsProc { get; set; }
         public string DeleteByColumnsProc { get; set; }
@@ -82,6 +88,9 @@ namespace SaiVision.Tools.CodeGenerator.Manager
             TableNameCamel = (row["TableNameCamel"] == DBNull.Value) ? TableNameCamel : row["TableNameCamel"].ToString();
             IsSelect = (row["IsSelect"] == DBNull.Value) ? IsSelect : bool.Parse(row["IsSelect"].ToString());
             IsInsert = (row["IsInsert"] == DBNull.Value) ? IsInsert : bool.Parse(row["IsInsert"].ToString());
+            IsInsertBulk = (row["IsInsertBulk"] == DBNull.Value) ? IsInsertBulk : bool.Parse(row["IsInsertBulk"].ToString());
+            IsUpdateBulk = (row["IsUpdateBulk"] == DBNull.Value) ? IsUpdateBulk : bool.Parse(row["IsUpdateBulk"].ToString());
+            IsDeleteBulk = (row["IsDeleteBulk"] == DBNull.Value) ? IsDeleteBulk : bool.Parse(row["IsDeleteBulk"].ToString());
             IsSelectByPK = (row["IsSelectByPK"] == DBNull.Value) ? IsSelectByPK : bool.Parse(row["IsSelectByPK"].ToString());
             IsUpdateByPK = (row["IsUpdateByPK"] == DBNull.Value) ? IsUpdateByPK : bool.Parse(row["IsUpdateByPK"].ToString());
             IsDeleteByPK = (row["IsDeleteByPK"] == DBNull.Value) ? IsDeleteByPK : bool.Parse(row["IsDeleteByPK"].ToString());
@@ -93,6 +102,9 @@ namespace SaiVision.Tools.CodeGenerator.Manager
             SelectByPKProc = (row["SelectByPKProc"] == DBNull.Value) ? SelectByPKProc : row["SelectByPKProc"].ToString();
             UpdateByPKProc = (row["UpdateByPKProc"] == DBNull.Value) ? UpdateByPKProc : row["UpdateByPKProc"].ToString();
             DeleteByPKProc = (row["DeleteByPKProc"] == DBNull.Value) ? DeleteByPKProc : row["DeleteByPKProc"].ToString();
+            InsertBulkProc = (row["InsertBulkProc"] == DBNull.Value) ? InsertBulkProc : row["InsertBulkProc"].ToString();
+            UpdateBulkProc = (row["UpdateBulkProc"] == DBNull.Value) ? UpdateBulkProc : row["UpdateBulkProc"].ToString();
+            DeleteBulkProc = (row["DeleteBulkProc"] == DBNull.Value) ? DeleteBulkProc : row["DeleteBulkProc"].ToString();
             SelectByColumnsProc = (row["SelectByColumnsProc"] == DBNull.Value) ? SelectByColumnsProc : row["SelectByColumnsProc"].ToString();
             UpdateByColumnsProc = (row["UpdateByColumnsProc"] == DBNull.Value) ? UpdateByColumnsProc : row["UpdateByColumnsProc"].ToString();
             DeleteByColumnsProc = (row["DeleteByColumnsProc"] == DBNull.Value) ? DeleteByColumnsProc : row["DeleteByColumnsProc"].ToString();
@@ -152,6 +164,9 @@ namespace SaiVision.Tools.CodeGenerator.Manager
             IsPrimary = (_rowId == 1) ? true : false;
             IsSelect = IsSelect && IsPrimary;
             IsInsert = IsInsert && IsPrimary;
+            IsInsertBulk = IsInsertBulk && IsPrimary;
+            IsUpdateBulk = IsUpdateBulk && IsPrimary;
+            IsDeleteBulk = IsDeleteBulk && IsPrimary;
             IsSelectByPK = IsSelectByPK && IsPrimary;
             IsUpdateByPK = IsUpdateByPK && IsPrimary;
             IsDeleteByPK = IsDeleteByPK && IsPrimary;

@@ -413,6 +413,56 @@ namespace SaiVision.Tools.CodeGenerator.Manager
 
             return sb.ToString();
         }
+
+        #region [-- Bulk Methods --]
+        public static string InsertBulk_ManagerMethod(GeneratorSettings settings, TableMetaData table)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(string.Format("{0}/// <summary>", tab2));
+            sb.AppendLine(string.Format("{0}/// Inserts a recordset into the {1} table", tab2, table.TableName));
+            sb.AppendLine(string.Format("{0}/// </summary>", tab2));
+            sb.AppendLine(string.Format("{0}/// <returns>The {1} collection</returns>", tab2, table.TableNamePascal));
+
+            sb.AppendLine(string.Format("{0}public void Insert{1}Bulk(List<{1}> {2}Xml)", tab2, table.TableNamePascal, table.TableNameCamel));
+            sb.AppendLine(string.Format("{0}{{", tab2));
+            sb.AppendLine(string.Format("{0}{1}DM.Insert{1}Bulk(DataContractSerializationHelper.ToXmlString({2}Xml, true));", tab3, table.TableNamePascal, table.TableNameCamel));
+            sb.AppendLine(string.Format("{0}}}", tab2));
+
+            return sb.ToString();
+        }
+
+        public static string UpdateBulk_ManagerMethod(GeneratorSettings settings, TableMetaData table)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(string.Format("{0}/// <summary>", tab2));
+            sb.AppendLine(string.Format("{0}/// Updates a set of records in {1} table", tab2, table.TableName));
+            sb.AppendLine(string.Format("{0}/// </summary>", tab2));
+            sb.AppendLine(string.Format("{0}/// <returns>The {1} collection</returns>", tab2, table.TableNamePascal));
+
+            sb.AppendLine(string.Format("{0}public void Update{1}Bulk(List<{1}> {2}Xml)", tab2, table.TableNamePascal, table.TableNameCamel));
+            sb.AppendLine(string.Format("{0}{{", tab2));
+            sb.AppendLine(string.Format("{0}{1}DM.Update{1}Bulk(DataContractSerializationHelper.ToXmlString({2}Xml, true));", tab3, table.TableNamePascal, table.TableNameCamel));
+            sb.AppendLine(string.Format("{0}}}", tab2));
+
+            return sb.ToString();
+        }
+
+        public static string DeleteBulk_ManagerMethod(GeneratorSettings settings, TableMetaData table)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(string.Format("{0}/// <summary>", tab2));
+            sb.AppendLine(string.Format("{0}/// Deletes a set of records in the {1} table", tab2, table.TableName));
+            sb.AppendLine(string.Format("{0}/// </summary>", tab2));
+            sb.AppendLine(string.Format("{0}/// <returns>The {1} collection</returns>", tab2, table.TableNamePascal));
+
+            sb.AppendLine(string.Format("{0}public void Delete{1}Bulk(List<{1}> {2}Xml)", tab2, table.TableNamePascal, table.TableNameCamel));
+            sb.AppendLine(string.Format("{0}{{", tab2));
+            sb.AppendLine(string.Format("{0}{1}DM.Delete{1}Bulk(DataContractSerializationHelper.ToXmlString({2}Xml, true));", tab3, table.TableNamePascal, table.TableNameCamel));
+            sb.AppendLine(string.Format("{0}}}", tab2));
+
+            return sb.ToString();
+        }        
+        #endregion
         #endregion
 
         #region Data Access Methods
@@ -1074,6 +1124,165 @@ namespace SaiVision.Tools.CodeGenerator.Manager
 
             return methodText.ToString();
         }
+
+        #region [-- Bulk Methods --]
+        public static string InsertBulk_DataAccessMethod(GeneratorSettings settings, TableMetaData table)
+        {
+            StringBuilder sb = new StringBuilder();
+            StringBuilder parameterText = new StringBuilder();
+            string dbTableName = table.TableName;
+
+            sb.AppendLine(string.Format("{0}/// <summary>", tab2));
+            sb.AppendLine(string.Format("{0}/// Inserts a recordset into the {1} table", tab2, dbTableName));
+            sb.AppendLine(string.Format("{0}/// </summary>", tab2));
+            sb.AppendLine(string.Format("{0}/// <param name=\"{1}\">The {2} object xml</param>", tab2, table.TableNameCamel, table.TableNamePascal));
+
+            sb.AppendLine(string.Format("{0}public static void Insert{1}Bulk(string dataXml)", tab2, table.TableNamePascal));
+            sb.AppendLine(string.Format("{0}{{", tab2));
+            sb.AppendLine(string.Format("{0}try", tab3));
+            sb.AppendLine(string.Format("{0}{{", tab3));
+            sb.AppendLine(string.Format("{0}using (ConnectionManager connectionManager = new ConnectionManager())", tab4));
+            sb.AppendLine(string.Format("{0}{{", tab4));
+            sb.AppendLine(string.Format("{0}connectionManager.Open();", tab4 + tab1));
+            sb.AppendLine(string.Empty);
+            sb.AppendLine(string.Format("{0}IDbCommand cmd = connectionManager.GetCommand(\"{1}\");", tab4 + tab1, table.InsertBulkProc));
+            sb.AppendLine(string.Empty);
+
+            sb.AppendLine(string.Format("{0}cmd.Parameters.Add(connectionManager.GetParameter(\"@DataXml\",", tab4 + tab1));
+            sb.AppendLine(string.Format("{0}SqlDbType.VarChar,", tab4 + tab2));
+            sb.AppendLine(string.Format("{0}ParameterDirection.Input,", tab4 + tab2));
+            sb.AppendLine(string.Format("{0}dataXml));", tab4 + tab2));
+
+            sb.AppendLine(string.Empty);
+            sb.AppendLine(string.Format("{0}cmd.ExecuteNonQuery();", tab4 + tab1));
+            sb.AppendLine(string.Format("{0}}}", tab4));
+            sb.AppendLine(string.Format("{0}}}", tab3));
+            sb.AppendLine(string.Format("{0}catch (SqlException sqlex)", tab3));
+            sb.AppendLine(string.Format("{0}{{", tab3));
+            if (!settings.IsCECityGenerator)
+                sb.AppendLine(string.Format("{0}throw sqlex;", tab4));
+            else
+                sb.AppendLine(string.Format(@"{0}throw new DataAccessException(CECityResourceManager.GetCECityResourceManager().GetString(""SqlExceptionWrapper"", ""Insert{1}Bulk"", ""dataXml"", dataXml), sqlex);", tab4, table.TableNamePascal));
+
+            sb.AppendLine(string.Format("{0}}}", tab3));
+            sb.AppendLine(string.Format("{0}catch (Exception ex)", tab3));
+            sb.AppendLine(string.Format("{0}{{", tab3));
+            if (!settings.IsCECityGenerator)
+                sb.AppendLine(string.Format("{0}throw ex;", tab4));
+            else
+                sb.AppendLine(string.Format("{0}throw new DBException(ex.Message, ex);", tab4));
+
+            sb.AppendLine(string.Format("{0}}}", tab3));
+            sb.AppendLine(string.Format("{0}}}", tab2));
+
+            return sb.ToString();
+        }
+
+        public static string UpdateBulk_DataAccessMethod(GeneratorSettings settings, TableMetaData table)
+        {
+            StringBuilder sb = new StringBuilder();
+            StringBuilder parameterText = new StringBuilder();
+            string dbTableName = table.TableName;
+
+            sb.AppendLine(string.Format("{0}/// <summary>", tab2));
+            sb.AppendLine(string.Format("{0}/// Updates a set of records in {1} table", tab2, dbTableName));
+            sb.AppendLine(string.Format("{0}/// </summary>", tab2));
+            sb.AppendLine(string.Format("{0}/// <param name=\"{1}\">The {2} object xml</param>", tab2, table.TableNameCamel, table.TableNamePascal));
+
+            sb.AppendLine(string.Format("{0}public static void Update{1}Bulk(string dataXml)", tab2, table.TableNamePascal));
+            sb.AppendLine(string.Format("{0}{{", tab2));
+            sb.AppendLine(string.Format("{0}try", tab3));
+            sb.AppendLine(string.Format("{0}{{", tab3));
+            sb.AppendLine(string.Format("{0}using (ConnectionManager connectionManager = new ConnectionManager())", tab4));
+            sb.AppendLine(string.Format("{0}{{", tab4));
+            sb.AppendLine(string.Format("{0}connectionManager.Open();", tab4 + tab1));
+            sb.AppendLine(string.Empty);
+            sb.AppendLine(string.Format("{0}IDbCommand cmd = connectionManager.GetCommand(\"{1}\");", tab4 + tab1, table.UpdateBulkProc));
+            sb.AppendLine(string.Empty);
+
+            sb.AppendLine(string.Format("{0}cmd.Parameters.Add(connectionManager.GetParameter(\"@DataXml\",", tab4 + tab1));
+            sb.AppendLine(string.Format("{0}SqlDbType.VarChar,", tab4 + tab2));
+            sb.AppendLine(string.Format("{0}ParameterDirection.Input,", tab4 + tab2));
+            sb.AppendLine(string.Format("{0}dataXml));", tab4 + tab2));
+
+            sb.AppendLine(string.Empty);
+            sb.AppendLine(string.Format("{0}cmd.ExecuteNonQuery();", tab4 + tab1));
+            sb.AppendLine(string.Format("{0}}}", tab4));
+            sb.AppendLine(string.Format("{0}}}", tab3));
+            sb.AppendLine(string.Format("{0}catch (SqlException sqlex)", tab3));
+            sb.AppendLine(string.Format("{0}{{", tab3));
+            if (!settings.IsCECityGenerator)
+                sb.AppendLine(string.Format("{0}throw sqlex;", tab4));
+            else
+                sb.AppendLine(string.Format(@"{0}throw new DataAccessException(CECityResourceManager.GetCECityResourceManager().GetString(""SqlExceptionWrapper"", ""Update{1}Bulk"", ""dataXml"", dataXml), sqlex);", tab4, table.TableNamePascal));
+
+            sb.AppendLine(string.Format("{0}}}", tab3));
+            sb.AppendLine(string.Format("{0}catch (Exception ex)", tab3));
+            sb.AppendLine(string.Format("{0}{{", tab3));
+            if (!settings.IsCECityGenerator)
+                sb.AppendLine(string.Format("{0}throw ex;", tab4));
+            else
+                sb.AppendLine(string.Format("{0}throw new DBException(ex.Message, ex);", tab4));
+
+            sb.AppendLine(string.Format("{0}}}", tab3));
+            sb.AppendLine(string.Format("{0}}}", tab2));
+
+            return sb.ToString();
+        }
+
+        public static string DeleteBulk_DataAccessMethod(GeneratorSettings settings, TableMetaData table)
+        {
+            StringBuilder sb = new StringBuilder();
+            StringBuilder parameterText = new StringBuilder();
+            string dbTableName = table.TableName;
+
+            sb.AppendLine(string.Format("{0}/// <summary>", tab2));
+            sb.AppendLine(string.Format("{0}/// Deletes a set of records in the {1} table", tab2, dbTableName));
+            sb.AppendLine(string.Format("{0}/// </summary>", tab2));
+            sb.AppendLine(string.Format("{0}/// <param name=\"{1}\">The {2} object xml</param>", tab2, table.TableNameCamel, table.TableNamePascal));
+
+            sb.AppendLine(string.Format("{0}public static void Delete{1}Bulk(string dataXml)", tab2, table.TableNamePascal));
+            sb.AppendLine(string.Format("{0}{{", tab2));
+            sb.AppendLine(string.Format("{0}try", tab3));
+            sb.AppendLine(string.Format("{0}{{", tab3));
+            sb.AppendLine(string.Format("{0}using (ConnectionManager connectionManager = new ConnectionManager())", tab4));
+            sb.AppendLine(string.Format("{0}{{", tab4));
+            sb.AppendLine(string.Format("{0}connectionManager.Open();", tab4 + tab1));
+            sb.AppendLine(string.Empty);
+            sb.AppendLine(string.Format("{0}IDbCommand cmd = connectionManager.GetCommand(\"{1}\");", tab4 + tab1, table.DeleteBulkProc));
+            sb.AppendLine(string.Empty);
+
+            sb.AppendLine(string.Format("{0}cmd.Parameters.Add(connectionManager.GetParameter(\"@DataXml\",", tab4 + tab1));
+            sb.AppendLine(string.Format("{0}SqlDbType.VarChar,", tab4 + tab2));
+            sb.AppendLine(string.Format("{0}ParameterDirection.Input,", tab4 + tab2));
+            sb.AppendLine(string.Format("{0}dataXml));", tab4 + tab2));
+
+            sb.AppendLine(string.Empty);
+            sb.AppendLine(string.Format("{0}cmd.ExecuteNonQuery();", tab4 + tab1));
+            sb.AppendLine(string.Format("{0}}}", tab4));
+            sb.AppendLine(string.Format("{0}}}", tab3));
+            sb.AppendLine(string.Format("{0}catch (SqlException sqlex)", tab3));
+            sb.AppendLine(string.Format("{0}{{", tab3));
+            if (!settings.IsCECityGenerator)
+                sb.AppendLine(string.Format("{0}throw sqlex;", tab4));
+            else
+                sb.AppendLine(string.Format(@"{0}throw new DataAccessException(CECityResourceManager.GetCECityResourceManager().GetString(""SqlExceptionWrapper"", ""Delete{1}Bulk"", ""dataXml"", dataXml), sqlex);", tab4, table.TableNamePascal));
+
+            sb.AppendLine(string.Format("{0}}}", tab3));
+            sb.AppendLine(string.Format("{0}catch (Exception ex)", tab3));
+            sb.AppendLine(string.Format("{0}{{", tab3));
+            if (!settings.IsCECityGenerator)
+                sb.AppendLine(string.Format("{0}throw ex;", tab4));
+            else
+                sb.AppendLine(string.Format("{0}throw new DBException(ex.Message, ex);", tab4));
+
+            sb.AppendLine(string.Format("{0}}}", tab3));
+            sb.AppendLine(string.Format("{0}}}", tab2));
+
+            return sb.ToString();
+        }
+
+        #endregion
 
         #endregion
 

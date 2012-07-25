@@ -196,5 +196,103 @@ namespace SaiVision.Platform.CodeGenerator.DataManagers.Tests
             target.DeleteJobTestBy_IsActive(isActive);
             //Assert.Inconclusive("A method that does not return a value cannot be verified.");
         }
+
+        /// <summary>
+        ///A test for UpdateJobTestBulk
+        ///</summary>
+        [TestMethod()]
+        public void UpdateJobTestBulkTest()
+        {
+            JobTestDataManager target = new JobTestDataManager(); // TODO: Initialize to an appropriate value
+            //JobTest job = target.GetJobTestByJobId(98);
+            List<JobTest> jobTestXml = target.GetAllJobTests();
+            jobTestXml[0].TempBigInt = 14;
+            jobTestXml[1].TempBigInt = 24;
+            jobTestXml[2].TempNChar = "CharviNDattu";
+            target.UpdateJobTestBulk(jobTestXml);
+            //Assert.Inconclusive("A method that does not return a value cannot be verified.");
+        }
+
+        /// <summary>
+        ///A test for DeleteJobTestBulk
+        ///</summary>
+        [TestMethod()]
+        public void DeleteJobTestBulkTest()
+        {
+            JobTestDataManager target = new JobTestDataManager(); // TODO: Initialize to an appropriate value
+            List<JobTest> jobTestXml = target.GetAllJobTests();
+            target.DeleteJobTestBulk(jobTestXml);
+            //Assert.Inconclusive("A method that does not return a value cannot be verified.");
+        }
+
+        /// <summary>
+        ///A test for InsertJobTestBulk
+        ///</summary>
+        [TestMethod()]
+        public void InsertJobTestBulkTest()
+        {
+            JobTestDataManager target = new JobTestDataManager(); // TODO: Initialize to an appropriate value
+            List<JobTest> jobTestXml = new List<JobTest>(); // TODO: Initialize to an appropriate value
+            JobTest job = new JobTest()
+            {
+                AssemblyName = "Charvi come here " + new Random().Next(),
+                ClassName = "Charvi is 14 months old",
+                Description = "She is becoming naughty",
+                GroupName = "MessIsMyFavorite",
+                //IsActive = true,
+                Name = "Charvi Babby",
+                //TempChar = "MyTempChar",
+                TempNChar = "MyTempNChar",
+                TempNText = "MyTempNText",
+                TempNVarCharMax = "MyTempNVarCharMax",
+                TempText = "MyTempText",
+                TempVarchar = "MyTempVarChar",
+                TempFloat = 13.8F,
+                TempGuid = Guid.NewGuid(),
+                TempInt = 14
+            };
+            jobTestXml.Add(job);
+
+            job = new JobTest()
+            {
+                AssemblyName = "Dattu naughty " + new Random().Next(),
+                ClassName = "Dattu is 2 years 2 months old",
+                Description = "He is already naughty",
+                GroupName = "MessChessIsMyFavorite",
+                //IsActive = true,
+                Name = "Dattu the king",
+                //TempChar = "MyTempChar",
+                TempNChar = "DattuNChar",
+                TempNText = "DattuTempNText",
+                TempNVarCharMax = "DattuTempNVarCharMax",
+                TempText = "DattuTempText",
+                TempVarchar = "DattuTempVarChar",
+                TempFloat = 25.8F,                
+                TempInt = 16
+            };
+            jobTestXml.Add(job);
+
+            job = new JobTest()
+            {
+                AssemblyName = "Charvi sends rakhi to dattu " + new Random().Next(),
+                ClassName = "Dattu likes the rakhi",
+                Description = "It is blue and white color rakhi",
+                GroupName = "Rakshabandhan",
+                //IsActive = true,
+                Name = "CharviDataRakhi",
+                //TempChar = "MyTempChar",
+                TempNChar = "CharviDattuNChar",
+                TempNText = "CharviDattuTempNText",
+                TempNVarCharMax = "CharviDattuTempNVarCharMax",
+                TempText = "CharviDattuTempText",
+                TempVarchar = "CharviDattuTempVarChar",
+                TempFloat = 41.8F,                
+                TempInt = 42
+            };
+            jobTestXml.Add(job);
+
+            target.InsertJobTestBulk(jobTestXml);
+            //Assert.Inconclusive("A method that does not return a value cannot be verified.");
+        }
     }
 }

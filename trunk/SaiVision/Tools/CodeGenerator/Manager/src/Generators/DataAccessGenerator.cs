@@ -258,6 +258,15 @@ namespace SaiVision.Tools.CodeGenerator.Manager
 
             if (table.IsDeleteByColumns)
                 fileWriter.WriteLine(CodeGenHelper.Delete_DataAccessMethod_ByColumns(Settings, table));
+
+            if (table.IsInsertBulk)
+                fileWriter.WriteLine(CodeGenHelper.InsertBulk_DataAccessMethod(Settings, table));
+
+            if (table.IsUpdateBulk)
+                fileWriter.WriteLine(CodeGenHelper.UpdateBulk_DataAccessMethod(Settings, table));
+
+            if (table.IsDeleteBulk)
+                fileWriter.WriteLine(CodeGenHelper.DeleteBulk_DataAccessMethod(Settings, table));
         }
     }
 }
