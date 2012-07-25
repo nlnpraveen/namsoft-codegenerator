@@ -73,12 +73,14 @@ namespace SaiVision.Tools.CodeGenerator.Manager
                         "using System.Text;", 
                         "using System.Runtime.Serialization.Formatters.Binary;",
                         "using System.IO;",
-                        "using System.Threading;"
+                        "using System.Threading;",
+                        "using System.Runtime.Serialization;"
                     }));
                         fileWriter.WriteLine();
 
                         fileWriter.WriteLine(string.Format("namespace {0}", Settings.Namespace));
                         fileWriter.WriteLine("{");
+                        fileWriter.WriteLine(string.Format(@"{0}[DataContract(Namespace="""")]", tab1));
                         fileWriter.WriteLine(string.Format("{0}public class {1}", tab1, table.TableNamePascal));
                         fileWriter.WriteLine(string.Format("{0}{{", tab1));
 
@@ -93,6 +95,7 @@ namespace SaiVision.Tools.CodeGenerator.Manager
                         {
                             string dataType = Utility.GetEquivalentTypeName(column);
                             fileWriter.WriteLine(string.Format("{0}private {1} _{2};", tab2, dataType, column.ColumnNamePascal));
+                            fileWriter.WriteLine(string.Format("{0}[DataMember()]", tab2));
                             fileWriter.WriteLine(string.Format("{0}public {1} {2}", tab2, dataType, column.ColumnNamePascal));
                             fileWriter.WriteLine(string.Format("{0}{{", tab2));
                             fileWriter.WriteLine(string.Format("{0}get {{ return _{1}; }}", tab3, column.ColumnNamePascal));
