@@ -1,0 +1,141 @@
+﻿<Window x:Class="WindowsFormsWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Code Generator">
+    <DockPanel LastChildFill="True">
+
+        <!-- Tables -->
+        <DockPanel DockPanel.Dock="Left">
+            <TextBlock DockPanel.Dock="Top" FontWeight="Bold" Text="Tables" />
+            <ListBox x:Name="lbTables" Width="300" ItemsSource="{Binding Tables}" IsSynchronizedWithCurrentItem="True" SelectedValuePath="TableId" SelectedValue="{Binding SelectedTableId, Mode=TwoWay}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Label>
+                                <TextBlock Text="{Binding TableName}" />
+                            </Label>                            
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
+
+
+        <!-- Tables Selected -->
+        <DockPanel DockPanel.Dock="Right">
+            <StackPanel>
+                <TextBlock DockPanel.Dock="Top" FontWeight="Bold" Text="Tables Selected" />
+                <ItemsControl ItemsSource="{Binding SelectedTables}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Label DockPanel.Dock="Right">
+                                    <TextBlock Text="{Binding TableName}" FontWeight="Bold" FontStyle="Italic" />
+                                </Label>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <Button Content="Save" Command="{Binding SaveConfiguration}" DockPanel.Dock="Bottom" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            </StackPanel>
+        </DockPanel>
+
+        <!-- Table Details -->
+        <DockPanel>
+            <TextBlock DockPanel.Dock="Top" FontWeight="Bold" Text="Table Details" />
+            <GroupBox Header="Table Details" DockPanel.Dock="Top">
+                <Grid Margin="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="Table Name" />
+                        <TextBlock Text="{Binding ElementName=lbTables, Path=SelectedItem.TableName}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="Pascal Name" />
+                        <TextBox Text="{Binding ElementName=lbTables, Path=SelectedItem.TableNamePascal, Mode=TwoWay}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="Camel Name" />
+                        <TextBox Text="{Binding ElementName=lbTables, Path=SelectedItem.TableNameCamel, Mode=TwoWay}" />
+                    </StackPanel>
+                    <GroupBox Header="Data Operations" Grid.Row="1" Grid.ColumnSpan="3">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel>
+                                <CheckBox Margin="3" IsChecked="{Binding ElementName=lbTables, Path=SelectedItem.IsSelectByPK, Mode=TwoWay}" IsEnabled="{Binding ElementName=lbTables, Path=SelectedItem.IsTableHavingPrimaryKey, Mode=OneWay}">Is Select By Primary Key</CheckBox>
+                                <CheckBox Margin="3" IsChecked="{Binding ElementName=lbTables, Path=SelectedItem.IsInsert, Mode=TwoWay}">Is Insert</CheckBox>
+                                <CheckBox Margin="3" IsChecked="{Binding ElementName=lbTables, Path=SelectedItem.IsUpdateByPK, Mode=TwoWay}" IsEnabled="{Binding ElementName=lbTables, Path=SelectedItem.IsTableHavingPrimaryKey, Mode=OneWay}">Is Update By Primary Key</CheckBox>
+                                <CheckBox Margin="3" IsChecked="{Binding ElementName=lbTables, Path=SelectedItem.IsDeleteByPK, Mode=TwoWay}" IsEnabled="{Binding ElementName=lbTables, Path=SelectedItem.IsTableHavingPrimaryKey, Mode=OneWay}">Is Delete By Primary Key</CheckBox>
+                            </StackPanel>
+                            <StackPanel>
+                                <CheckBox Margin="3" IsChecked="{Binding ElementName=lbTables, Path=SelectedItem.IsSelect, Mode=TwoWay}">Is Select All</CheckBox>
+                                <CheckBox Margin="3" IsChecked="{Binding ElementName=lbTables, Path=SelectedItem.IsInsertBulk, Mode=TwoWay}">Is Insert Bulk</CheckBox>
+                                <CheckBox Margin="3" IsChecked="{Binding ElementName=lbTables, Path=SelectedItem.IsUpdateBulk, Mode=TwoWay}" IsEnabled="{Binding ElementName=lbTables, Path=SelectedItem.IsTableHavingPrimaryKey, Mode=OneWay}">Is Update Bulk</CheckBox>
+                                <CheckBox Margin="3" IsChecked="{Binding ElementName=lbTables, Path=SelectedItem.IsDeleteBulk, Mode=TwoWay}" IsEnabled="{Binding ElementName=lbTables, Path=SelectedItem.IsTableHavingPrimaryKey, Mode=OneWay}">Is Delete Bulk</CheckBox>
+                            </StackPanel>
+                        </StackPanel>
+                    </GroupBox>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Column Details" DockPanel.Dock="Top">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <Grid Margin="4" DockPanel.Dock="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="Column Name" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Text="Pascal Name" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="2">
+                                <TextBlock Text="Camel Name" />
+                            </StackPanel>
+                        </Grid>
+
+                        <ItemsControl ItemsSource="{Binding ElementName=lbTables, Path=SelectedItem.Columns}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                        <Grid Margin="4" DockPanel.Dock="Top">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*" />
+                                                <ColumnDefinition Width="2*" />
+                                                <ColumnDefinition Width="2*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <StackPanel Grid.Column="0">
+                                        
+                                                <TextBlock Text="{Binding ColumnName}" />
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="1">
+                                        
+                                                <TextBox Text="{Binding ColumnNamePascal, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="2">
+                                        
+                                                <TextBox Text="{Binding ColumnNameCamel, Mode=TwoWay}" />
+                                            </StackPanel>
+                                        </Grid>                               
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                
+                    </StackPanel>
+                </ScrollViewer>
+            </GroupBox>
+            <Button Content="Select Table" Command="{Binding AddTable}" DockPanel.Dock="Bottom" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        </DockPanel>
+    </DockPanel>
+</Window>

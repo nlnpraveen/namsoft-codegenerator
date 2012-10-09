@@ -47,7 +47,7 @@ namespace SaiVision.Tools.CodeGenerator.Manager
 
         #region [Public Methods]
         public void GenerateModelClasses()
-        {
+        {            
             IEnumerable<IGrouping<string, TableMetaData>> tableGroups = DBMetaData.Tables.GroupBy(tmd => tmd.TableName);
 
             foreach (IGrouping<string, TableMetaData> tableGroup in tableGroups)
@@ -95,6 +95,9 @@ namespace SaiVision.Tools.CodeGenerator.Manager
                         {
                             string dataType = Utility.GetEquivalentTypeName(column);
                             fileWriter.WriteLine(string.Format("{0}private {1} _{2};", tab2, dataType, column.ColumnNamePascal));
+                            fileWriter.WriteLine(string.Format(@"{0}/// <summary>", tab2));
+                            fileWriter.WriteLine(string.Format(@"{0}/// {1}. {2}", tab2, column.ColumnNamePascal, (column.IsNullableType && !column.IsNullable) ? "Default value has been set." : string.Empty));
+                            fileWriter.WriteLine(string.Format(@"{0}/// </summary>", tab2));
                             fileWriter.WriteLine(string.Format("{0}[DataMember()]", tab2));
                             fileWriter.WriteLine(string.Format("{0}public {1} {2}", tab2, dataType, column.ColumnNamePascal));
                             fileWriter.WriteLine(string.Format("{0}{{", tab2));

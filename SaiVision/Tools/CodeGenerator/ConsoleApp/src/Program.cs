@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SaiVision.Tools.CodeGenerator.Manager;
+using SaiVision.Platform.Common.Extensions;
 
 namespace SaiVision.Tools.CodeGenerator.ConsoleApp
 {
@@ -11,6 +12,13 @@ namespace SaiVision.Tools.CodeGenerator.ConsoleApp
         static void Main(string[] args)
         {
             DBMetaData metaData = DBManager.GetInstance().GetDBMetaData();
+            // Hack until we get only generated data.
+            TableMetaData[] tables = metaData.Tables.Where(table => table.IsGenerateCode == true).ToArray();
+            TableMetaDataCollection tmdc = new TableMetaDataCollection();
+            tables.ForEach(t => tmdc.Add(t));
+            metaData.Tables = tmdc;
+            // Hack Ends until we get only generated data.
+
             GeneratorSettings settings = new GeneratorSettings();
 
             settings.PassDataModelAsObjectParameter = false;

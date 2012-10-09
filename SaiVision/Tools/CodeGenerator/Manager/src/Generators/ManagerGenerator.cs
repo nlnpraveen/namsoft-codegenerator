@@ -69,7 +69,8 @@ namespace SaiVision.Tools.CodeGenerator.Manager
                         "using System.Threading;",
                         "using CECity.Enterprise.DataAccess;",
                         "using CECity.Enterprise.DataModel;",
-                        "using SaiVision.Platform.Common;"
+                        "using SaiVision.Platform.Common;",
+                        "using SaiVision.Platform.Common.Serialization;"
                     }));
                     fileWriter.WriteLine();
 

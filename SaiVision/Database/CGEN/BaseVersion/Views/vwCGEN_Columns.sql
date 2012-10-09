@@ -1,12 +1,21 @@
-USE [SaiVision]
+USE [CodeGenerator]
 GO
 
-/****** Object:  View [dbo].[vwCGEN_Columns_DataTypesSupported]    Script Date: 07/20/2012 15:04:45 ******/
+/****** Object:  View [dbo].[vwCGEN_Columns]    Script Date: 08/20/2012 17:20:50 ******/
+IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[vwCGEN_Columns]'))
+DROP VIEW [dbo].[vwCGEN_Columns]
+GO
+
+USE [CodeGenerator]
+GO
+
+/****** Object:  View [dbo].[vwCGEN_Columns]    Script Date: 08/20/2012 17:20:50 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER OFF
 GO
+
 
 
 
@@ -19,15 +28,23 @@ GO
 --				  to return a list of columns with supported datatypes 
 --				  for code generation
 -- =======================================================
+-- Username:      pnamburi
+-- Action:        Update
+-- Action date:   2012.08.20
+-- Description:   Use table [CGEN_MasterTableColumn]
+-- =======================================================
 
-ALTER VIEW [dbo].[vwCGEN_Columns]
+CREATE VIEW [dbo].[vwCGEN_Columns]
 AS
 
-SELECT [c].TABLE_CATALOG, [c].TABLE_SCHEMA, [c].TABLE_NAME, [c].COLUMN_NAME
-	,[ColumnNamePascal]=[dbo].CGEN_fnToPascalCase([c].[COLUMN_NAME], COALESCE([co].[IsTruncatePrefix], [t].[IsTruncatePrefix_Column], [t].[IsTruncatePrefix_Table]), COALESCE([co].[PrefixToTruncate], [t].[PrefixToTruncate_Column], [t].[PrefixToTruncate_Table]), COALESCE([co].[PrefixToApply], [t].[PrefixToApply_Column], [t].[PrefixToApply_Table]))
-	,[ColumnNameCamel]=[dbo].CGEN_fnToCamelCase([c].[COLUMN_NAME], COALESCE([co].[IsTruncatePrefix], [t].[IsTruncatePrefix_Column], [t].[IsTruncatePrefix_Table]), COALESCE([co].[PrefixToTruncate], [t].[PrefixToTruncate_Column], [t].[PrefixToTruncate_Table]), COALESCE([co].[PrefixToApply], [t].[PrefixToApply_Column], [t].[PrefixToApply_Table]))
-	,[c].COLUMN_DEFAULT, [c].IS_NULLABLE, [c].DATA_TYPE , [c].[character_maximum_length], [c].[numeric_precision], [c].[numeric_scale], [IsIdentity]=COLUMNPROPERTY( OBJECT_ID(TABLE_NAME), [COLUMN_NAME], 'IsIdentity') 
-FROM INFORMATION_SCHEMA.COLUMNS [c]JOIN [CGEN_MasterTable] [t] ON [t].[IsActive]='True' AND [c].[TABLE_NAME]=[t].[TableName]LEFT JOIN [CGEN_MasterTableColumnPrefixOverride] [co] ON [co].[TableName]=[c].[TABLE_NAME] AND [co].[ColumnName]=[c].[COLUMN_NAME]		
+SELECT TABLE_CATALOG=[db].[DatabaseName], TABLE_SCHEMA=[t].[SchemaName], [t].[TableName], [c].[ColumnName]
+	,[ColumnNamePascal]=IsNull([c].[ColumnNamePascal], [dbo].CGEN_fnToPascalCase([c].[ColumnName], COALESCE([c].[IsTruncatePrefix], [t].[IsTruncatePrefix_Column], [t].[IsTruncatePrefix_Table]), COALESCE([c].[PrefixToTruncate], [t].[PrefixToTruncate_Column], [t].[PrefixToTruncate_Table]), COALESCE([c].[PrefixToApply], [t].[PrefixToApply_Column], [t].[PrefixToApply_Table])))
+	,[ColumnNameCamel]=IsNull([c].[ColumnNameCamel], [dbo].CGEN_fnToCamelCase([c].[ColumnName], COALESCE([c].[IsTruncatePrefix], [t].[IsTruncatePrefix_Column], [t].[IsTruncatePrefix_Table]), COALESCE([c].[PrefixToTruncate], [t].[PrefixToTruncate_Column], [t].[PrefixToTruncate_Table]), COALESCE([c].[PrefixToApply], [t].[PrefixToApply_Column], [t].[PrefixToApply_Table])))
+	,[c].[ColumnDefault], [c].[IsNullable], [c].[DataType] , [c].[IsIdentity]
+FROM [CGEN_MasterTableColumn] [c]
+JOIN [CGEN_MasterTable] [t] ON [t].[IsActive]='True' AND [c].[CGEN_MasterTableId]=[t].[CGEN_MasterTableId]
+JOIN [CGEN_MasterDatabase] [db] ON [db].[CGEN_MasterDatabaseId]=[t].[CGEN_MasterDatabaseId]
+
 
 /*
 SELECT TABLE_CATALOG, TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, ORDINAL_POSITION, COLUMN_DEFAULT, IS_NULLABLE, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, 
@@ -38,6 +55,6 @@ JOIN [CGEN_DataTypes] [dt] ON [dt].[DataTypeName]=[c].[DATA_TYPE]
 --WHERE [c].TABLE_NAME='JOB_Job'
 */
 
-GO
 
+GO
 
