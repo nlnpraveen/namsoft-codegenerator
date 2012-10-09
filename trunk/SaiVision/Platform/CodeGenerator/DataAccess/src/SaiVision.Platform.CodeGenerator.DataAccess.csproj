@@ -51,17 +51,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CECity.Platform.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\References\CECity.Platform.Common.dll</HintPath>
+    <Reference Include="CECity.Platform.Common">
+      <HintPath>..\..\..\..\ThirdParty\CECity\CECity.Platform.Common.dll</HintPath>
     </Reference>
-    <Reference Include="CECity.Platform.DataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\References\CECity.Platform.DataAccess.dll</HintPath>
+    <Reference Include="CECity.Platform.DataAccess">
+      <HintPath>..\..\..\..\ThirdParty\CECity\CECity.Platform.DataAccess.dll</HintPath>
     </Reference>
     <Reference Include="Oracle.DataAccess, Version=9.2.0.700, Culture=neutral, PublicKeyToken=89b483f429c47342">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\References\Oracle.DataAccess.dll</HintPath>
+      <HintPath>..\..\..\..\ThirdParty\Oracle\Oracle.DataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -77,10 +75,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JobDM.cs">
+    <Compile Include="ActivityContentTemplateTypeDM.cs" />
+    <Compile Include="ActivityDM.cs" />
+    <Compile Include="ActivityLearningFormatDM.cs" />
+    <Compile Include="ActivityStateDM.cs" />
+    <Compile Include="JobAttributeDM.cs" />
+    <Compile Include="JobTestDM.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="JobTestDM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

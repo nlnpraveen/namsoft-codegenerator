@@ -41,6 +41,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -70,9 +71,15 @@
     <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Platform\Common\src\SaiVision.Platform.Common.csproj">
+      <Project>{07D541F9-06D5-4A38-BD26-1E6F93B05918}</Project>
+      <Name>SaiVision.Platform.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Manager\src\SaiVision.Tools.CodeGenerator.Manager.csproj">
       <Project>{759F9B84-D5E0-40B3-B2ED-933B9526304C}</Project>
       <Name>SaiVision.Tools.CodeGenerator.Manager</Name>

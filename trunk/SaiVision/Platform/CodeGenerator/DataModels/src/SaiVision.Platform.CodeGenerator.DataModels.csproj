@@ -66,9 +66,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Job.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Activity.cs" />
+    <Compile Include="ActivityContentTemplateType.cs" />
+    <Compile Include="ActivityLearningFormat.cs" />
+    <Compile Include="ActivityState.cs" />
+    <Compile Include="JobAttribute.cs" />
     <Compile Include="JobTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

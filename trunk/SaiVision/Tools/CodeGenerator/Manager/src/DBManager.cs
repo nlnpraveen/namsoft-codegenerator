@@ -38,6 +38,10 @@ namespace SaiVision.Tools.CodeGenerator.Manager
         #endregion
 
         #region [ Properties ]
+
+        #endregion
+
+        #region [ Public Methods ]
         /// <summary>
         /// Gets the tables.
         /// </summary>
@@ -51,7 +55,23 @@ namespace SaiVision.Tools.CodeGenerator.Manager
             return metaData;
         }
 
-        
-        #endregion        
+        /// <summary>
+        /// Gets the data bases configured for code generation.
+        /// </summary>
+        /// <returns></returns>
+        public List<DBMetaData> GetConfiguredDataBases()
+        {
+            List<DBMetaData> databases = new List<DBMetaData>();
+            DataTable table = NamsMetadataDM.GetConfiguredDataBases();
+
+            foreach (DataRow row in table.Rows)
+            {
+                DBMetaData db = new DBMetaData(row);
+                databases.Add(db);
+            }
+
+            return databases;
+        }        
+        #endregion
     }
 }

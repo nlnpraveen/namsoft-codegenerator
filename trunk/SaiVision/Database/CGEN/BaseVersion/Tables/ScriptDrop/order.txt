@@ -1,0 +1,8 @@
+-- DROP SCRIPT
+-- From the order of most Dependent to the least Dependent
+-- THe table you are entering should be listed below the tables that are dependent on it
+CGEN_MasterTableColumnFilter
+CGEN_MasterTableColumn
+CGEN_MasterTable
+CGEN_DataTypes
+CGEN_MasterDatabase

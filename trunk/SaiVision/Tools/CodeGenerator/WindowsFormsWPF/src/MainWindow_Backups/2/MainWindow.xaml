@@ -1,0 +1,78 @@
+﻿<Window x:Class="WindowsFormsWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Code Generator">
+    <DockPanel LastChildFill="True">
+
+        <!-- Tables -->
+        <DockPanel DockPanel.Dock="Left">
+            <TextBlock DockPanel.Dock="Top" FontWeight="Bold" Text="Tables" />
+            <ListBox x:Name="lbTables" Width="300" ItemsSource="{Binding Tables}" IsSynchronizedWithCurrentItem="True" SelectedValuePath="TableName" SelectedValue="{Binding SelectedTableName, Mode=TwoWay}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Label>
+                                <TextBlock Text="{Binding TableName}" />
+                            </Label>                            
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
+
+
+        <!-- Tables Selected -->
+        <DockPanel DockPanel.Dock="Right">
+            <StackPanel>
+                <TextBlock DockPanel.Dock="Top" FontWeight="Bold" Text="Tables Selected" />
+                <ItemsControl ItemsSource="{Binding SelectedTables}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Label DockPanel.Dock="Right">
+                                    <TextBlock Text="{Binding TableName}" FontWeight="Bold" FontStyle="Italic" />
+                                </Label>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </DockPanel>
+
+        <!-- Table Details -->
+        <DockPanel>
+            <TextBlock DockPanel.Dock="Top" FontWeight="Bold" Text="Table Details" />
+            <ScrollViewer DockPanel.Dock="Top">
+            <StackPanel>
+                <Grid Margin="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                </Grid>
+                <StackPanel Grid.Column="0">
+                    <TextBlock Width="248" Height="24" Text="Table Name" />
+                    <TextBlock Width="248" Height="24" Text="{Binding ElementName=lbTables, Path=SelectedItem.TableName}" />
+                </StackPanel>
+                        <TextBlock Width="248" Height="24" Text="{Binding ElementName=lbTables, Path=SelectedItem.TableName}" />
+                <TextBox Text="{Binding ElementName=lbTables, Path=SelectedItem.TableNamePascal, Mode=TwoWay}" />
+                <TextBox Text="{Binding ElementName=lbTables, Path=SelectedItem.TableNameCamel, Mode=TwoWay}" />
+                        <ItemsControl ItemsSource="{Binding ElementName=lbTables, Path=SelectedItem.Columns}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>                            
+                                        <StackPanel>
+                                            <Label Content="{Binding ColumnName}" />
+                                            <Label Content="Column Name Pascal : " />
+                                            <TextBox Text="{Binding ColumnNamePascal, Mode=TwoWay}" />
+                                        </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                
+            </StackPanel>
+            </ScrollViewer>
+            <Button Content="Select Table" Command="{Binding AddTable}" DockPanel.Dock="Bottom" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </DockPanel>
+    </DockPanel>
+</Window>
