@@ -47,17 +47,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\Praveen\prac\MyProjects\MvvmExample\MicroMvvm\MicroMvvm.csproj">
-      <Project>{9EFE6CBD-DF21-436E-9F81-E258BAB0B653}</Project>
-      <Name>MicroMvvm</Name>
+    <ProjectReference Include="..\..\..\..\Platform\CommonUtil\src\SaiVision.Platform.CommonUtil.csproj">
+      <Project>{38D75C42-6371-42D0-8218-CCB283DB942F}</Project>
+      <Name>SaiVision.Platform.CommonUtil</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Platform\Common\src\SaiVision.Platform.Common.csproj">
+    <ProjectReference Include="..\..\..\..\Platform\Common\src\SaiVision.Platform.CommonLibrary.csproj">
       <Project>{07D541F9-06D5-4A38-BD26-1E6F93B05918}</Project>
-      <Name>SaiVision.Platform.Common</Name>
+      <Name>SaiVision.Platform.CommonLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Manager\src\SaiVision.Tools.CodeGenerator.Manager.csproj">
       <Project>{759F9B84-D5E0-40B3-B2ED-933B9526304C}</Project>
       <Name>SaiVision.Tools.CodeGenerator.Manager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MicroMvvm\MicroMvvm.csproj">
+      <Project>{9EFE6CBD-DF21-436E-9F81-E258BAB0B653}</Project>
+      <Name>MicroMvvm</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

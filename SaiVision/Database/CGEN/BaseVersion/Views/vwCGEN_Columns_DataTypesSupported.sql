@@ -1,4 +1,9 @@
-USE [SaiVision]
+USE [CodeGenerator]
+GO
+
+/****** Object:  View [dbo].[vwCGEN_Columns]    Script Date: 08/20/2012 17:20:50 ******/
+IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[vwCGEN_Columns_DataTypesSupported]'))
+DROP VIEW [dbo].[vwCGEN_Columns_DataTypesSupported]
 GO
 
 /****** Object:  View [dbo].[vwCGEN_DataTypeColumns_Supported]    Script Date: 03/19/2012 15:27:29 ******/

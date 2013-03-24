@@ -65,7 +65,7 @@ namespace SaiVision.Tools.CodeGenerator.Manager
                             "using System.Data.SqlClient;",
                             "using CECity.Platform.DataAccess;",
                             "using CECity.Enterprise.DataModel;",
-                            "using CECity.Platform.Common;"
+                            "using SaiVision.Platform.CommonLibrary;"
                         }));
                     fileWriter.WriteLine();
 

@@ -6,7 +6,7 @@ using System.Data;
 using SaiVision.Tools.CodeGenerator.DataAccess;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
-using SaiVision.Platform.Common.Serialization;
+using SaiVision.Platform.CommonUtil.Serialization;
 
 namespace SaiVision.Tools.CodeGenerator.Manager
 {

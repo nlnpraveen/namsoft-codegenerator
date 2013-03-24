@@ -5,17 +5,8 @@ using System.Text;
 using System.Runtime.Serialization;
 using System.Reflection;
 
-namespace SaiVision.Platform.Common
+namespace SaiVision.Platform.CommonLibrary
 {
-    /// <summary>
-    /// The possible sort orders.
-    /// </summary>
-    public enum SortOrder : int
-    {
-        Ascending = 0,
-        Descending = 1
-    }
-
     /// <summary>
     /// Holds the collection of objects of type T
     /// </summary>

@@ -51,7 +51,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CECity.Platform.Common">
+    <Reference Include="CECity.Platform.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\ThirdParty\CECity\CECity.Platform.Common.dll</HintPath>
     </Reference>
     <Reference Include="CECity.Platform.DataAccess">
@@ -103,6 +104,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\src\SaiVision.Platform.CommonLibrary.csproj">
+      <Project>{07D541F9-06D5-4A38-BD26-1E6F93B05918}</Project>
+      <Name>SaiVision.Platform.CommonLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\DataModels\src\SaiVision.Platform.CodeGenerator.DataModels.csproj">
       <Project>{BC192799-7FE0-4E59-80C7-F51FB478A44A}</Project>
       <Name>SaiVision.Platform.CodeGenerator.DataModels</Name>

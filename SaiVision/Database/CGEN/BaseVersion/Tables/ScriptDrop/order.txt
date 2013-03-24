@@ -6,3 +6,4 @@ CGEN_MasterTableColumn
 CGEN_MasterTable
 CGEN_DataTypes
 CGEN_MasterDatabase
+ErrorLog

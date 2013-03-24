@@ -33,6 +33,7 @@ CREATE TABLE [dbo].[CGEN_MasterTable](
 	[PrefixToTruncate_Column] [nvarchar](128) NULL,
 	[PrefixToApply_Column] [nchar](10) NULL,
 	[CreateDate] [datetime] NOT NULL,
+	[IsGenerateCode] Bit Not Null,
  CONSTRAINT [PK_CGEN_MasterTable] PRIMARY KEY CLUSTERED 
 (
 	[CGEN_MasterTableId] ASC
