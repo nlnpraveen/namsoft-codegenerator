@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using SaiVision.Platform.Common;
+using SaiVision.Platform.CommonLibrary;
 using System.Runtime.Serialization;
 using System.IO;
 

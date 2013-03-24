@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 using SaiVision.Tools.CodeGenerator.Manager;
 using System.Windows.Input;
 using MicroMvvm;
-using SaiVision.Platform.Common.Extensions;
+using SaiVision.Platform.CommonUtil.Extensions;
 
 namespace SaiVision.Tools.CodeGenerator.ViewModels
 {

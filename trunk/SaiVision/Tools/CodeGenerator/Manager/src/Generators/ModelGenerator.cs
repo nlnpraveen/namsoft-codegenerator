@@ -12,7 +12,7 @@ using System.Text;
 using System.IO;
 using SaiVision.Tools.CodeGenerator.DataAccess;
 using System.Data;
-using SaiVision.Platform.Common.Extensions;
+using SaiVision.Platform.CommonUtil.Extensions;
 using System.Text.RegularExpressions;
 
 namespace SaiVision.Tools.CodeGenerator.Manager

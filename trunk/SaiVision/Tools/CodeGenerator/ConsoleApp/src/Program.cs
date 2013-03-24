@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SaiVision.Tools.CodeGenerator.Manager;
-using SaiVision.Platform.Common.Extensions;
+using SaiVision.Platform.CommonUtil.Extensions;
 
 namespace SaiVision.Tools.CodeGenerator.ConsoleApp
 {

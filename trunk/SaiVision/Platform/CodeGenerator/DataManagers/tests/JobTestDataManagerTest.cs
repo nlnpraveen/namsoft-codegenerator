@@ -3,7 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using CECity.Enterprise.DataModel;
 using System.Collections.Generic;
-using SaiVision.Platform.Common.Serialization;
+using SaiVision.Platform.CommonLibrary;
+
 
 namespace SaiVision.Platform.CodeGenerator.DataManagers.Tests
 {

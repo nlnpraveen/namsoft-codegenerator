@@ -11,6 +11,7 @@ GO
 CREATE TABLE [dbo].[CGEN_MasterDatabase](
 	[CGEN_MasterDatabaseId] [int] IDENTITY(1,1) NOT NULL,
 	[DatabaseName] [nvarchar](128) NOT NULL,
+	[LastSyncDate] Datetime NULL
  CONSTRAINT [PK_CGEN_MasterDatabase] PRIMARY KEY CLUSTERED 
 (
 	[CGEN_MasterDatabaseId] ASC

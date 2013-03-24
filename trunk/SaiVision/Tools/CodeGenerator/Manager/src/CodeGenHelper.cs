@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using SaiVision.Tools.CodeGenerator.DataAccess;
-using SaiVision.Platform.Common.Extensions;
+using SaiVision.Platform.CommonUtil.Extensions;
 
 namespace SaiVision.Tools.CodeGenerator.Manager
 {

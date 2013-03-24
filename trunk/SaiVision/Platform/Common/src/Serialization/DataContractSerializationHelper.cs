@@ -5,7 +5,7 @@ using System.Text;
 using System.Runtime.Serialization;
 using System.Xml;
 
-namespace SaiVision.Platform.Common.Serialization
+namespace SaiVision.Platform.CommonLibrary
 {
     /// <summary>
     /// Helper class for serializing objects to Xml string

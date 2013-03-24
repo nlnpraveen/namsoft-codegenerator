@@ -94,7 +94,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\Praveen\prac\MyProjects\MvvmExample\MicroMvvm\MicroMvvm.csproj">
+    <ProjectReference Include="..\..\ViewModels\MicroMvvm\MicroMvvm.csproj">
       <Project>{9EFE6CBD-DF21-436E-9F81-E258BAB0B653}</Project>
       <Name>MicroMvvm</Name>
     </ProjectReference>

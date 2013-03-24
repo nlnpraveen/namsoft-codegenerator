@@ -36,6 +36,7 @@ CREATE TABLE [dbo].[CGEN_MasterTableColumn](
 GO
 
 ALTER TABLE [dbo].[CGEN_MasterTableColumn]  WITH CHECK ADD  CONSTRAINT [FK_CGEN_MasterTableColumn_CGEN_MasterTable] FOREIGN KEY([CGEN_MasterTableId])
+REFERENCES [dbo].[CGEN_MasterTable] ([CGEN_MasterTableId])
 GO
 
 

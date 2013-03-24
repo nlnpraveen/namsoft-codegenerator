@@ -51,9 +51,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CECity.Platform.Common">
-      <HintPath>..\..\..\..\ThirdParty\CECity\CECity.Platform.Common.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -79,9 +76,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Common\src\SaiVision.Platform.Common.csproj">
+    <ProjectReference Include="..\..\..\Common\src\SaiVision.Platform.CommonLibrary.csproj">
       <Project>{07D541F9-06D5-4A38-BD26-1E6F93B05918}</Project>
-      <Name>SaiVision.Platform.Common</Name>
+      <Name>SaiVision.Platform.CommonLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DataAccess\src\SaiVision.Platform.CodeGenerator.DataAccess.csproj">
       <Project>{A7FC0D32-4B20-4937-A4AD-763EACE46BC6}</Project>
