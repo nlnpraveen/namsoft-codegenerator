@@ -85,10 +85,6 @@
       <Project>{38D75C42-6371-42D0-8218-CCB283DB942F}</Project>
       <Name>SaiVision.Platform.CommonUtil</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Platform\Common\src\SaiVision.Platform.CommonLibrary.csproj">
-      <Project>{07D541F9-06D5-4A38-BD26-1E6F93B05918}</Project>
-      <Name>SaiVision.Platform.CommonLibrary</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\DataAccess\src\SaiVision.Tools.CodeGenerator.DataAccess.csproj">
       <Project>{1D942AC5-7942-4BD2-9476-A1CB23BF0DD0}</Project>
       <Name>SaiVision.Tools.CodeGenerator.DataAccess</Name>
