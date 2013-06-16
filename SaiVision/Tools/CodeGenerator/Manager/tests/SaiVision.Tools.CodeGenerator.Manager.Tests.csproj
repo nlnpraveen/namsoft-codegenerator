@@ -56,6 +56,10 @@
     <Compile Include="UtilityTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Platform\CommonLibrary\src\SaiVision.Platform.CommonLibrary.csproj">
+      <Project>{07d541f9-06d5-4a38-bd26-1e6f93b05918}</Project>
+      <Name>SaiVision.Platform.CommonLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\src\SaiVision.Tools.CodeGenerator.Manager.csproj">
       <Project>{759F9B84-D5E0-40B3-B2ED-933B9526304C}</Project>
       <Name>SaiVision.Tools.CodeGenerator.Manager</Name>
@@ -63,10 +67,6 @@
     <ProjectReference Include="..\..\DataAccess\src\SaiVision.Tools.CodeGenerator.DataAccess.csproj">
       <Project>{1D942AC5-7942-4BD2-9476-A1CB23BF0DD0}</Project>
       <Name>SaiVision.Tools.CodeGenerator.DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Platform\Common\src\SaiVision.Platform.CommonLibrary.csproj">
-      <Project>{07D541F9-06D5-4A38-BD26-1E6F93B05918}</Project>
-      <Name>SaiVision.Platform.CommonLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

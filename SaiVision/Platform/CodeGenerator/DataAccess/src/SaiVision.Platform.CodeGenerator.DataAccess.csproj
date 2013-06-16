@@ -104,8 +104,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Common\src\SaiVision.Platform.CommonLibrary.csproj">
-      <Project>{07D541F9-06D5-4A38-BD26-1E6F93B05918}</Project>
+    <ProjectReference Include="..\..\..\CommonLibrary\src\SaiVision.Platform.CommonLibrary.csproj">
+      <Project>{07d541f9-06d5-4a38-bd26-1e6f93b05918}</Project>
       <Name>SaiVision.Platform.CommonLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DataModels\src\SaiVision.Platform.CodeGenerator.DataModels.csproj">

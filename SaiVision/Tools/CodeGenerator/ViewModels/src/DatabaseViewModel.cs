@@ -13,7 +13,8 @@ namespace SaiVision.Tools.CodeGenerator.ViewModels
     public class DatabaseViewModel : ObservableObject
     {
         #region [ Fields ]
-        int _SelectedTableId;
+        int _SelectionTableId;
+        TableViewModel _SelectionTable;
         #endregion
 
         #region [ Properties ]
@@ -21,18 +22,34 @@ namespace SaiVision.Tools.CodeGenerator.ViewModels
         public ObservableCollection<TableViewModel> SelectedTables { get; set; }
         //public List<TableMetaData> Tables { get; set; }
 
-        public int SelectedTableId
+        public int SelectionTableId
         {
             get
             {
-                return _SelectedTableId;
+                return _SelectionTableId;
             }
             set
             {
-                _SelectedTableId = value;
-                RaisePropertyChanged("SelectedTableId");
+                _SelectionTableId = value;
+                SelectionTable = Tables.First(t => t.TableId.Equals(_SelectionTableId));
+                //SelectionTable = (Tables.Any(t => t.TableId.Equals(_SelectionTableId))) ? Tables.First(t => t.TableId.Equals(_SelectionTableId)): SelectedTables.First(t => t.TableId.Equals(_SelectionTableId));
+                RaisePropertyChanged("SelectionTableId");
             }
         }
+
+        public TableViewModel SelectionTable
+        {
+            get
+            {
+                return _SelectionTable;
+            }
+            set
+            {
+                _SelectionTable = value;
+                RaisePropertyChanged("SelectionTable");
+            }
+        }
+
         #endregion
 
         #region [ Contructor ]
@@ -43,12 +60,13 @@ namespace SaiVision.Tools.CodeGenerator.ViewModels
             DBMetaData metaData = DBManager.GetInstance().GetDBMetaData();
             metaData.Tables.ForEach(table => Tables.Add(new TableViewModel(table)));
 
-            SelectedTableId = Tables[0].TableId;
+            SelectionTableId = Tables[0].TableId;
             /*
             DBMetaData metaData = DBManager.GetInstance().GetDBMetaData();
             this.Tables = metaData.Tables;
             */
             SelectedTables = new ObservableCollection<TableViewModel>(Tables.Where(table => table.TableModel.IsGenerateCode == true));
+            //SelectedTables.ForEach(table => Tables.Remove(table));
         }
         #endregion
 
@@ -63,11 +81,11 @@ namespace SaiVision.Tools.CodeGenerator.ViewModels
         #region [ Commands ]
         void AddTableExecute()
         {
-            TableViewModel table = Tables.First(t => t.TableId.Equals(SelectedTableId));
+            TableViewModel table = Tables.First(t => t.TableId.Equals(SelectionTableId));
             // Is already selected?
-            if (SelectedTables.Any(t => t.TableId.Equals(SelectedTableId)))
+            if (SelectedTables.Any(t => t.TableId.Equals(SelectionTableId)))
             {
-                TableViewModel selectedTable = SelectedTables.First(t => t.TableId.Equals(SelectedTableId));
+                TableViewModel selectedTable = SelectedTables.First(t => t.TableId.Equals(SelectionTableId));
                 SelectedTables.Remove(selectedTable);
             }
             SelectedTables.Add(table);
