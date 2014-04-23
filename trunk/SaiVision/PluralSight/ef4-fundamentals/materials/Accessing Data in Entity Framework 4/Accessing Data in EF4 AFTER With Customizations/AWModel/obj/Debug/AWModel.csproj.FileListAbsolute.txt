@@ -1,0 +1,8 @@
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\AWModel\bin\Debug\AdventureWorksSuper.mdf
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\AWModel\bin\Debug\AWModel.dll.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\AWModel\bin\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\AWModel\bin\Debug\AWModel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\AWModel\obj\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\AWModel\obj\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\AWModel\obj\Debug\AWModel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\AWModel\bin\Debug\AdventureWorksSuper_log.ldf

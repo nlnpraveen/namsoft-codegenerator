@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="People" EntityType="Model1.Person" />
+    <EntitySet Name="Sessions" EntityType="Model1.Session" />
+    <AssociationSet Name="PersonSession" Association="Model1.PersonSession">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Session" EntitySet="Sessions" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <NavigationProperty Name="Sessions" Relationship="Model1.PersonSession" FromRole="Person" ToRole="Session" />
+  </EntityType>
+  <EntityType Name="Session">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" />
+    <Property Type="Int32" Name="Minutes" Nullable="false" DefaultValue="60" />
+    <NavigationProperty Name="Person" Relationship="Model1.PersonSession" FromRole="Session" ToRole="Person" />
+    <Property Type="Int32" Name="PersonId" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Workshop" BaseType="Model1.Session" />
+  <Association Name="PersonSession">
+    <End Type="Model1.Person" Role="Person" Multiplicity="1" />
+    <End Type="Model1.Session" Role="Session" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Session">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

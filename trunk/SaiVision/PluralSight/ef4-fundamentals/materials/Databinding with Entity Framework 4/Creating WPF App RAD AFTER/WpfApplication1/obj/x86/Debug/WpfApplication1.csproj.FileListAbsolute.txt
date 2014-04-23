@@ -1,0 +1,48 @@
+F:\Documents\Visual Studio 2010\Projects\PSOD\PSOD EF WPF\WpfApplication1\bin\Debug\WpfApplication1.exe.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\PSOD EF WPF\WpfApplication1\bin\Debug\WpfApplication1.exe
+F:\Documents\Visual Studio 2010\Projects\PSOD\PSOD EF WPF\WpfApplication1\bin\Debug\WpfApplication1.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\PSOD EF WPF\WpfApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\PSOD EF WPF\WpfApplication1\obj\x86\Debug\MainWindow.baml
+F:\Documents\Visual Studio 2010\Projects\PSOD\PSOD EF WPF\WpfApplication1\obj\x86\Debug\MainWindow.g.cs
+F:\Documents\Visual Studio 2010\Projects\PSOD\PSOD EF WPF\WpfApplication1\obj\x86\Debug\App.g.cs
+F:\Documents\Visual Studio 2010\Projects\PSOD\PSOD EF WPF\WpfApplication1\obj\x86\Debug\WpfApplication1_MarkupCompile.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\PSOD EF WPF\WpfApplication1\obj\x86\Debug\WpfApplication1.g.resources
+F:\Documents\Visual Studio 2010\Projects\PSOD\PSOD EF WPF\WpfApplication1\obj\x86\Debug\WpfApplication1.Properties.Resources.resources
+F:\Documents\Visual Studio 2010\Projects\PSOD\PSOD EF WPF\WpfApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+F:\Documents\Visual Studio 2010\Projects\PSOD\PSOD EF WPF\WpfApplication1\obj\x86\Debug\GenerateResource.write.1.tlog
+F:\Documents\Visual Studio 2010\Projects\PSOD\PSOD EF WPF\WpfApplication1\obj\x86\Debug\WpfApplication1.exe
+F:\Documents\Visual Studio 2010\Projects\PSOD\PSOD EF WPF\WpfApplication1\obj\x86\Debug\WpfApplication1.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\PSOD EF WPF\WpfApplication1\bin\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\PSOD EF WPF\WpfApplication1\bin\Debug\AWModel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\PSOD EF WPF\WpfApplication1\bin\Debug\AdventureWorksSuperLT.mdf
+F:\Documents\Visual Studio 2010\Projects\PSOD\PSOD EF WPF\WpfApplication1\obj\x86\Debug\WpfApplication1_Content.g.cs
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App BEFORE\WpfApplication1\bin\Debug\WpfApplication1.exe.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App BEFORE\WpfApplication1\obj\x86\Debug\WpfApplication1.exe
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App BEFORE\WpfApplication1\obj\x86\Debug\WpfApplication1.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App BEFORE\WpfApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App BEFORE\WpfApplication1\obj\x86\Debug\MainWindow.baml
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App BEFORE\WpfApplication1\obj\x86\Debug\MainWindow.g.cs
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App BEFORE\WpfApplication1\obj\x86\Debug\App.g.cs
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App BEFORE\WpfApplication1\obj\x86\Debug\WpfApplication1_MarkupCompile.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App BEFORE\WpfApplication1\obj\x86\Debug\WpfApplication1.g.resources
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App BEFORE\WpfApplication1\obj\x86\Debug\WpfApplication1.Properties.Resources.resources
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App BEFORE\WpfApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App BEFORE\WpfApplication1\obj\x86\Debug\GenerateResource.write.1.tlog
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App BEFORE\WpfApplication1\bin\Debug\WpfApplication1.exe
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App BEFORE\WpfApplication1\bin\Debug\WpfApplication1.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App BEFORE\WpfApplication1\obj\x86\Debug\WpfApplication1_MarkupCompile.lref
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App AFTER\WpfApplication1\bin\Debug\WpfApplication1.exe.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App AFTER\WpfApplication1\obj\x86\Debug\WpfApplication1.exe
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App AFTER\WpfApplication1\obj\x86\Debug\WpfApplication1.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App AFTER\WpfApplication1\bin\Debug\WpfApplication1.exe
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App AFTER\WpfApplication1\bin\Debug\WpfApplication1.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App AFTER\WpfApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App AFTER\WpfApplication1\obj\x86\Debug\MainWindow.g.cs
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App AFTER\WpfApplication1\obj\x86\Debug\App.g.cs
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App AFTER\WpfApplication1\obj\x86\Debug\WpfApplication1_MarkupCompile.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App AFTER\WpfApplication1\obj\x86\Debug\WpfApplication1_MarkupCompile.lref
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App AFTER\WpfApplication1\obj\x86\Debug\MainWindow.baml
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App AFTER\WpfApplication1\obj\x86\Debug\WpfApplication1.g.resources
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App AFTER\WpfApplication1\obj\x86\Debug\WpfApplication1.Properties.Resources.resources
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App AFTER\WpfApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating WPF App AFTER\WpfApplication1\obj\x86\Debug\GenerateResource.write.1.tlog

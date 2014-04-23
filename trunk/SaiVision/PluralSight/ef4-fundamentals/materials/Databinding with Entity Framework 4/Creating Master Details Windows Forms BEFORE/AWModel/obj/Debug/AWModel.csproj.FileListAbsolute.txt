@@ -1,0 +1,18 @@
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\bin\Debug\AWMOdel.dll.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\bin\Debug\AWMOdel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\bin\Debug\AWMOdel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\obj\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\obj\Debug\AWMOdel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\obj\Debug\AWMOdel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWModel  WinForm\AWMOdel\bin\Debug\AWModel.dll.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWModel  WinForm\AWMOdel\bin\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWModel  WinForm\AWMOdel\bin\Debug\AWModel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWModel  WinForm\AWMOdel\obj\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWModel  WinForm\AWMOdel\obj\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWModel  WinForm\AWMOdel\obj\Debug\AWModel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating Master Details Windows Forms BEFORE\AWModel\bin\Debug\AWModel.dll.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating Master Details Windows Forms BEFORE\AWModel\bin\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating Master Details Windows Forms BEFORE\AWModel\bin\Debug\AWModel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating Master Details Windows Forms BEFORE\AWModel\obj\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating Master Details Windows Forms BEFORE\AWModel\obj\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating Master Details Windows Forms BEFORE\AWModel\obj\Debug\AWModel.pdb

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TechEdModelStoreContainer" CdmEntityContainer="ConferenceEntities">
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="ConferenceModel.Room">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Speakers">
+      <EntityTypeMapping TypeName="ConferenceModel.Speaker">
+        <MappingFragment StoreEntitySet="Speakers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Talks">
+      <EntityTypeMapping TypeName="ConferenceModel.Talk">
+        <MappingFragment StoreEntitySet="Talks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TalkTime" ColumnName="TalkTime" />
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="TalkSpeaker" TypeName="ConferenceModel.TalkSpeaker" StoreEntitySet="TalkSpeaker">
+      <EndProperty Name="Speakers">
+        <ScalarProperty Name="Id" ColumnName="Speakers_Id" />
+      </EndProperty>
+      <EndProperty Name="Talks">
+        <ScalarProperty Name="Id" ColumnName="Talks_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

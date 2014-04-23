@@ -1,0 +1,6 @@
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\bin\Debug\AWMOdel.dll.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\bin\Debug\AWMOdel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\bin\Debug\AWMOdel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\obj\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\obj\Debug\AWMOdel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\obj\Debug\AWMOdel.pdb

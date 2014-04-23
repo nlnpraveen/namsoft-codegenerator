@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ConferenceModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="ConferenceEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Rooms" EntityType="ConferenceModel.Room" />
+    <EntitySet Name="Speakers" EntityType="ConferenceModel.Speaker" />
+    <EntitySet Name="Talks" EntityType="ConferenceModel.Talk" />
+    <AssociationSet Name="FK_Talks_Rooms" Association="ConferenceModel.FK_Talks_Rooms">
+      <End Role="Rooms" EntitySet="Rooms" />
+      <End Role="Talks" EntitySet="Talks" />
+    </AssociationSet>
+    <AssociationSet Name="TalkSpeaker" Association="ConferenceModel.TalkSpeaker">
+      <End Role="Speakers" EntitySet="Speakers" />
+      <End Role="Talks" EntitySet="Talks" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="RoomId" />
+    </Key>
+    <Property Name="RoomId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoomNumber" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="Talks" Relationship="ConferenceModel.FK_Talks_Rooms" FromRole="Rooms" ToRole="Talks" />
+  </EntityType>
+  <EntityType Name="Speaker">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Talks" Relationship="ConferenceModel.TalkSpeaker" FromRole="Speakers" ToRole="Talks" />
+  </EntityType>
+  <EntityType Name="Talk">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="TalkTime" Type="DateTime" Nullable="false" />
+    <Property Name="RoomId" Type="Int32" />
+    <NavigationProperty Name="Room" Relationship="ConferenceModel.FK_Talks_Rooms" FromRole="Talks" ToRole="Rooms" />
+    <NavigationProperty Name="Speakers" Relationship="ConferenceModel.TalkSpeaker" FromRole="Talks" ToRole="Speakers" />
+  </EntityType>
+  <Association Name="FK_Talks_Rooms">
+    <End Role="Rooms" Type="ConferenceModel.Room" Multiplicity="0..1" />
+    <End Role="Talks" Type="ConferenceModel.Talk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rooms">
+        <PropertyRef Name="RoomId" />
+      </Principal>
+      <Dependent Role="Talks">
+        <PropertyRef Name="RoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TalkSpeaker">
+    <End Role="Speakers" Type="ConferenceModel.Speaker" Multiplicity="*" />
+    <End Role="Talks" Type="ConferenceModel.Talk" Multiplicity="*" />
+  </Association>
+</Schema>

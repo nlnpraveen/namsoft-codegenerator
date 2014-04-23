@@ -1,0 +1,11 @@
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\SimpleQueries\bin\Debug\SimpleQueries.exe.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\SimpleQueries\bin\Debug\SimpleQueries.exe
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\SimpleQueries\bin\Debug\SimpleQueries.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\SimpleQueries\bin\Debug\AWMOdel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\SimpleQueries\bin\Debug\AWMOdel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\SimpleQueries\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\SimpleQueries\obj\x86\Debug\SimpleQueries.exe
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\SimpleQueries\obj\x86\Debug\SimpleQueries.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Accessing Data in Entity Framework 4\Accessing Data in EF4 BEFORE\SimpleQueries\bin\Debug\SimpleQueries.exe.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Accessing Data in Entity Framework 4\Accessing Data in EF4 BEFORE\SimpleQueries\obj\x86\Debug\SimpleQueries.exe
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Accessing Data in Entity Framework 4\Accessing Data in EF4 BEFORE\SimpleQueries\obj\x86\Debug\SimpleQueries.pdb
