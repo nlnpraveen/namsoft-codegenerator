@@ -1,0 +1,12 @@
+F:\Documents\Visual Studio 2010\Projects\PSOD\POCO\POCO\bin\Debug\PSODPOCO.exe.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\POCO\POCO\bin\Debug\PSODPOCO.exe
+F:\Documents\Visual Studio 2010\Projects\PSOD\POCO\POCO\bin\Debug\PSODPOCO.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\POCO\POCO\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\POCO\POCO\obj\x86\Debug\PSODPOCO.exe
+F:\Documents\Visual Studio 2010\Projects\PSOD\POCO\POCO\obj\x86\Debug\PSODPOCO.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\POCOs in EF4\POCOs in EF4 BEFORE\POCO\bin\Debug\PSODPOCO.exe.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\POCOs in EF4\POCOs in EF4 BEFORE\POCO\obj\x86\Debug\PSODPOCO.exe
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\POCOs in EF4\POCOs in EF4 BEFORE\POCO\obj\x86\Debug\PSODPOCO.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\POCOs in EF4\POCOs in EF4 BEFORE\POCO\bin\Debug\PSODPOCO.exe
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\POCOs in EF4\POCOs in EF4 BEFORE\POCO\bin\Debug\PSODPOCO.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\POCOs in EF4\POCOs in EF4 BEFORE\POCO\obj\x86\Debug\ResolveAssemblyReference.cache

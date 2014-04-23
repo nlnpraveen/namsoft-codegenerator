@@ -1,0 +1,13 @@
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\StoredProcedureTests\bin\Debug\AdventureWorksSuper.mdf
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\StoredProcedureTests\bin\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\StoredProcedureTests\bin\Debug\HibernatingRhinos.Profiler.Appender.v4.0.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\StoredProcedureTests\bin\Debug\AWModel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\StoredProcedureTests\bin\Debug\AWModel_Accessor.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\StoredProcedureTests\bin\Debug\AWModel_Accessor.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\StoredProcedureTests\obj\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\StoredProcedureTests\obj\Debug\StoredProcedureTests.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\StoredProcedureTests\obj\Debug\StoredProcedureTests.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\StoredProcedureTests\bin\Debug\AdventureWorksSuper_log.ldf
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\StoredProcedureTests\bin\Debug\StoredProcedureTests.dll.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\StoredProcedureTests\bin\Debug\StoredProcedureTests.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 2\Course 2 - Designer Supported Stored Procs\AWModel\StoredProcedureTests\bin\Debug\StoredProcedureTests.pdb

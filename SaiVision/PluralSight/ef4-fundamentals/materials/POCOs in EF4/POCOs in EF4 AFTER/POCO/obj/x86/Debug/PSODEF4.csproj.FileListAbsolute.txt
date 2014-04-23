@@ -1,0 +1,15 @@
+F:\Documents\Visual Studio 2010\Projects\throwaway\PSOD EF4 Office Hours\BOAEF4\bin\Debug\PSODEF4.exe.config
+F:\Documents\Visual Studio 2010\Projects\throwaway\PSOD EF4 Office Hours\BOAEF4\bin\Debug\PSODEF4.exe
+F:\Documents\Visual Studio 2010\Projects\throwaway\PSOD EF4 Office Hours\BOAEF4\bin\Debug\PSODEF4.pdb
+F:\Documents\Visual Studio 2010\Projects\throwaway\PSOD EF4 Office Hours\BOAEF4\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\throwaway\PSOD EF4 Office Hours\BOAEF4\obj\x86\Debug\PSODEF4.exe
+F:\Documents\Visual Studio 2010\Projects\throwaway\PSOD EF4 Office Hours\BOAEF4\obj\x86\Debug\PSODEF4.pdb
+F:\Documents\Visual Studio 2010\Projects\throwaway\PSOD EF4 Office Hours\PSODEF4\bin\Debug\PSODEF4.exe.config
+F:\Documents\Visual Studio 2010\Projects\throwaway\PSOD EF4 Office Hours\PSODEF4\bin\Debug\PSODEF4.exe
+F:\Documents\Visual Studio 2010\Projects\throwaway\PSOD EF4 Office Hours\PSODEF4\bin\Debug\PSODEF4.pdb
+F:\Documents\Visual Studio 2010\Projects\throwaway\PSOD EF4 Office Hours\PSODEF4\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\throwaway\PSOD EF4 Office Hours\PSODEF4\obj\x86\Debug\PSODEF4.exe
+F:\Documents\Visual Studio 2010\Projects\throwaway\PSOD EF4 Office Hours\PSODEF4\obj\x86\Debug\PSODEF4.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\POCO\POCO\bin\Debug\PSODEF4.exe.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\POCO\POCO\obj\x86\Debug\PSODEF4.exe
+F:\Documents\Visual Studio 2010\Projects\PSOD\POCO\POCO\obj\x86\Debug\PSODEF4.pdb

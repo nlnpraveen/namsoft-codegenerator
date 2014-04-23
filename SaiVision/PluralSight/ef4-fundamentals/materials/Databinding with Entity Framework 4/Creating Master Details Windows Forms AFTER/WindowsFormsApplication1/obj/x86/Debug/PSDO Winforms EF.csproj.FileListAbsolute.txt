@@ -1,0 +1,3 @@
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating Master Details Windows Forms AFTER\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating Master Details Windows Forms AFTER\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Databinding with Entity Framework 4\Creating Master Details Windows Forms AFTER\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb

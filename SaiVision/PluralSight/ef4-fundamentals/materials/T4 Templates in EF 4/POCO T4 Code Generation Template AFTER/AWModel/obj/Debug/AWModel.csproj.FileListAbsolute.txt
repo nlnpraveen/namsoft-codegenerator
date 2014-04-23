@@ -1,0 +1,18 @@
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\bin\Debug\AWMOdel.dll.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\bin\Debug\AWMOdel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\bin\Debug\AWMOdel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\obj\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\obj\Debug\AWMOdel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\obj\Debug\AWMOdel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Accessing Data in Entity Framework 4\Accessing Data in EF4 AFTER\AWMOdel\bin\Debug\AWModel.dll.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Accessing Data in Entity Framework 4\Accessing Data in EF4 AFTER\AWMOdel\bin\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Accessing Data in Entity Framework 4\Accessing Data in EF4 AFTER\AWMOdel\bin\Debug\AWModel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Accessing Data in Entity Framework 4\Accessing Data in EF4 AFTER\AWMOdel\obj\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Accessing Data in Entity Framework 4\Accessing Data in EF4 AFTER\AWMOdel\obj\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Accessing Data in Entity Framework 4\Accessing Data in EF4 AFTER\AWMOdel\obj\Debug\AWModel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\T4 Templates in EF 4\POCO T4 Code Generation Template AFTER\AWModel\bin\Debug\AWModel.dll.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\T4 Templates in EF 4\POCO T4 Code Generation Template AFTER\AWModel\bin\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\T4 Templates in EF 4\POCO T4 Code Generation Template AFTER\AWModel\bin\Debug\AWModel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\T4 Templates in EF 4\POCO T4 Code Generation Template AFTER\AWModel\obj\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\T4 Templates in EF 4\POCO T4 Code Generation Template AFTER\AWModel\obj\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\T4 Templates in EF 4\POCO T4 Code Generation Template AFTER\AWModel\obj\Debug\AWModel.pdb

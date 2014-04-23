@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TechEdModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="TechEdModelStoreContainer">
+    <EntitySet Name="Rooms" EntityType="TechEdModel.Store.Rooms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Speakers" EntityType="TechEdModel.Store.Speakers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Talks" EntityType="TechEdModel.Store.Talks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TalkSpeaker" EntityType="TechEdModel.Store.TalkSpeaker" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Talks_Rooms" Association="TechEdModel.Store.FK_Talks_Rooms">
+      <End Role="Rooms" EntitySet="Rooms" />
+      <End Role="Talks" EntitySet="Talks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TalkSpeaker_Speaker" Association="TechEdModel.Store.FK_TalkSpeaker_Speaker">
+      <End Role="Speakers" EntitySet="Speakers" />
+      <End Role="TalkSpeaker" EntitySet="TalkSpeaker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TalkSpeaker_Talk" Association="TechEdModel.Store.FK_TalkSpeaker_Talk">
+      <End Role="Talks" EntitySet="Talks" />
+      <End Role="TalkSpeaker" EntitySet="TalkSpeaker" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Rooms">
+    <Key>
+      <PropertyRef Name="RoomId" />
+    </Key>
+    <Property Name="RoomId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoomNumber" Type="nchar" Nullable="false" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Speakers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Talks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TalkTime" Type="datetime" Nullable="false" />
+    <Property Name="RoomId" Type="int" />
+  </EntityType>
+  <EntityType Name="TalkSpeaker">
+    <Key>
+      <PropertyRef Name="Talks_Id" />
+      <PropertyRef Name="Speakers_Id" />
+    </Key>
+    <Property Name="Talks_Id" Type="int" Nullable="false" />
+    <Property Name="Speakers_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Talks_Rooms">
+    <End Role="Rooms" Type="TechEdModel.Store.Rooms" Multiplicity="0..1" />
+    <End Role="Talks" Type="TechEdModel.Store.Talks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rooms">
+        <PropertyRef Name="RoomId" />
+      </Principal>
+      <Dependent Role="Talks">
+        <PropertyRef Name="RoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TalkSpeaker_Speaker">
+    <End Role="Speakers" Type="TechEdModel.Store.Speakers" Multiplicity="1" />
+    <End Role="TalkSpeaker" Type="TechEdModel.Store.TalkSpeaker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Speakers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TalkSpeaker">
+        <PropertyRef Name="Speakers_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TalkSpeaker_Talk">
+    <End Role="Talks" Type="TechEdModel.Store.Talks" Multiplicity="1" />
+    <End Role="TalkSpeaker" Type="TechEdModel.Store.TalkSpeaker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Talks">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TalkSpeaker">
+        <PropertyRef Name="Talks_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="CompletelyUnrelatedQuery_DBSysObjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+</Schema>

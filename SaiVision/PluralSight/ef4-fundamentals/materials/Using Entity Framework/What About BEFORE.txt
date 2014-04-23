@@ -1,0 +1,1 @@
+For this course, start with the AFTER solution of "Create a Model from a Database" in "Models in Entity Framework" folder.

@@ -1,0 +1,9 @@
+F:\Documents\Visual Studio 2010\Projects\throwaway\BOApractice\BOAEF4\bin\Debug\BOAEF4.exe
+F:\Documents\Visual Studio 2010\Projects\throwaway\BOApractice\BOAEF4\bin\Debug\BOAEF4.pdb
+F:\Documents\Visual Studio 2010\Projects\throwaway\BOApractice\BOAEF4\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\throwaway\BOApractice\BOAEF4\obj\x86\Debug\BOAEF4.exe
+F:\Documents\Visual Studio 2010\Projects\throwaway\BOApractice\BOAEF4\obj\x86\Debug\BOAEF4.pdb
+F:\Documents\Visual Studio 2010\Projects\throwaway\BOApractice\BOAEF4\bin\Debug\BOAEF4.exe.config
+F:\Documents\Visual Studio 2010\Projects\throwaway\PSOD EF4 Office Hours\BOAEF4\bin\Debug\BOAEF4.exe.config
+F:\Documents\Visual Studio 2010\Projects\throwaway\PSOD EF4 Office Hours\BOAEF4\obj\x86\Debug\BOAEF4.exe
+F:\Documents\Visual Studio 2010\Projects\throwaway\PSOD EF4 Office Hours\BOAEF4\obj\x86\Debug\BOAEF4.pdb

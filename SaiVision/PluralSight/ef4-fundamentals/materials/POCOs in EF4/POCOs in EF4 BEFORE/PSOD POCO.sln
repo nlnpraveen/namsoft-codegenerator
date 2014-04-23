@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{07B58E9F-D4B4-45E3-BC47-E9090B984039}"
+	ProjectSection(SolutionItems) = preProject
+		ScriptToBuildDatabase.sql = ScriptToBuildDatabase.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSOD POCO", "POCO\PSOD POCO.csproj", "{00D744C2-C4F0-4C4F-8570-2F8BCACF23FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00D744C2-C4F0-4C4F-8570-2F8BCACF23FC}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{00D744C2-C4F0-4C4F-8570-2F8BCACF23FC}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{00D744C2-C4F0-4C4F-8570-2F8BCACF23FC}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{00D744C2-C4F0-4C4F-8570-2F8BCACF23FC}.Debug|x86.ActiveCfg = Debug|x86
+		{00D744C2-C4F0-4C4F-8570-2F8BCACF23FC}.Debug|x86.Build.0 = Debug|x86
+		{00D744C2-C4F0-4C4F-8570-2F8BCACF23FC}.Release|Any CPU.ActiveCfg = Release|x86
+		{00D744C2-C4F0-4C4F-8570-2F8BCACF23FC}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{00D744C2-C4F0-4C4F-8570-2F8BCACF23FC}.Release|Mixed Platforms.Build.0 = Release|x86
+		{00D744C2-C4F0-4C4F-8570-2F8BCACF23FC}.Release|x86.ActiveCfg = Release|x86
+		{00D744C2-C4F0-4C4F-8570-2F8BCACF23FC}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

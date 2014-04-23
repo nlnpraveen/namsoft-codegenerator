@@ -1,0 +1,79 @@
+﻿<Window x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="507" Width="830" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Loaded="Window_Loaded" xmlns:my="clr-namespace:WpfApplication1">
+    <Window.Resources>
+        <CollectionViewSource x:Key="customersViewSource" d:DesignSource="{d:DesignInstance my:Customer, CreateList=True}" />
+        <CollectionViewSource x:Key="customersSalesOrderHeadersViewSource" Source="{Binding Path=SalesOrderHeaders, Source={StaticResource customersViewSource}}" />
+    </Window.Resources>
+    <Grid Height="475" Width="765" DataContext="{StaticResource customersViewSource}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="169*" />
+            <RowDefinition Height="223*" />
+        </Grid.RowDefinitions>
+        <DataGrid AutoGenerateColumns="False" EnableRowVirtualization="True" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="12,0,0,242" Name="customersDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Width="741" Grid.RowSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="customerIDColumn" Binding="{Binding Path=CustomerID}" Header="Customer ID" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="titleColumn" Binding="{Binding Path=Title}" Header="Title" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="firstNameColumn" Binding="{Binding Path=FirstName}" Header="First Name" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="middleNameColumn" Binding="{Binding Path=MiddleName}" Header="Middle Name" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="lastNameColumn" Binding="{Binding Path=LastName}" Header="Last Name" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="suffixColumn" Binding="{Binding Path=Suffix}" Header="Suffix" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="companyColumn" Binding="{Binding Path=Company}" Header="Company" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="salesPersonColumn" Binding="{Binding Path=SalesPerson}" Header="Sales Person" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="emailAddressColumn" Binding="{Binding Path=EmailAddress}" Header="Email Address" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="phoneColumn" Binding="{Binding Path=Phone}" Header="Phone" Width="SizeToHeader" />
+                <DataGridTemplateColumn x:Name="modifiedDateColumn" Header="Modified Date" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding Path=ModifiedDate, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid AutoGenerateColumns="False" EnableRowVirtualization="True" Grid.Row="1" Height="223" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource customersSalesOrderHeadersViewSource}}" Margin="16,40,0,0" Name="salesOrderHeadersDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Top" Width="630">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="salesOrderIDColumn" Binding="{Binding Path=SalesOrderID}" Header="Sales Order ID" Width="SizeToHeader" />
+                <DataGridTemplateColumn x:Name="orderDateColumn" Header="Order Date" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding Path=OrderDate, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="dueDateColumn" Header="Due Date" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding Path=DueDate, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridCheckBoxColumn x:Name="onlineOrderFlagColumn" Binding="{Binding Path=OnlineOrderFlag}" Header="Online Order Flag" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="salesOrderNumberColumn" Binding="{Binding Path=SalesOrderNumber}" Header="Sales Order Number" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="purchaseOrderNumberColumn" Binding="{Binding Path=PurchaseOrderNumber}" Header="Purchase Order Number" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="accountNumberColumn" Binding="{Binding Path=AccountNumber}" Header="Account Number" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="customerIDColumn1" Binding="{Binding Path=CustomerID}" Header="Customer ID" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="billToAddressIDColumn" Binding="{Binding Path=BillToAddressID}" Header="Bill To Address ID" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="creditCardApprovalCodeColumn" Binding="{Binding Path=CreditCardApprovalCode}" Header="Credit Card Approval Code" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="subTotalColumn" Binding="{Binding Path=SubTotal}" Header="Sub Total" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="commentColumn" Binding="{Binding Path=Comment}" Header="Comment" Width="SizeToHeader" />
+                <DataGridTemplateColumn x:Name="modifiedDateColumn1" Header="Modified Date" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding Path=ModifiedDate, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="shipDateColumn" Header="Ship Date" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding Path=ShipDate, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Save" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="672,226,0,0" Name="Save" VerticalAlignment="Top" Width="75" Click="Save_Click" />
+    </Grid>
+</Window>

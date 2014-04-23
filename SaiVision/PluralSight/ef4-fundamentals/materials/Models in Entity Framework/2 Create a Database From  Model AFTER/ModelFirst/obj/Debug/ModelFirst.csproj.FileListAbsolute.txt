@@ -1,0 +1,6 @@
+F:\Documents\Visual Studio 2010\Projects\PSOD\ModelFirst\ModelFirst\bin\Debug\ModelFirst.dll.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\ModelFirst\ModelFirst\bin\Debug\ModelFirst.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\ModelFirst\ModelFirst\bin\Debug\ModelFirst.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\ModelFirst\ModelFirst\obj\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\ModelFirst\ModelFirst\obj\Debug\ModelFirst.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\ModelFirst\ModelFirst\obj\Debug\ModelFirst.pdb

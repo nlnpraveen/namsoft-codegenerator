@@ -1,0 +1,1 @@
+F:\Documents\Visual Studio 2010\Projects\PSOD\EF4 Fundamentals for Publish\Using Entity Framework\Using Entity Framework AFTER\ConsoleApplication4\bin\Debug\ConsoleApplication4.exe.config

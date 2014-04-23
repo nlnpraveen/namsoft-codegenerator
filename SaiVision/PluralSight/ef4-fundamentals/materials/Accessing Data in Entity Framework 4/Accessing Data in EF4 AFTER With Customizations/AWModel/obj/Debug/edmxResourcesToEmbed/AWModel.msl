@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AWModelStoreContainer" CdmEntityContainer="AWEntities">
+    <EntitySetMapping Name="BuildVersions">
+      <EntityTypeMapping TypeName="AWModel.BuildVersion">
+        <MappingFragment StoreEntitySet="BuildVersion">
+          <ScalarProperty Name="SystemInformationID" ColumnName="SystemInformationID" />
+          <ScalarProperty Name="Database_Version" ColumnName="Database Version" />
+          <ScalarProperty Name="VersionDate" ColumnName="VersionDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="AWModel.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
+          <ScalarProperty Name="CountryRegion" ColumnName="CountryRegion" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="AWModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="SurName" ColumnName="LastName" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="SalesPerson" ColumnName="SalesPerson" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerAddresses">
+      <EntityTypeMapping TypeName="AWModel.CustomerAddress">
+        <MappingFragment StoreEntitySet="CustomerAddress">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="AddressType" ColumnName="AddressType" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="AWModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+          <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+          <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+          <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+          <ScalarProperty Name="SellStartDate" ColumnName="SellStartDate" />
+          <ScalarProperty Name="SellEndDate" ColumnName="SellEndDate" />
+          <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ComplexProperty Name="PhysicalAttributes">
+            <ScalarProperty Name="Weight" ColumnName="Weight" />
+            <ScalarProperty Name="Size" ColumnName="Size" />
+            <ScalarProperty Name="Color" ColumnName="Color" />
+          </ComplexProperty>
+          <Condition ColumnName="DiscontinuedDate" IsNull="true" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCategories">
+      <EntityTypeMapping TypeName="AWModel.ProductCategory">
+        <MappingFragment StoreEntitySet="ProductCategory">
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+          <ScalarProperty Name="ParentProductCategoryID" ColumnName="ParentProductCategoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductDescriptions">
+      <EntityTypeMapping TypeName="AWModel.ProductDescription">
+        <MappingFragment StoreEntitySet="ProductDescription">
+          <ScalarProperty Name="ProductDescriptionID" ColumnName="ProductDescriptionID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductModels">
+      <EntityTypeMapping TypeName="AWModel.ProductModel">
+        <MappingFragment StoreEntitySet="ProductModel">
+          <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CatalogDescription" ColumnName="CatalogDescription" />
+          <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductModelProductDescriptions">
+      <EntityTypeMapping TypeName="AWModel.ProductModelProductDescription">
+        <MappingFragment StoreEntitySet="ProductModelProductDescription">
+          <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+          <ScalarProperty Name="ProductDescriptionID" ColumnName="ProductDescriptionID" />
+          <ScalarProperty Name="Culture" ColumnName="Culture" />
+          <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesOrderDetails">
+      <EntityTypeMapping TypeName="AWModel.SalesOrderDetail">
+        <MappingFragment StoreEntitySet="SalesOrderDetail">
+          <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+          <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+          <ScalarProperty Name="SalesOrderDetailID" ColumnName="SalesOrderDetailID" />
+          <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+          <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="AWModel.SalesOrderDetail">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="AWModel.Store.InsertOrderDetails">
+            <ScalarProperty Name="ModifiedDate" ParameterName="ModifiedDate" />
+            <ScalarProperty Name="rowguid" ParameterName="rowguid" />
+            <ScalarProperty Name="LineTotal" ParameterName="LineTotal" />
+            <ScalarProperty Name="UnitPriceDiscount" ParameterName="UnitPriceDiscount" />
+            <ScalarProperty Name="UnitPrice" ParameterName="UnitPrice" />
+            <ScalarProperty Name="ProductID" ParameterName="ProductID" />
+            <ScalarProperty Name="OrderQty" ParameterName="OrderQty" />
+            <ScalarProperty Name="SalesOrderID" ParameterName="SalesOrderID" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="AWModel.Store.UpdateOrderDetails">
+            <ScalarProperty Name="ModifiedDate" ParameterName="ModifiedDate" Version="Current" />
+            <ScalarProperty Name="rowguid" ParameterName="rowguid" Version="Current" />
+            <ScalarProperty Name="LineTotal" ParameterName="LineTotal" Version="Current" />
+            <ScalarProperty Name="UnitPriceDiscount" ParameterName="UnitPriceDiscount" Version="Current" />
+            <ScalarProperty Name="UnitPrice" ParameterName="UnitPrice" Version="Current" />
+            <ScalarProperty Name="ProductID" ParameterName="ProductID" Version="Current" />
+            <ScalarProperty Name="OrderQty" ParameterName="OrderQty" Version="Current" />
+            <ScalarProperty Name="SalesOrderDetailID" ParameterName="SalesOrderDetailID" Version="Current" />
+            <ScalarProperty Name="SalesOrderID" ParameterName="SalesOrderID" Version="Current" />
+            <ResultBinding Name="LineTotal" ColumnName="LineTotal" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="AWModel.Store.DeleteOrderDetails">
+            <ScalarProperty Name="SalesOrderDetailID" ParameterName="SalesOrderDetailID" />
+            <ScalarProperty Name="SalesOrderID" ParameterName="SalesOrderID" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="AWModel.Order">
+        <MappingFragment StoreEntitySet="SalesOrderHeader">
+          <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="OnlineOrderFlag" ColumnName="OnlineOrderFlag" />
+          <ScalarProperty Name="SalesOrderNumber" ColumnName="SalesOrderNumber" />
+          <ScalarProperty Name="PONumber" ColumnName="PurchaseOrderNumber" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="BillToAddressID" ColumnName="BillToAddressID" />
+          <ScalarProperty Name="CreditCardApprovalCode" ColumnName="CreditCardApprovalCode" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(AWModel.Order)">
+        <MappingFragment StoreEntitySet="SalesOrderHeaderShipping">
+          <ScalarProperty Name="ShipMethod" ColumnName="ShipMethod" />
+          <ScalarProperty Name="ShipToAddressID" ColumnName="ShipToAddressID" />
+          <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="custviews">
+      <EntityTypeMapping TypeName="AWModel.custview">
+        <MappingFragment StoreEntitySet="custview">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vGetAllCategories">
+      <EntityTypeMapping TypeName="AWModel.vGetAllCategory">
+        <MappingFragment StoreEntitySet="vGetAllCategories">
+          <ScalarProperty Name="ParentProductCategoryName" ColumnName="ParentProductCategoryName" />
+          <ScalarProperty Name="ProductCategoryName" ColumnName="ProductCategoryName" />
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vProductAndDescriptions">
+      <EntityTypeMapping TypeName="AWModel.vProductAndDescription">
+        <MappingFragment StoreEntitySet="vProductAndDescription">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductModel" ColumnName="ProductModel" />
+          <ScalarProperty Name="Culture" ColumnName="Culture" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vProductModelCatalogDescriptions">
+      <EntityTypeMapping TypeName="AWModel.vProductModelCatalogDescription">
+        <MappingFragment StoreEntitySet="vProductModelCatalogDescription">
+          <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Copyright" ColumnName="Copyright" />
+          <ScalarProperty Name="ProductURL" ColumnName="ProductURL" />
+          <ScalarProperty Name="WarrantyPeriod" ColumnName="WarrantyPeriod" />
+          <ScalarProperty Name="WarrantyDescription" ColumnName="WarrantyDescription" />
+          <ScalarProperty Name="NoOfYears" ColumnName="NoOfYears" />
+          <ScalarProperty Name="MaintenanceDescription" ColumnName="MaintenanceDescription" />
+          <ScalarProperty Name="Wheel" ColumnName="Wheel" />
+          <ScalarProperty Name="Saddle" ColumnName="Saddle" />
+          <ScalarProperty Name="Pedal" ColumnName="Pedal" />
+          <ScalarProperty Name="BikeFrame" ColumnName="BikeFrame" />
+          <ScalarProperty Name="Crankset" ColumnName="Crankset" />
+          <ScalarProperty Name="PictureAngle" ColumnName="PictureAngle" />
+          <ScalarProperty Name="PictureSize" ColumnName="PictureSize" />
+          <ScalarProperty Name="ProductPhotoID" ColumnName="ProductPhotoID" />
+          <ScalarProperty Name="Material" ColumnName="Material" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="ProductLine" ColumnName="ProductLine" />
+          <ScalarProperty Name="Style" ColumnName="Style" />
+          <ScalarProperty Name="RiderExperience" ColumnName="RiderExperience" />
+          <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="AWModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductPhotos">
+      <EntityTypeMapping TypeName="IsTypeOf(AWModel.ProductPhoto)">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProductId" ColumnName="ProductID" />
+          <ScalarProperty Name="ThumbnailPhotoFileName" ColumnName="ThumbnailPhotoFileName" />
+          <ScalarProperty Name="ThumbNailPhoto" ColumnName="ThumbNailPhoto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vSalesOrderDetails">
+      <EntityTypeMapping TypeName="AWModel.vSalesOrderDetail">
+        <MappingFragment StoreEntitySet="vSalesOrderDetail">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+          <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+          <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+          <ScalarProperty Name="SalesOrderDetailID" ColumnName="SalesOrderDetailID" />
+          <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetOrderDetailsForOrder" FunctionName="AWModel.Store.GetOrderDetailsForOrder" />
+    <FunctionImportMapping FunctionImportName="GetCustomersWithOrdersGreaterThan" FunctionName="AWModel.Store.CustomersWithOrdersGreaterThan" />
+    <FunctionImportMapping FunctionImportName="GetCustomerNamesWithSalesOrderTotals" FunctionName="AWModel.Store.GetCustomerNamesWithSalesOrderTotals">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AWModel.CustomerOrderOverview">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="OrderCount" ColumnName="OrderCount" />
+          <ScalarProperty Name="OrderTotal" ColumnName="OrderTotal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ApplyShipDateToOrder" FunctionName="AWModel.Store.ApplyShipDateToOrder" />
+  </EntityContainerMapping>
+</Mapping>

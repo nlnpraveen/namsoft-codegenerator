@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TechEdModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="TechEdModelStoreContainer">
+          <EntitySet Name="Rooms" EntityType="TechEdModel.Store.Rooms" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Speakers" EntityType="TechEdModel.Store.Speakers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Talks" EntityType="TechEdModel.Store.Talks" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TalkSpeaker" EntityType="TechEdModel.Store.TalkSpeaker" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Talks_Rooms" Association="TechEdModel.Store.FK_Talks_Rooms">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="Talks" EntitySet="Talks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TalkSpeaker_Speaker" Association="TechEdModel.Store.FK_TalkSpeaker_Speaker">
+            <End Role="Speakers" EntitySet="Speakers" />
+            <End Role="TalkSpeaker" EntitySet="TalkSpeaker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TalkSpeaker_Talk" Association="TechEdModel.Store.FK_TalkSpeaker_Talk">
+            <End Role="Talks" EntitySet="Talks" />
+            <End Role="TalkSpeaker" EntitySet="TalkSpeaker" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Rooms">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoomNumber" Type="nchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Speakers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Talks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TalkTime" Type="datetime" Nullable="false" />
+          <Property Name="RoomId" Type="int" />
+        </EntityType>
+        <EntityType Name="TalkSpeaker">
+          <Key>
+            <PropertyRef Name="Talks_Id" />
+            <PropertyRef Name="Speakers_Id" />
+          </Key>
+          <Property Name="Talks_Id" Type="int" Nullable="false" />
+          <Property Name="Speakers_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Talks_Rooms">
+          <End Role="Rooms" Type="TechEdModel.Store.Rooms" Multiplicity="0..1" />
+          <End Role="Talks" Type="TechEdModel.Store.Talks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="Talks">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TalkSpeaker_Speaker">
+          <End Role="Speakers" Type="TechEdModel.Store.Speakers" Multiplicity="1" />
+          <End Role="TalkSpeaker" Type="TechEdModel.Store.TalkSpeaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speakers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TalkSpeaker">
+              <PropertyRef Name="Speakers_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TalkSpeaker_Talk">
+          <End Role="Talks" Type="TechEdModel.Store.Talks" Multiplicity="1" />
+          <End Role="TalkSpeaker" Type="TechEdModel.Store.TalkSpeaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Talks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TalkSpeaker">
+              <PropertyRef Name="Talks_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="CompletelyUnrelatedQuery_DBSysObjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ConferenceModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ConferenceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Rooms" EntityType="ConferenceModel.Room" />
+          <EntitySet Name="Speakers" EntityType="ConferenceModel.Speaker" />
+          <EntitySet Name="Talks" EntityType="ConferenceModel.Talk" />
+          <AssociationSet Name="FK_Talks_Rooms" Association="ConferenceModel.FK_Talks_Rooms">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="Talks" EntitySet="Talks" />
+          </AssociationSet>
+          <AssociationSet Name="TalkSpeaker" Association="ConferenceModel.TalkSpeaker">
+            <End Role="Speakers" EntitySet="Speakers" />
+            <End Role="Talks" EntitySet="Talks" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoomNumber" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Talks" Relationship="ConferenceModel.FK_Talks_Rooms" FromRole="Rooms" ToRole="Talks" />
+        </EntityType>
+        <EntityType Name="Speaker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Talks" Relationship="ConferenceModel.TalkSpeaker" FromRole="Speakers" ToRole="Talks" />
+        </EntityType>
+        <EntityType Name="Talk">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="TalkTime" Type="DateTime" Nullable="false" />
+          <Property Name="RoomId" Type="Int32" />
+          <NavigationProperty Name="Room" Relationship="ConferenceModel.FK_Talks_Rooms" FromRole="Talks" ToRole="Rooms" />
+          <NavigationProperty Name="Speakers" Relationship="ConferenceModel.TalkSpeaker" FromRole="Talks" ToRole="Speakers" />
+        </EntityType>
+        <Association Name="FK_Talks_Rooms">
+          <End Role="Rooms" Type="ConferenceModel.Room" Multiplicity="0..1" />
+          <End Role="Talks" Type="ConferenceModel.Talk" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="Talks">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TalkSpeaker">
+          <End Role="Speakers" Type="ConferenceModel.Speaker" Multiplicity="*" />
+          <End Role="Talks" Type="ConferenceModel.Talk" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TechEdModelStoreContainer" CdmEntityContainer="ConferenceEntities">
+          <EntitySetMapping Name="Rooms"><EntityTypeMapping TypeName="ConferenceModel.Room"><MappingFragment StoreEntitySet="Rooms">
+            <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+            <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Speakers"><EntityTypeMapping TypeName="ConferenceModel.Speaker"><MappingFragment StoreEntitySet="Speakers">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Talks"><EntityTypeMapping TypeName="ConferenceModel.Talk"><MappingFragment StoreEntitySet="Talks">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="TalkTime" ColumnName="TalkTime" />
+            <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="TalkSpeaker" TypeName="ConferenceModel.TalkSpeaker" StoreEntitySet="TalkSpeaker">
+            <EndProperty Name="Speakers">
+              <ScalarProperty Name="Id" ColumnName="Speakers_Id" />
+            </EndProperty>
+            <EndProperty Name="Talks">
+              <ScalarProperty Name="Id" ColumnName="Talks_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1" ZoomLevel="97">
+        <EntityTypeShape EntityType="ConferenceModel.Room" Width="1.5" PointX="0.75" PointY="1.25" Height="1.5956835937499998" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceModel.Speaker" Width="1.5" PointX="5.375" PointY="1.125" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceModel.Talk" Width="1.5" PointX="3" PointY="0.875" Height="2.1725878906249996" IsExpanded="true" />
+        <AssociationConnector Association="ConferenceModel.FK_Talks_Rooms" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.047841796875" />
+          <ConnectorPoint PointX="3" PointY="2.047841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="ConferenceModel.TalkSpeaker" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.375" PointY="1.9228417968749998" />
+          <ConnectorPoint PointX="4.5" PointY="1.9228417968749998" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

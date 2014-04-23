@@ -1,0 +1,2 @@
+For these modules, you'll start by creating new projects.
+Note that Create a Model from a Database will require the AdventureWorksSuperLT database that is included in this download.
