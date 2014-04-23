@@ -1,6 +1,6 @@
 USE [CodeGenerator]
 GO
-
+-- Inserting is done from least dependent to most dependent
 DELETE FROM [CGEN_MasterTableColumn]
 DBCC CHECKIDENT (CGEN_MasterTableColumn, reseed, 0)
 DELETE FROM [CGEN_MasterTable]
@@ -8,11 +8,31 @@ DBCC CHECKIDENT (CGEN_MasterTable, reseed, 0)
 DELETE FROM [CGEN_MasterDatabase]
 DBCC CHECKIDENT (CGEN_MasterDatabase, reseed, 0)
 
-INSERT INTO [dbo].[CGEN_MasterDatabase]([DatabaseName])
-VALUES('CommandCenter')
-INSERT INTO [dbo].[CGEN_MasterDatabase]([DatabaseName])
-VALUES('Lifetime')
+INSERT INTO [CodeGenerator].[dbo].[CGEN_Namespace]
+           ([NamespaceName]
+           ,[IsActive])
+     VALUES
+           ('SaiVision.GeneratedObjects'
+           ,1)
 GO
+
+INSERT INTO [dbo].[CGEN_MasterDatabase]([DatabaseName],[DefaultNamespaceId])
+VALUES('CommandCenter',1)
+INSERT INTO [dbo].[CGEN_MasterDatabase]([DatabaseName],[DefaultNamespaceId])
+VALUES('Lifetime',1)
+GO
+
+-- Associate the default namespace to all databases
+INSERT INTO [CodeGenerator].[dbo].[CGEN_DatabaseNamespace]
+           ([CGEN_MasterDatabaseId]
+           ,[CGEN_NamespaceId])
+SELECT md.[CGEN_MasterDatabaseId], 1 
+FROM dbo.CGEN_MasterDatabase md
+LEFT JOIN dbo.[CGEN_DatabaseNamespace] dn ON md.CGEN_MasterDatabaseId=dn.CGEN_MasterDatabaseId AND dn.[CGEN_NamespaceId]=1
+WHERE dn.[CGEN_NamespaceId] Is Null
+GO
+
+
 --SELECT * FROM [CGEN_MasterDatabase]
 
 IF EXISTS ( SELECT 'X' FROM [tempdb].[sys].[objects] WHERE (([object_id] = Object_Id(N'[tempdb].[dbo].[#DatabaseTables]'))AND([type] = 'U')) )	

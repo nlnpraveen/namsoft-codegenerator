@@ -90,5 +90,23 @@ namespace SaiVision.Tools.CodeGenerator.Manager.Tests
             xser.WriteObject(fs, dbs);
             fs.Close();
         }
+
+        /// <summary>
+        ///A test for SaveDatabaseNamespaces
+        ///</summary>
+        [TestMethod()]
+        public void SaveDatabaseNamespacesTest()
+        {
+            DBManager target = new DBManager(); // TODO: Initialize to an appropriate value
+            List<DatabaseNamespace> clDatabaseNamespace = new List<DatabaseNamespace>(); // TODO: Initialize to an appropriate value
+            clDatabaseNamespace.Add(new DatabaseNamespace() { DatabaseId = 1, NamespaceId = 1, NamespaceName = "SaiVision.GeneratedObjects", IsSelected = true });
+            clDatabaseNamespace.Add(new DatabaseNamespace() { DatabaseId = 1, NamespaceId = 24, NamespaceName = "Saivision.GeneratedObjects.Activity", IsSelected = true });
+            clDatabaseNamespace.Add(new DatabaseNamespace() { DatabaseId = 1, NamespaceId = 25, NamespaceName = "Saivision.GeneratedObjects.ActivityWorkflow", IsSelected = true });
+            clDatabaseNamespace.Add(new DatabaseNamespace() { DatabaseId = 1, NamespaceId = 26, NamespaceName = "SaiVision.GeneratedObjects.RegularExpressions", IsSelected = true });
+            clDatabaseNamespace.Add(new DatabaseNamespace() { DatabaseId = 1, NamespaceName = "SaiVision.GeneratedObjects.Enterprize", IsSelected = true });
+            
+            target.SaveDatabaseNamespaces(clDatabaseNamespace);
+            //Assert.Inconclusive("A method that does not return a value cannot be verified.");
+        }
     }
 }

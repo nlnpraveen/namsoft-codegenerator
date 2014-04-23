@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
@@ -60,9 +61,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Tools\CodeGenerator\ViewModels\MicroMvvm\SaiVision.Platform.MvvmInfrastructure.csproj">
+      <Project>{9EFE6CBD-DF21-436E-9F81-E258BAB0B653}</Project>
+      <Name>SaiVision.Platform.MvvmInfrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\CommonLibrary\src\SaiVision.Platform.CommonLibrary.csproj">
       <Project>{07d541f9-06d5-4a38-bd26-1e6f93b05918}</Project>
       <Name>SaiVision.Platform.CommonLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\CommonUtil\src\SaiVision.Platform.CommonUtil.csproj">
+      <Project>{38D75C42-6371-42D0-8218-CCB283DB942F}</Project>
+      <Name>SaiVision.Platform.CommonUtil</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DataAccess\src\SaiVision.Platform.CodeGenerator.DataAccess.csproj">
       <Project>{A7FC0D32-4B20-4937-A4AD-763EACE46BC6}</Project>

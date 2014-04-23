@@ -5,10 +5,11 @@ using System.Text;
 using System.Data;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
+using SaiVision.Platform.MvvmInfrastructure.DomainModel;
 
 namespace SaiVision.Tools.CodeGenerator.Manager
 {
-    public class TableMetaData
+    public class TableMetaData : DomainObject
     {
         #region [ Fields ]
         ColumnMetaDataCollection _Columns;
@@ -35,9 +36,15 @@ namespace SaiVision.Tools.CodeGenerator.Manager
         public string PrimaryKeyNamesPascal { get; set; }
         [XmlAttribute()]
         public string PrimaryKeyNamesCamel { get; set; }
+        [XmlIgnore()]
+        public string NamespaceName { get; set; }
+        [XmlAttribute()]
+        public int NamespaceId { get; set; }
 
         [XmlAttribute()]
         public bool IsGenerateCode { get; set; }
+        [XmlAttribute()]
+        public bool IsGenerateCodeAlways { get; set; }
 
         [XmlIgnore()]
         public string[] PrimaryKey { get; set; }
@@ -129,7 +136,9 @@ namespace SaiVision.Tools.CodeGenerator.Manager
         {
             TableName = (row.Table.Columns.Contains("TableName") && row["TableName"] != DBNull.Value) ? row["TableName"].ToString() : TableName;
             TableNamePascal = (row.Table.Columns.Contains("TableNamePascal") && row["TableNamePascal"] != DBNull.Value) ? row["TableNamePascal"].ToString() : TableNamePascal;
-            TableNameCamel = (row.Table.Columns.Contains("TableNameCamel") && row["TableNameCamel"] != DBNull.Value) ? row["TableNameCamel"].ToString(): TableNameCamel;
+            TableNameCamel = (row.Table.Columns.Contains("TableNameCamel") && row["TableNameCamel"] != DBNull.Value) ? row["TableNameCamel"].ToString() : TableNameCamel;
+            NamespaceName = (row.Table.Columns.Contains("NamespaceName") && row["NamespaceName"] != DBNull.Value) ? row["NamespaceName"].ToString() : NamespaceName;
+            NamespaceId = (row.Table.Columns.Contains("NamespaceId") && row["NamespaceId"] != DBNull.Value) ? int.Parse(row["NamespaceId"].ToString()) : NamespaceId;
             IsSelect = (row.Table.Columns.Contains("IsSelect") && row["IsSelect"] != DBNull.Value) ? bool.Parse(row["IsSelect"].ToString()) : IsSelect;
             IsInsert = (row.Table.Columns.Contains("IsInsert") && row["IsInsert"] != DBNull.Value) ? bool.Parse(row["IsInsert"].ToString()) : IsInsert;
             IsInsertBulk = (row.Table.Columns.Contains("IsInsertBulk") && row["IsInsertBulk"] != DBNull.Value) ? bool.Parse(row["IsInsertBulk"].ToString()) : IsInsertBulk;
@@ -155,6 +164,7 @@ namespace SaiVision.Tools.CodeGenerator.Manager
 
             TableId = (row.Table.Columns.Contains("TableId") && row["TableId"] != DBNull.Value) ? int.Parse(row["TableId"].ToString()) : TableId;
             IsGenerateCode = (row.Table.Columns.Contains("IsGenerateCode") && row["IsGenerateCode"] != DBNull.Value) ? bool.Parse(row["IsGenerateCode"].ToString()) : IsGenerateCode;
+            IsGenerateCodeAlways = (row.Table.Columns.Contains("IsGenerateCodeAlways") && row["IsGenerateCodeAlways"] != DBNull.Value) ? bool.Parse(row["IsGenerateCodeAlways"].ToString()) : IsGenerateCodeAlways;
 
             /* Primary Key */
             if (row.Table.Columns.Contains("PrimaryKey") && row["PrimaryKey"] != DBNull.Value)

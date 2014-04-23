@@ -5,6 +5,13 @@ IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[
 ALTER TABLE [dbo].[CGEN_MasterTable] DROP CONSTRAINT [FK_CGEN_MasterTable_CGEN_MasterDatabase]
 GO
 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF_CGEN_MasterTable_SchemaName]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[CGEN_MasterTable] DROP CONSTRAINT [DF_CGEN_MasterTable_SchemaName]
+END
+
+GO
+
 IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF_CGEN_MasterTable_IsSelect]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[CGEN_MasterTable] DROP CONSTRAINT [DF_CGEN_MasterTable_IsSelect]
@@ -82,13 +89,6 @@ END
 
 GO
 
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF_CGEN_MasterTable_IsTruncatePrefix_Column]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[CGEN_MasterTable] DROP CONSTRAINT [DF_CGEN_MasterTable_IsTruncatePrefix_Column]
-END
-
-GO
-
 IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF_CGEN_MasterTable_CreateDate]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[CGEN_MasterTable] DROP CONSTRAINT [DF_CGEN_MasterTable_CreateDate]
@@ -96,10 +96,24 @@ END
 
 GO
 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF_CGEN_MasterTable_IsGenerateCode]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[CGEN_MasterTable] DROP CONSTRAINT [DF_CGEN_MasterTable_IsGenerateCode]
+END
+
+GO
+
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF_CGEN_MasterTable_IsGenerateCodeAlways]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[CGEN_MasterTable] DROP CONSTRAINT [DF_CGEN_MasterTable_IsGenerateCodeAlways]
+END
+
+GO
+
 USE [CodeGenerator]
 GO
 
-/****** Object:  Table [dbo].[CGEN_MasterTable]    Script Date: 08/04/2012 01:19:56 ******/
+/****** Object:  Table [dbo].[CGEN_MasterTable]    Script Date: 06/18/2013 16:00:03 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CGEN_MasterTable]') AND type in (N'U'))
 DROP TABLE [dbo].[CGEN_MasterTable]
 GO

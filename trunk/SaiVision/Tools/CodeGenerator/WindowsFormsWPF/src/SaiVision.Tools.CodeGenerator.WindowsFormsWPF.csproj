@@ -96,9 +96,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ViewModels\MicroMvvm\MicroMvvm.csproj">
+    <ProjectReference Include="..\..\ViewModels\MicroMvvm\SaiVision.Platform.MvvmInfrastructure.csproj">
       <Project>{9EFE6CBD-DF21-436E-9F81-E258BAB0B653}</Project>
-      <Name>MicroMvvm</Name>
+      <Name>SaiVision.Platform.MvvmInfrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\ViewModels\src\SaiVision.Tools.CodeGenerator.ViewModels.csproj">
       <Project>{684CF4BD-756E-4B5A-B241-B684493F2229}</Project>

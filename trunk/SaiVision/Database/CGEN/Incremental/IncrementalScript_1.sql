@@ -22,6 +22,11 @@ CREATE TABLE [dbo].[CGEN_MasterDatabase](
 GO
 
 ALTER TABLE [dbo].[CGEN_MasterDatabase] ADD [LastSyncDate] [datetime] Null
+ALTER TABLE [dbo].[CGEN_MasterDatabase] ADD [DefaultNamespaceId] [int] Null
+GO
+UPDATE [CGEN_MasterDatabase] SET [DefaultNamespaceId]=1
+GO
+ALTER TABLE [dbo].[CGEN_MasterDatabase] ADD [DefaultNamespaceId] [int] Not Null
 GO
 /************* END [CGEN_MasterTable] ******************/
 
@@ -33,6 +38,8 @@ ALTER TABLE [dbo].[CGEN_MasterTable] ADD [TableNamePascal] NVarChar(128) Not Nul
 ALTER TABLE [dbo].[CGEN_MasterTable] ADD [TableNameCamel] NVarChar(128) Not Null
 ALTER TABLE [dbo].[CGEN_MasterTable] ADD [PrimaryKeyColumnName] NVarChar(2000) Null
 ALTER TABLE [dbo].[CGEN_MasterTable] ADD [IsGenerateCode] Bit Null
+ALTER TABLE [dbo].[CGEN_MasterTable] ADD [CGEN_NamespaceId] Int Null
+ALTER TABLE [dbo].[CGEN_MasterTable] ADD [IsGenerateCodeAlways] Bit Null
 GO
 ALTER TABLE [dbo].[CGEN_MasterTableColumn]  WITH CHECK ADD  CONSTRAINT [FK_CGEN_MasterTable_CGEN_MasterDatabase] FOREIGN KEY([CGEN_MasterDatabaseId])
 REFERENCES [dbo].CGEN_MasterDatabase ([CGEN_MasterDatabaseId])
@@ -42,6 +49,10 @@ GO
 ALTER TABLE [dbo].[CGEN_MasterTable] ADD  CONSTRAINT [DF_CGEN_MasterTable_IsGenerateCode]  DEFAULT ((0)) FOR [IsGenerateCode]
 GO
 UPDATE [CGEN_MasterTable] SET [IsGenerateCode]='False'
+GO
+ALTER TABLE [dbo].[CGEN_MasterTable] ADD  CONSTRAINT [DF_CGEN_MasterTable_IsGenerateCodeAlways]  DEFAULT ((0)) FOR [IsGenerateCodeAlways]
+GO
+UPDATE [CGEN_MasterTable] SET [IsGenerateCodeAlways]='False'
 GO
 ALTER TABLE [dbo].[CGEN_MasterTable] ALTER COLUMN [IsGenerateCode] Bit Not Null
 GO

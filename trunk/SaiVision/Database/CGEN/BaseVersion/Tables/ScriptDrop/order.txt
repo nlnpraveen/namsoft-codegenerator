@@ -4,6 +4,8 @@
 CGEN_MasterTableColumnFilter
 CGEN_MasterTableColumn
 CGEN_MasterTable
-CGEN_DataTypes
+CGEN_MasterDatabaseNamespace
 CGEN_MasterDatabase
+CGEN_Namespaces
+CGEN_DataTypes
 ErrorLog
