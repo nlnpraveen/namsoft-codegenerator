@@ -6,16 +6,18 @@ using SaiVision.Tools.CodeGenerator.Manager;
 using MicroMvvm;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using SaiVision.Platform.MvvmInfrastructure.ViewModel;
 
 namespace SaiVision.Tools.CodeGenerator.ViewModels
 {
-    public class TableViewModel : ObservableObject
+    public class TableViewModel : DynamicViewModel
     {
         #region [ Fields ]
         TableMetaData _Table;
         #endregion
 
         #region [ Properties ]
+        /*
         /// <summary>
         /// Gets or sets the name of the table.
         /// </summary>
@@ -35,33 +37,7 @@ namespace SaiVision.Tools.CodeGenerator.ViewModels
             } 
         }
 
-        /// <summary>
-        /// Gets the table id.
-        /// </summary>
-        /// <value>
-        /// The table id.
-        /// </value>
-        public int TableId
-        {
-            get
-            {
-                return _Table.TableId;
-            }
-        }
 
-        /// <summary>
-        /// Gets a value indicating whether the table is having a primary key.
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if this instance is table having primary key; otherwise, <c>false</c>.
-        /// </value>
-        public bool IsTableHavingPrimaryKey
-        {
-            get
-            {
-                return !string.IsNullOrEmpty(_Table.PrimaryKeyNames);
-            }
-        }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is select by PK.
@@ -259,6 +235,35 @@ namespace SaiVision.Tools.CodeGenerator.ViewModels
                 RaisePropertyChanged("TableNameCamel");
             }
         }
+        */
+
+        /// <summary>
+        /// Gets the table id.
+        /// </summary>
+        /// <value>
+        /// The table id.
+        /// </value>
+        public int TableId
+        {
+            get
+            {
+                return _Table.TableId;
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether the table is having a primary key.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is table having primary key; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsTableHavingPrimaryKey
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(_Table.PrimaryKeyNames);
+            }
+        }
 
         public ObservableCollection<ColumnViewModel> Columns { get; set; }
 
@@ -276,7 +281,7 @@ namespace SaiVision.Tools.CodeGenerator.ViewModels
         {
         }
 
-        public TableViewModel(TableMetaData table)
+        public TableViewModel(TableMetaData table) : base(table)
         {
             _Table = table;
             Columns = new ObservableCollection<ColumnViewModel>();

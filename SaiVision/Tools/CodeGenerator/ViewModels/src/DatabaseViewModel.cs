@@ -7,6 +7,7 @@ using SaiVision.Tools.CodeGenerator.Manager;
 using System.Windows.Input;
 using MicroMvvm;
 using SaiVision.Platform.CommonUtil.Extensions;
+using SaiVision.Platform.MvvmInfrastructure.ViewModel;
 
 namespace SaiVision.Tools.CodeGenerator.ViewModels
 {
@@ -21,7 +22,7 @@ namespace SaiVision.Tools.CodeGenerator.ViewModels
         public ObservableCollection<TableViewModel> Tables { get; set; }
         public ObservableCollection<TableViewModel> SelectedTables { get; set; }
         //public List<TableMetaData> Tables { get; set; }
-
+        
         public int SelectionTableId
         {
             get

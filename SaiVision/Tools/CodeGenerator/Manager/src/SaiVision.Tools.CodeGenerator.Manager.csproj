@@ -72,6 +72,7 @@
     <Compile Include="MetaData\ColumnMetaDataCollection.cs" />
     <Compile Include="Generators\DataAccessGenerator.cs" />
     <Compile Include="DBManager.cs" />
+    <Compile Include="MetaData\DatabaseNamespace.cs" />
     <Compile Include="MetaData\DBMetaData.cs" />
     <Compile Include="Generators\ManagerGenerator.cs" />
     <Compile Include="Generators\ModelGenerator.cs" />
@@ -88,6 +89,10 @@
     <ProjectReference Include="..\..\DataAccess\src\SaiVision.Tools.CodeGenerator.DataAccess.csproj">
       <Project>{1D942AC5-7942-4BD2-9476-A1CB23BF0DD0}</Project>
       <Name>SaiVision.Tools.CodeGenerator.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ViewModels\MicroMvvm\SaiVision.Platform.MvvmInfrastructure.csproj">
+      <Project>{9efe6cbd-df21-436e-9f81-e258bab0b653}</Project>
+      <Name>SaiVision.Platform.MvvmInfrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

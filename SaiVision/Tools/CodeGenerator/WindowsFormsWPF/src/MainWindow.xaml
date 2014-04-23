@@ -19,7 +19,7 @@
             <Setter Property="Border.Padding" Value="2" />
             <Setter Property="Border.Background" Value="#3399FF" />
             <Setter Property="Border.Margin" Value="0 0 0 7" />
-            <!--Border.Background>
+            <!--Border.Background>  
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="LightBlue" Offset="0.0" />
                     <GradientStop Color="Blue" Offset="1.0" />

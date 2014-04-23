@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Xml.Serialization;
+using SaiVision.Platform.MvvmInfrastructure.DomainModel;
 
 namespace SaiVision.Tools.CodeGenerator.Manager
 {
-    public class ColumnMetaData
+    public class ColumnMetaData : DomainObject
     {
         #region [ Fields ]
 

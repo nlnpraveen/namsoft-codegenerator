@@ -5,6 +5,7 @@ using System.Text;
 using System.Data;
 using System.Threading;
 using SaiVision.Tools.CodeGenerator.DataAccess;
+using SaiVision.Platform.CommonUtil.Serialization;
 
 namespace SaiVision.Tools.CodeGenerator.Manager
 {
@@ -17,7 +18,7 @@ namespace SaiVision.Tools.CodeGenerator.Manager
         #endregion
 
         #region [ Ctor ]
-        public DBManager() { } 
+        //public DBManager() { } 
         #endregion
 
         #region [ Singleton ]
@@ -71,7 +72,35 @@ namespace SaiVision.Tools.CodeGenerator.Manager
             }
 
             return databases;
-        }        
+        }
+
+        /// <summary>
+        /// Gets the database namespaces.
+        /// </summary>
+        /// <param name="databaseId">The database id.</param>
+        /// <returns></returns>
+        public List<DatabaseNamespace> GetDatabaseNamespaces(int databaseId)
+        {
+            DataTable dtDatabaseNamespaces = NamsMetadataDM.GetDatabaseNamespaces(databaseId);
+
+            List<DatabaseNamespace> clnDatabaseNamespaces = new List<DatabaseNamespace>();
+            foreach (DataRow row in dtDatabaseNamespaces.Rows)
+            {
+                clnDatabaseNamespaces.Add(new DatabaseNamespace(row));
+            }
+
+            return clnDatabaseNamespaces;
+        }
+
+        /// <summary>
+        /// Saves the database namespaces.
+        /// </summary>
+        /// <param name="clDatabaseNamespace">The cl database namespace.</param>
+        public void SaveDatabaseNamespaces(List<DatabaseNamespace> clDatabaseNamespace)
+        {
+            string xmlDatabaseNamespace = XmlSerializationHelper.ToXmlString(clDatabaseNamespace, true);
+            NamsMetadataDM.SaveDatabaseNamespaces(xmlDatabaseNamespace);
+        }
         #endregion
     }
 }

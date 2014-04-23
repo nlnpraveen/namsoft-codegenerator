@@ -3,7 +3,9 @@
 -- THe table you are entering should be listed above the tables that are dependent on it
 ErrorLog
 CGEN_DataTypes
+CGEN_Namespaces
 CGEN_MasterDatabase
+CGEN_MasterDatabaseNamespace
 CGEN_MasterTable
 CGEN_MasterTableColumn
 CGEN_MasterTableColumnFilter

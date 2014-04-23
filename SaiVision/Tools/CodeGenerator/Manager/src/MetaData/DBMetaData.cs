@@ -7,11 +7,12 @@ using SaiVision.Tools.CodeGenerator.DataAccess;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using SaiVision.Platform.CommonUtil.Serialization;
+using SaiVision.Platform.MvvmInfrastructure.DomainModel;
 
 namespace SaiVision.Tools.CodeGenerator.Manager
 {
     [DataContract()]
-    public class DBMetaData
+    public class DBMetaData : DomainObject
     {
         #region [ Fields ]
         TableMetaDataCollection _tables;

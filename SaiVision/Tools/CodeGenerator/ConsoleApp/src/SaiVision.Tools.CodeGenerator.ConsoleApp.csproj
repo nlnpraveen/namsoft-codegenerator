@@ -84,6 +84,10 @@
       <Project>{759F9B84-D5E0-40B3-B2ED-933B9526304C}</Project>
       <Name>SaiVision.Tools.CodeGenerator.Manager</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\ViewModels\MicroMvvm\SaiVision.Platform.MvvmInfrastructure.csproj">
+      <Project>{9efe6cbd-df21-436e-9f81-e258bab0b653}</Project>
+      <Name>SaiVision.Platform.MvvmInfrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

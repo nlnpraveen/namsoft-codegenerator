@@ -1,7 +1,7 @@
 USE [CodeGenerator]
 GO
 
-/****** Object:  Table [dbo].[CGEN_MasterTable]    Script Date: 08/04/2012 01:21:45 ******/
+/****** Object:  Table [dbo].[CGEN_MasterTable]    Script Date: 06/18/2013 15:50:39 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -11,6 +11,7 @@ GO
 CREATE TABLE [dbo].[CGEN_MasterTable](
 	[CGEN_MasterTableId] [int] IDENTITY(1,1) NOT NULL,
 	[CGEN_MasterDatabaseId] [int] NOT NULL,
+	[CGEN_NamespaceId] [int] NULL,
 	[SchemaName] [nvarchar](128) NOT NULL,
 	[TableName] [nvarchar](128) NOT NULL,
 	[TableNamePascal] [nvarchar](128) NULL,
@@ -33,7 +34,8 @@ CREATE TABLE [dbo].[CGEN_MasterTable](
 	[PrefixToTruncate_Column] [nvarchar](128) NULL,
 	[PrefixToApply_Column] [nchar](10) NULL,
 	[CreateDate] [datetime] NOT NULL,
-	[IsGenerateCode] Bit Not Null,
+	[IsGenerateCode] [bit] NOT NULL,
+	[IsGenerateCodeAlways] [bit] NOT NULL,
  CONSTRAINT [PK_CGEN_MasterTable] PRIMARY KEY CLUSTERED 
 (
 	[CGEN_MasterTableId] ASC
@@ -42,11 +44,14 @@ CREATE TABLE [dbo].[CGEN_MasterTable](
 
 GO
 
-ALTER TABLE [dbo].[CGEN_MasterTable]  WITH CHECK ADD  CONSTRAINT [FK_CGEN_MasterTable_CGEN_MasterDatabase] FOREIGN KEY([CGEN_MasterDatabaseId])
-REFERENCES [dbo].[CGEN_MasterDatabase] ([CGEN_MasterDatabaseId])
+ALTER TABLE [dbo].[CGEN_MasterTable]  WITH CHECK ADD  CONSTRAINT [FK_CGEN_MasterTable_CGEN_MasterDatabase] FOREIGN KEY([CGEN_NamespaceId])
+REFERENCES [dbo].[CGEN_Namespace] ([CGEN_NamespaceId])
 GO
 
 ALTER TABLE [dbo].[CGEN_MasterTable] CHECK CONSTRAINT [FK_CGEN_MasterTable_CGEN_MasterDatabase]
+GO
+
+ALTER TABLE [dbo].[CGEN_MasterTable] ADD  CONSTRAINT [DF_CGEN_MasterTable_SchemaName]  DEFAULT (N'dbo') FOR [SchemaName]
 GO
 
 ALTER TABLE [dbo].[CGEN_MasterTable] ADD  CONSTRAINT [DF_CGEN_MasterTable_IsSelect]  DEFAULT ((0)) FOR [IsSelect]
@@ -83,5 +88,11 @@ ALTER TABLE [dbo].[CGEN_MasterTable] ADD  CONSTRAINT [DF_CGEN_Master_IsChangePre
 GO
 
 ALTER TABLE [dbo].[CGEN_MasterTable] ADD  CONSTRAINT [DF_CGEN_MasterTable_CreateDate]  DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+ALTER TABLE [dbo].[CGEN_MasterTable] ADD  CONSTRAINT [DF_CGEN_MasterTable_IsGenerateCode]  DEFAULT ((0)) FOR [IsGenerateCode]
+GO
+
+ALTER TABLE [dbo].[CGEN_MasterTable] ADD  CONSTRAINT [DF_CGEN_MasterTable_IsGenerateCodeAlways]  DEFAULT ((0)) FOR [IsGenerateCodeAlways]
 GO
 

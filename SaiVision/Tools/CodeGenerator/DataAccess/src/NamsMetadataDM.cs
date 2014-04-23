@@ -155,29 +155,6 @@ FROM sys.objects [t] WHERE [t].[type]='U' AND ([t].[modify_date] > @ModifyDate O
             }
         }
 
-        public static DataTable GetConfiguredDataBases()
-        {
-            try
-            {
-                using (ConnectionManager connectionManager = new ConnectionManager())
-                {
-                    connectionManager.Open();
-
-                    IDbCommand cmd = connectionManager.GetCommand("CGEN_Metadata_GetDataBases");
-
-                    return connectionManager.FillTable(cmd);
-                }
-            }
-            catch (SqlException sqlex)
-            {
-                //throw new DataAccessException(CECityResourceManager.GetCECityResourceManager().GetString("SqlExceptionWrapper", "GetConfiguredDataBases", "reqId", reqId), sqlex);
-                throw sqlex;
-            }
-            catch (Exception ex)
-            {
-                throw new DBException(ex.Message, ex);
-            }
-        }        
         
         public static DataTable GetForeignKeyColumns(string tableName)
         {
@@ -277,5 +254,94 @@ FROM sys.objects [t] WHERE [t].[type]='U' AND ([t].[modify_date] > @ModifyDate O
                 throw ex;
             }
         }
+
+        #region [ -- Database Operations --]
+        public static DataTable GetConfiguredDataBases()
+        {
+            try
+            {
+                using (ConnectionManager connectionManager = new ConnectionManager())
+                {
+                    connectionManager.Open();
+
+                    IDbCommand cmd = connectionManager.GetCommand("CGEN_Database_GetAll");
+
+                    return connectionManager.FillTable(cmd);
+                }
+            }
+            catch (SqlException sqlex)
+            {
+                //throw new DataAccessException(CECityResourceManager.GetCECityResourceManager().GetString("SqlExceptionWrapper", "GetConfiguredDataBases", "reqId", reqId), sqlex);
+                throw sqlex;
+            }
+            catch (Exception ex)
+            {
+                throw new DBException(ex.Message, ex);
+            }
+        }
+
+        public static DataTable GetDatabaseNamespaces(int databaseId)
+        {
+            try
+            {
+                using (ConnectionManager connectionManager = new ConnectionManager())
+                {
+                    connectionManager.Open();
+
+                    IDbCommand cmd = connectionManager.GetCommand("CGEN_Database_GetNamespaces");
+
+                    //now create the parameters.
+                    cmd.Parameters.Add(connectionManager.GetParameter("@DatabaseId",
+                        SqlDbType.Int,
+                        ParameterDirection.Input,
+                        databaseId));
+
+                    return connectionManager.FillTable(cmd);
+                }
+            }
+            catch (SqlException sqlex)
+            {
+                //throw new DataAccessException(CECityResourceManager.GetCECityResourceManager().GetString("SqlExceptionWrapper", "GetDatabaseNamespaces", "databaseId", databaseId), sqlex);
+                throw sqlex;
+            }
+            catch (Exception ex)
+            {
+                throw new DBException(ex.Message, ex);
+            }
+        }
+
+        public static void SaveDatabaseNamespaces(string xmlDatabaseNamespace)
+        {
+            try
+            {
+                using (ConnectionManager connectionManager = new ConnectionManager())
+                {
+                    connectionManager.Open();
+
+                    IDbCommand cmd = connectionManager.GetCommand("CGEN_Database_SaveNamespaces");
+
+                    //now create the parameters.
+                    cmd.Parameters.Add(connectionManager.GetParameter("@xmlMetadata",
+                        SqlDbType.Xml,
+                        ParameterDirection.Input,
+                        xmlDatabaseNamespace));
+
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
+            catch (SqlException sqlex)
+            {
+                //throw new DataAccessException(CECityResourceManager.GetCECityResourceManager().GetString("SqlExceptionWrapper", "SaveDatabaseNamespaces", "reqId", reqId), sqlex);
+                throw sqlex;
+            }
+            catch (Exception ex)
+            {
+                throw new DBException(ex.Message, ex);
+            }
+        }
+        
+        #endregion
+
     }
 }

@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MicroMvvm;
+using SaiVision.Platform.MvvmInfrastructure.ViewModel;
 using SaiVision.Tools.CodeGenerator.Manager;
 
 namespace SaiVision.Tools.CodeGenerator.ViewModels
 {
-    public class ColumnViewModel : ObservableObject
+    public class ColumnViewModel : DynamicViewModel
     {
         #region [ Fields ]
         ColumnMetaData _Column;        
         #endregion
 
         #region [ Properties ]
-        public string ColumnName
+        /*public string ColumnName
         {
             get
             {
@@ -51,7 +52,7 @@ namespace SaiVision.Tools.CodeGenerator.ViewModels
                 _Column.ColumnNameCamel = value;
                 RaisePropertyChanged("ColumnNameCamel");
             }
-        }
+        }*/
 
         #endregion
 
@@ -61,6 +62,7 @@ namespace SaiVision.Tools.CodeGenerator.ViewModels
         }
 
         public ColumnViewModel(ColumnMetaData column)
+            : base(column)            
         {
             _Column = column;
         }
