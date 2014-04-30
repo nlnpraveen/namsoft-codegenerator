@@ -1,0 +1,1804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AdventureWorksSuperModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="AdventureWorksSuperModelStoreContainer">
+          <EntitySet Name="Address" EntityType="AdventureWorksSuperModel.Store.Address" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="Customer" EntityType="AdventureWorksSuperModel.Store.Customer" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="CustomerAddress" EntityType="AdventureWorksSuperModel.Store.CustomerAddress" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="Product" EntityType="AdventureWorksSuperModel.Store.Product" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="ProductCategory" EntityType="AdventureWorksSuperModel.Store.ProductCategory" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="ProductDescription" EntityType="AdventureWorksSuperModel.Store.ProductDescription" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="ProductModel" EntityType="AdventureWorksSuperModel.Store.ProductModel" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="ProductModelProductDescription" EntityType="AdventureWorksSuperModel.Store.ProductModelProductDescription" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="SalesOrderDetail" EntityType="AdventureWorksSuperModel.Store.SalesOrderDetail" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="SalesOrderHeader" EntityType="AdventureWorksSuperModel.Store.SalesOrderHeader" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="SalesOrderHeaderShipping" EntityType="AdventureWorksSuperModel.Store.SalesOrderHeaderShipping" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="custview" EntityType="AdventureWorksSuperModel.Store.custview" store:Type="Views" store:Schema="dbo" store:Name="custview">
+            <DefiningQuery>SELECT 
+      [custview].[CustomerID] AS [CustomerID], 
+      [custview].[FirstName] AS [FirstName], 
+      [custview].[LastName] AS [LastName], 
+      [custview].[CompanyName] AS [CompanyName]
+      FROM [dbo].[custview] AS [custview]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vSalesOrderDetail" EntityType="AdventureWorksSuperModel.Store.vSalesOrderDetail" store:Type="Views" store:Schema="dbo" store:Name="vSalesOrderDetail">
+            <DefiningQuery>SELECT 
+      [vSalesOrderDetail].[SalesOrderID] AS [SalesOrderID], 
+      [vSalesOrderDetail].[SalesOrderDetailID] AS [SalesOrderDetailID], 
+      [vSalesOrderDetail].[OrderQty] AS [OrderQty], 
+      [vSalesOrderDetail].[ProductID] AS [ProductID], 
+      [vSalesOrderDetail].[UnitPrice] AS [UnitPrice], 
+      [vSalesOrderDetail].[UnitPriceDiscount] AS [UnitPriceDiscount], 
+      [vSalesOrderDetail].[LineTotal] AS [LineTotal], 
+      [vSalesOrderDetail].[rowguid] AS [rowguid], 
+      [vSalesOrderDetail].[ModifiedDate] AS [ModifiedDate]
+      FROM [dbo].[vSalesOrderDetail] AS [vSalesOrderDetail]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vGetAllCategories" EntityType="AdventureWorksSuperModel.Store.vGetAllCategories" store:Type="Views" store:Schema="SalesLT" store:Name="vGetAllCategories">
+            <DefiningQuery>SELECT 
+      [vGetAllCategories].[ParentProductCategoryName] AS [ParentProductCategoryName], 
+      [vGetAllCategories].[ProductCategoryName] AS [ProductCategoryName], 
+      [vGetAllCategories].[ProductCategoryID] AS [ProductCategoryID]
+      FROM [SalesLT].[vGetAllCategories] AS [vGetAllCategories]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vProductAndDescription" EntityType="AdventureWorksSuperModel.Store.vProductAndDescription" store:Type="Views" store:Schema="SalesLT" store:Name="vProductAndDescription">
+            <DefiningQuery>SELECT 
+      [vProductAndDescription].[ProductID] AS [ProductID], 
+      [vProductAndDescription].[Name] AS [Name], 
+      [vProductAndDescription].[ProductModel] AS [ProductModel], 
+      [vProductAndDescription].[Culture] AS [Culture], 
+      [vProductAndDescription].[Description] AS [Description]
+      FROM [SalesLT].[vProductAndDescription] AS [vProductAndDescription]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vProductModelCatalogDescription" EntityType="AdventureWorksSuperModel.Store.vProductModelCatalogDescription" store:Type="Views" store:Schema="SalesLT" store:Name="vProductModelCatalogDescription">
+            <DefiningQuery>SELECT 
+      [vProductModelCatalogDescription].[ProductModelID] AS [ProductModelID], 
+      [vProductModelCatalogDescription].[Name] AS [Name], 
+      [vProductModelCatalogDescription].[Summary] AS [Summary], 
+      [vProductModelCatalogDescription].[Manufacturer] AS [Manufacturer], 
+      [vProductModelCatalogDescription].[Copyright] AS [Copyright], 
+      [vProductModelCatalogDescription].[ProductURL] AS [ProductURL], 
+      [vProductModelCatalogDescription].[WarrantyPeriod] AS [WarrantyPeriod], 
+      [vProductModelCatalogDescription].[WarrantyDescription] AS [WarrantyDescription], 
+      [vProductModelCatalogDescription].[NoOfYears] AS [NoOfYears], 
+      [vProductModelCatalogDescription].[MaintenanceDescription] AS [MaintenanceDescription], 
+      [vProductModelCatalogDescription].[Wheel] AS [Wheel], 
+      [vProductModelCatalogDescription].[Saddle] AS [Saddle], 
+      [vProductModelCatalogDescription].[Pedal] AS [Pedal], 
+      [vProductModelCatalogDescription].[BikeFrame] AS [BikeFrame], 
+      [vProductModelCatalogDescription].[Crankset] AS [Crankset], 
+      [vProductModelCatalogDescription].[PictureAngle] AS [PictureAngle], 
+      [vProductModelCatalogDescription].[PictureSize] AS [PictureSize], 
+      [vProductModelCatalogDescription].[ProductPhotoID] AS [ProductPhotoID], 
+      [vProductModelCatalogDescription].[Material] AS [Material], 
+      [vProductModelCatalogDescription].[Color] AS [Color], 
+      [vProductModelCatalogDescription].[ProductLine] AS [ProductLine], 
+      [vProductModelCatalogDescription].[Style] AS [Style], 
+      [vProductModelCatalogDescription].[RiderExperience] AS [RiderExperience], 
+      [vProductModelCatalogDescription].[rowguid] AS [rowguid], 
+      [vProductModelCatalogDescription].[ModifiedDate] AS [ModifiedDate]
+      FROM [SalesLT].[vProductModelCatalogDescription] AS [vProductModelCatalogDescription]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_CustomerAddress_Address_AddressID" Association="AdventureWorksSuperModel.Store.FK_CustomerAddress_Address_AddressID">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="CustomerAddress" EntitySet="CustomerAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerAddress_Customer_CustomerID" Association="AdventureWorksSuperModel.Store.FK_CustomerAddress_Customer_CustomerID">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerAddress" EntitySet="CustomerAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductCategory_ProductCategoryID" Association="AdventureWorksSuperModel.Store.FK_Product_ProductCategory_ProductCategoryID">
+            <End Role="ProductCategory" EntitySet="ProductCategory" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductModel_ProductModelID" Association="AdventureWorksSuperModel.Store.FK_Product_ProductModel_ProductModelID">
+            <End Role="ProductModel" EntitySet="ProductModel" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" Association="AdventureWorksSuperModel.Store.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID">
+            <End Role="ProductCategory" EntitySet="ProductCategory" />
+            <End Role="ProductCategory1" EntitySet="ProductCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" Association="AdventureWorksSuperModel.Store.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID">
+            <End Role="ProductDescription" EntitySet="ProductDescription" />
+            <End Role="ProductModelProductDescription" EntitySet="ProductModelProductDescription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductModelProductDescription_ProductModel_ProductModelID" Association="AdventureWorksSuperModel.Store.FK_ProductModelProductDescription_ProductModel_ProductModelID">
+            <End Role="ProductModel" EntitySet="ProductModel" />
+            <End Role="ProductModelProductDescription" EntitySet="ProductModelProductDescription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderDetail_Product_ProductID" Association="AdventureWorksSuperModel.Store.FK_SalesOrderDetail_Product_ProductID">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="SalesOrderDetail" EntitySet="SalesOrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" Association="AdventureWorksSuperModel.Store.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID">
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+            <End Role="SalesOrderDetail" EntitySet="SalesOrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderHeader_Address_BillTo_AddressID" Association="AdventureWorksSuperModel.Store.FK_SalesOrderHeader_Address_BillTo_AddressID">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderHeader_Customer_CustomerID" Association="AdventureWorksSuperModel.Store.FK_SalesOrderHeader_Customer_CustomerID">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderHeaderShipping_SalesOrderHeader" Association="AdventureWorksSuperModel.Store.FK_SalesOrderHeaderShipping_SalesOrderHeader">
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+            <End Role="SalesOrderHeaderShipping" EntitySet="SalesOrderHeaderShipping" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AddressLine1" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="AddressLine2" Type="nvarchar" MaxLength="60" />
+          <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="StateProvince" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CountryRegion" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="PostalCode" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" MaxLength="8" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Suffix" Type="nvarchar" MaxLength="10" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="128" />
+          <Property Name="SalesPerson" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="25" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="TimeStamp" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="CustomerAddress">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="AddressID" Type="int" Nullable="false" />
+          <Property Name="AddressType" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ProductNumber" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="Color" Type="nvarchar" MaxLength="15" />
+          <Property Name="StandardCost" Type="money" Nullable="false" />
+          <Property Name="ListPrice" Type="money" Nullable="false" />
+          <Property Name="Size" Type="nvarchar" MaxLength="5" />
+          <Property Name="Weight" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="ProductCategoryID" Type="int" />
+          <Property Name="ProductModelID" Type="int" />
+          <Property Name="SellStartDate" Type="datetime" Nullable="false" />
+          <Property Name="SellEndDate" Type="datetime" />
+          <Property Name="DiscontinuedDate" Type="datetime" />
+          <Property Name="ThumbNailPhoto" Type="varbinary(max)" />
+          <Property Name="ThumbnailPhotoFileName" Type="nvarchar" MaxLength="50" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductCategory">
+          <Key>
+            <PropertyRef Name="ProductCategoryID" />
+          </Key>
+          <Property Name="ProductCategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ParentProductCategoryID" Type="int" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductDescription">
+          <Key>
+            <PropertyRef Name="ProductDescriptionID" />
+          </Key>
+          <Property Name="ProductDescriptionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductModel">
+          <Key>
+            <PropertyRef Name="ProductModelID" />
+          </Key>
+          <Property Name="ProductModelID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CatalogDescription" Type="xml" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductModelProductDescription">
+          <Key>
+            <PropertyRef Name="ProductModelID" />
+            <PropertyRef Name="ProductDescriptionID" />
+            <PropertyRef Name="Culture" />
+          </Key>
+          <Property Name="ProductModelID" Type="int" Nullable="false" />
+          <Property Name="ProductDescriptionID" Type="int" Nullable="false" />
+          <Property Name="Culture" Type="nchar" Nullable="false" MaxLength="6" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalesOrderDetail">
+          <Key>
+            <PropertyRef Name="SalesOrderID" />
+            <PropertyRef Name="SalesOrderDetailID" />
+          </Key>
+          <Property Name="SalesOrderID" Type="int" Nullable="false" />
+          <Property Name="SalesOrderDetailID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderQty" Type="smallint" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="UnitPrice" Type="money" />
+          <Property Name="UnitPriceDiscount" Type="money" />
+          <Property Name="LineTotal" Type="numeric" Nullable="false" Precision="38" Scale="6" StoreGeneratedPattern="Computed" />
+          <Property Name="rowguid" Type="uniqueidentifier" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SalesOrderHeader">
+          <Key>
+            <PropertyRef Name="SalesOrderID" />
+          </Key>
+          <Property Name="SalesOrderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="DueDate" Type="datetime" />
+          <Property Name="OnlineOrderFlag" Type="bit" Nullable="false" />
+          <Property Name="SalesOrderNumber" Type="nvarchar" Nullable="false" MaxLength="25" StoreGeneratedPattern="Computed" />
+          <Property Name="PurchaseOrderNumber" Type="nvarchar" MaxLength="25" />
+          <Property Name="AccountNumber" Type="nvarchar" MaxLength="15" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="BillToAddressID" Type="int" />
+          <Property Name="CreditCardApprovalCode" Type="varchar" MaxLength="15" />
+          <Property Name="SubTotal" Type="money" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="ShipDate" Type="date" />
+        </EntityType>
+        <EntityType Name="SalesOrderHeaderShipping">
+          <Key>
+            <PropertyRef Name="SalesOrderID" />
+          </Key>
+          <Property Name="SalesOrderID" Type="int" Nullable="false" />
+          <Property Name="ShipDate" Type="datetime" />
+          <Property Name="ShipToAddressID" Type="int" />
+          <Property Name="ShipMethod" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AdventureWorksSuper.dbo.custview' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="custview">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AdventureWorksSuper.dbo.vSalesOrderDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vSalesOrderDetail">
+          <Key>
+            <PropertyRef Name="SalesOrderID" />
+            <PropertyRef Name="SalesOrderDetailID" />
+            <PropertyRef Name="LineTotal" />
+          </Key>
+          <Property Name="SalesOrderID" Type="int" Nullable="false" />
+          <Property Name="SalesOrderDetailID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderQty" Type="smallint" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="UnitPrice" Type="money" />
+          <Property Name="UnitPriceDiscount" Type="money" />
+          <Property Name="LineTotal" Type="numeric" Nullable="false" Precision="38" Scale="6" />
+          <Property Name="rowguid" Type="uniqueidentifier" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AdventureWorksSuper.SalesLT.vGetAllCategories' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vGetAllCategories">
+          <Key>
+            <PropertyRef Name="ParentProductCategoryName" />
+          </Key>
+          <Property Name="ParentProductCategoryName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ProductCategoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductCategoryID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AdventureWorksSuper.SalesLT.vProductAndDescription' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vProductAndDescription">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="ProductModel" />
+            <PropertyRef Name="Culture" />
+            <PropertyRef Name="Description" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ProductModel" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Culture" Type="nchar" Nullable="false" MaxLength="6" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="400" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AdventureWorksSuper.SalesLT.vProductModelCatalogDescription' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vProductModelCatalogDescription">
+          <Key>
+            <PropertyRef Name="ProductModelID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="rowguid" />
+            <PropertyRef Name="ModifiedDate" />
+          </Key>
+          <Property Name="ProductModelID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Summary" Type="nvarchar(max)" />
+          <Property Name="Manufacturer" Type="nvarchar(max)" />
+          <Property Name="Copyright" Type="nvarchar" MaxLength="30" />
+          <Property Name="ProductURL" Type="nvarchar" MaxLength="256" />
+          <Property Name="WarrantyPeriod" Type="nvarchar" MaxLength="256" />
+          <Property Name="WarrantyDescription" Type="nvarchar" MaxLength="256" />
+          <Property Name="NoOfYears" Type="nvarchar" MaxLength="256" />
+          <Property Name="MaintenanceDescription" Type="nvarchar" MaxLength="256" />
+          <Property Name="Wheel" Type="nvarchar" MaxLength="256" />
+          <Property Name="Saddle" Type="nvarchar" MaxLength="256" />
+          <Property Name="Pedal" Type="nvarchar" MaxLength="256" />
+          <Property Name="BikeFrame" Type="nvarchar(max)" />
+          <Property Name="Crankset" Type="nvarchar" MaxLength="256" />
+          <Property Name="PictureAngle" Type="nvarchar" MaxLength="256" />
+          <Property Name="PictureSize" Type="nvarchar" MaxLength="256" />
+          <Property Name="ProductPhotoID" Type="nvarchar" MaxLength="256" />
+          <Property Name="Material" Type="nvarchar" MaxLength="256" />
+          <Property Name="Color" Type="nvarchar" MaxLength="256" />
+          <Property Name="ProductLine" Type="nvarchar" MaxLength="256" />
+          <Property Name="Style" Type="nvarchar" MaxLength="256" />
+          <Property Name="RiderExperience" Type="nvarchar" MaxLength="1024" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CustomerAddress_Address_AddressID">
+          <End Role="Address" Type="AdventureWorksSuperModel.Store.Address" Multiplicity="1" />
+          <End Role="CustomerAddress" Type="AdventureWorksSuperModel.Store.CustomerAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="CustomerAddress">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerAddress_Customer_CustomerID">
+          <End Role="Customer" Type="AdventureWorksSuperModel.Store.Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CustomerAddress" Type="AdventureWorksSuperModel.Store.CustomerAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="CustomerAddress">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductCategory_ProductCategoryID">
+          <End Role="ProductCategory" Type="AdventureWorksSuperModel.Store.ProductCategory" Multiplicity="0..1" />
+          <End Role="Product" Type="AdventureWorksSuperModel.Store.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategory">
+              <PropertyRef Name="ProductCategoryID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductModel_ProductModelID">
+          <End Role="ProductModel" Type="AdventureWorksSuperModel.Store.ProductModel" Multiplicity="0..1" />
+          <End Role="Product" Type="AdventureWorksSuperModel.Store.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductModel">
+              <PropertyRef Name="ProductModelID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID">
+          <End Role="ProductCategory" Type="AdventureWorksSuperModel.Store.ProductCategory" Multiplicity="0..1" />
+          <End Role="ProductCategory1" Type="AdventureWorksSuperModel.Store.ProductCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategory">
+              <PropertyRef Name="ProductCategoryID" />
+            </Principal>
+            <Dependent Role="ProductCategory1">
+              <PropertyRef Name="ParentProductCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID">
+          <End Role="ProductDescription" Type="AdventureWorksSuperModel.Store.ProductDescription" Multiplicity="1" />
+          <End Role="ProductModelProductDescription" Type="AdventureWorksSuperModel.Store.ProductModelProductDescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDescription">
+              <PropertyRef Name="ProductDescriptionID" />
+            </Principal>
+            <Dependent Role="ProductModelProductDescription">
+              <PropertyRef Name="ProductDescriptionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductModelProductDescription_ProductModel_ProductModelID">
+          <End Role="ProductModel" Type="AdventureWorksSuperModel.Store.ProductModel" Multiplicity="1" />
+          <End Role="ProductModelProductDescription" Type="AdventureWorksSuperModel.Store.ProductModelProductDescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductModel">
+              <PropertyRef Name="ProductModelID" />
+            </Principal>
+            <Dependent Role="ProductModelProductDescription">
+              <PropertyRef Name="ProductModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderDetail_Product_ProductID">
+          <End Role="Product" Type="AdventureWorksSuperModel.Store.Product" Multiplicity="0..1" />
+          <End Role="SalesOrderDetail" Type="AdventureWorksSuperModel.Store.SalesOrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="SalesOrderDetail">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID">
+          <End Role="SalesOrderHeader" Type="AdventureWorksSuperModel.Store.SalesOrderHeader" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SalesOrderDetail" Type="AdventureWorksSuperModel.Store.SalesOrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesOrderHeader">
+              <PropertyRef Name="SalesOrderID" />
+            </Principal>
+            <Dependent Role="SalesOrderDetail">
+              <PropertyRef Name="SalesOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderHeader_Address_BillTo_AddressID">
+          <End Role="Address" Type="AdventureWorksSuperModel.Store.Address" Multiplicity="0..1" />
+          <End Role="SalesOrderHeader" Type="AdventureWorksSuperModel.Store.SalesOrderHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="SalesOrderHeader">
+              <PropertyRef Name="BillToAddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderHeader_Customer_CustomerID">
+          <End Role="Customer" Type="AdventureWorksSuperModel.Store.Customer" Multiplicity="1" />
+          <End Role="SalesOrderHeader" Type="AdventureWorksSuperModel.Store.SalesOrderHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="SalesOrderHeader">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderHeaderShipping_SalesOrderHeader">
+          <End Role="SalesOrderHeader" Type="AdventureWorksSuperModel.Store.SalesOrderHeader" Multiplicity="1" />
+          <End Role="SalesOrderHeaderShipping" Type="AdventureWorksSuperModel.Store.SalesOrderHeaderShipping" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SalesOrderHeader">
+              <PropertyRef Name="SalesOrderID" />
+            </Principal>
+            <Dependent Role="SalesOrderHeaderShipping">
+              <PropertyRef Name="SalesOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="annualCustomerSales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fiscalyear" Type="char" Mode="In" />
+        </Function>
+        <Function Name="CustomerOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="custid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="CustomersWithOrdersGreaterThan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MinOrderAmount" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerID" Type="int" Mode="In" />
+          <Parameter Name="TimeStamp" Type="timestamp" Mode="In" />
+        </Function>
+        <Function Name="DeleteOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SalesOrderID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteOrderDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SalesOrderID" Type="int" Mode="In" />
+          <Parameter Name="SalesOrderDetailID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetCountByLastName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastNameCount" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="GetCustomerNamesWithSalesOrderTotals" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetDetailsModifiedNames" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="orderid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetOrderDetailsForOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="orderid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Title" Type="nvarchar" Mode="In" />
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="MiddleName" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Suffix" Type="nvarchar" Mode="In" />
+          <Parameter Name="CompanyName" Type="nvarchar" Mode="In" />
+          <Parameter Name="SalesPerson" Type="nvarchar" Mode="In" />
+          <Parameter Name="EmailAddress" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="InsertCustomerMini" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="CompanyName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="InsertOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+          <Parameter Name="DueDate" Type="datetime" Mode="In" />
+          <Parameter Name="OnlineOrderFlag" Type="bit" Mode="In" />
+          <Parameter Name="PurchaseOrderNumber" Type="nvarchar" Mode="In" />
+          <Parameter Name="AccountNumber" Type="nvarchar" Mode="In" />
+          <Parameter Name="CustomerID" Type="int" Mode="In" />
+          <Parameter Name="BillToAddressID" Type="int" Mode="In" />
+          <Parameter Name="CreditCardApprovalCode" Type="varchar" Mode="In" />
+          <Parameter Name="SubTotal" Type="money" Mode="In" />
+          <Parameter Name="Comment" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+          <Parameter Name="ShipDate" Type="date" Mode="In" />
+        </Function>
+        <Function Name="InsertOrderDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SalesOrderID" Type="int" Mode="In" />
+          <Parameter Name="OrderQty" Type="smallint" Mode="In" />
+          <Parameter Name="ProductID" Type="int" Mode="In" />
+          <Parameter Name="UnitPrice" Type="money" Mode="In" />
+          <Parameter Name="UnitPriceDiscount" Type="money" Mode="In" />
+          <Parameter Name="LineTotal" Type="numeric" Mode="In" />
+          <Parameter Name="rowguid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="OrderDetailsPaging" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="orderid" Type="int" Mode="In" />
+          <Parameter Name="startRowIndex" Type="int" Mode="In" />
+          <Parameter Name="MaxRows" Type="int" Mode="In" />
+          <Parameter Name="totalRows" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="OrderDetailsWithProductInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="orderid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TotalSalesForYear" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fiscalyear" Type="char" Mode="In" />
+        </Function>
+        <Function Name="ufnGetAllCategories" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="ParentProductCategoryName" Type="nvarchar" MaxLength="50" />
+                <Property Name="ProductCategoryName" Type="nvarchar" Nullable="false" MaxLength="50" />
+                <Property Name="ProductCategoryID" Type="int" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="ufnGetCustomerInformation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerID" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="CustomerID" Type="int" Nullable="false" />
+                <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+                <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="ufnGetSalesOrderStatusText" ReturnType="nvarchar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Status" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="UpdateCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerID" Type="int" Mode="In" />
+          <Parameter Name="Title" Type="nvarchar" Mode="In" />
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="MiddleName" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Suffix" Type="nvarchar" Mode="In" />
+          <Parameter Name="CompanyName" Type="nvarchar" Mode="In" />
+          <Parameter Name="SalesPerson" Type="nvarchar" Mode="In" />
+          <Parameter Name="EmailAddress" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+          <Parameter Name="TimeStamp" Type="timestamp" Mode="In" />
+        </Function>
+        <Function Name="UpdateCustomerMini" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerID" Type="int" Mode="In" />
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="CompanyName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SalesOrderID" Type="int" Mode="In" />
+          <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+          <Parameter Name="DueDate" Type="datetime" Mode="In" />
+          <Parameter Name="OnlineOrderFlag" Type="bit" Mode="In" />
+          <Parameter Name="PurchaseOrderNumber" Type="nvarchar" Mode="In" />
+          <Parameter Name="AccountNumber" Type="nvarchar" Mode="In" />
+          <Parameter Name="CustomerID" Type="int" Mode="In" />
+          <Parameter Name="BillToAddressID" Type="int" Mode="In" />
+          <Parameter Name="CreditCardApprovalCode" Type="varchar" Mode="In" />
+          <Parameter Name="SubTotal" Type="money" Mode="In" />
+          <Parameter Name="Comment" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+          <Parameter Name="ShipDate" Type="date" Mode="In" />
+        </Function>
+        <Function Name="UpdateOrderDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SalesOrderID" Type="int" Mode="In" />
+          <Parameter Name="SalesOrderDetailID" Type="int" Mode="In" />
+          <Parameter Name="OrderQty" Type="smallint" Mode="In" />
+          <Parameter Name="ProductID" Type="int" Mode="In" />
+          <Parameter Name="UnitPrice" Type="money" Mode="In" />
+          <Parameter Name="UnitPriceDiscount" Type="money" Mode="In" />
+          <Parameter Name="LineTotal" Type="numeric" Mode="In" />
+          <Parameter Name="rowguid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+        </Function>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AdventureWorksSuperModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AdventureWorksSuperEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="AdventureWorksSuperModel.Address" />
+          <EntitySet Name="Customers" EntityType="AdventureWorksSuperModel.Customer" />
+          <EntitySet Name="CustomerAddresses" EntityType="AdventureWorksSuperModel.CustomerAddress" />
+          <EntitySet Name="Products" EntityType="AdventureWorksSuperModel.Product" />
+          <EntitySet Name="ProductCategories" EntityType="AdventureWorksSuperModel.ProductCategory" />
+          <EntitySet Name="ProductDescriptions" EntityType="AdventureWorksSuperModel.ProductDescription" />
+          <EntitySet Name="ProductModels" EntityType="AdventureWorksSuperModel.ProductModel" />
+          <EntitySet Name="ProductModelProductDescriptions" EntityType="AdventureWorksSuperModel.ProductModelProductDescription" />
+          <EntitySet Name="SalesOrderDetails" EntityType="AdventureWorksSuperModel.SalesOrderDetail" />
+          <EntitySet Name="SalesOrderHeaders" EntityType="AdventureWorksSuperModel.SalesOrderHeader" />
+          <EntitySet Name="SalesOrderHeaderShippings" EntityType="AdventureWorksSuperModel.SalesOrderHeaderShipping" />
+          <EntitySet Name="custviews" EntityType="AdventureWorksSuperModel.custview" />
+          <EntitySet Name="vSalesOrderDetails" EntityType="AdventureWorksSuperModel.vSalesOrderDetail" />
+          <EntitySet Name="vGetAllCategories" EntityType="AdventureWorksSuperModel.vGetAllCategory" />
+          <EntitySet Name="vProductAndDescriptions" EntityType="AdventureWorksSuperModel.vProductAndDescription" />
+          <EntitySet Name="vProductModelCatalogDescriptions" EntityType="AdventureWorksSuperModel.vProductModelCatalogDescription" />
+          <AssociationSet Name="FK_CustomerAddress_Address_AddressID" Association="AdventureWorksSuperModel.FK_CustomerAddress_Address_AddressID">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderHeader_Address_BillTo_AddressID" Association="AdventureWorksSuperModel.FK_SalesOrderHeader_Address_BillTo_AddressID">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerAddress_Customer_CustomerID" Association="AdventureWorksSuperModel.FK_CustomerAddress_Customer_CustomerID">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderHeader_Customer_CustomerID" Association="AdventureWorksSuperModel.FK_SalesOrderHeader_Customer_CustomerID">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductCategory_ProductCategoryID" Association="AdventureWorksSuperModel.FK_Product_ProductCategory_ProductCategoryID">
+            <End Role="ProductCategory" EntitySet="ProductCategories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductModel_ProductModelID" Association="AdventureWorksSuperModel.FK_Product_ProductModel_ProductModelID">
+            <End Role="ProductModel" EntitySet="ProductModels" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderDetail_Product_ProductID" Association="AdventureWorksSuperModel.FK_SalesOrderDetail_Product_ProductID">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="SalesOrderDetail" EntitySet="SalesOrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" Association="AdventureWorksSuperModel.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID">
+            <End Role="ProductCategory" EntitySet="ProductCategories" />
+            <End Role="ProductCategory1" EntitySet="ProductCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" Association="AdventureWorksSuperModel.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID">
+            <End Role="ProductDescription" EntitySet="ProductDescriptions" />
+            <End Role="ProductModelProductDescription" EntitySet="ProductModelProductDescriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductModelProductDescription_ProductModel_ProductModelID" Association="AdventureWorksSuperModel.FK_ProductModelProductDescription_ProductModel_ProductModelID">
+            <End Role="ProductModel" EntitySet="ProductModels" />
+            <End Role="ProductModelProductDescription" EntitySet="ProductModelProductDescriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" Association="AdventureWorksSuperModel.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID">
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeaders" />
+            <End Role="SalesOrderDetail" EntitySet="SalesOrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderHeaderShipping_SalesOrderHeader" Association="AdventureWorksSuperModel.FK_SalesOrderHeaderShipping_SalesOrderHeader">
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeaders" />
+            <End Role="SalesOrderHeaderShipping" EntitySet="SalesOrderHeaderShippings" />
+          </AssociationSet>
+          <FunctionImport Name="ufnGetAllCategories" ReturnType="Collection(AdventureWorksSuperModel.ufnGetAllCategories_Result)" IsComposable="true" />
+          <FunctionImport Name="ufnGetCustomerInformation" ReturnType="Collection(AdventureWorksSuperModel.ufnGetCustomerInformation_Result)" IsComposable="true">
+            <Parameter Name="CustomerID" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="annualCustomerSales">
+            <Parameter Name="fiscalyear" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CustomerOrders" ReturnType="Collection(AdventureWorksSuperModel.CustomerOrders_Result)">
+            <Parameter Name="custid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CustomersWithOrdersGreaterThan" ReturnType="Collection(String)">
+            <Parameter Name="MinOrderAmount" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteCustomer">
+            <Parameter Name="CustomerID" Mode="In" Type="Int32" />
+            <Parameter Name="TimeStamp" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteOrder">
+            <Parameter Name="SalesOrderID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteOrderDetails">
+            <Parameter Name="SalesOrderID" Mode="In" Type="Int32" />
+            <Parameter Name="SalesOrderDetailID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetCountByLastName">
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="LastNameCount" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetCustomerNamesWithSalesOrderTotals" ReturnType="Collection(AdventureWorksSuperModel.GetCustomerNamesWithSalesOrderTotals_Result)" />
+          <FunctionImport Name="GetDetailsModifiedNames" ReturnType="Collection(AdventureWorksSuperModel.GetDetailsModifiedNames_Result)">
+            <Parameter Name="orderid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetOrderDetailsForOrder" ReturnType="Collection(AdventureWorksSuperModel.GetOrderDetailsForOrder_Result)">
+            <Parameter Name="orderid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertCustomer">
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="MiddleName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="Suffix" Mode="In" Type="String" />
+            <Parameter Name="CompanyName" Mode="In" Type="String" />
+            <Parameter Name="SalesPerson" Mode="In" Type="String" />
+            <Parameter Name="EmailAddress" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="ModifiedDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="InsertCustomerMini">
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="CompanyName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertOrder" ReturnType="Collection(AdventureWorksSuperModel.InsertOrder_Result)">
+            <Parameter Name="OrderDate" Mode="In" Type="DateTime" />
+            <Parameter Name="DueDate" Mode="In" Type="DateTime" />
+            <Parameter Name="OnlineOrderFlag" Mode="In" Type="Boolean" />
+            <Parameter Name="PurchaseOrderNumber" Mode="In" Type="String" />
+            <Parameter Name="AccountNumber" Mode="In" Type="String" />
+            <Parameter Name="CustomerID" Mode="In" Type="Int32" />
+            <Parameter Name="BillToAddressID" Mode="In" Type="Int32" />
+            <Parameter Name="CreditCardApprovalCode" Mode="In" Type="String" />
+            <Parameter Name="SubTotal" Mode="In" Type="Decimal" />
+            <Parameter Name="Comment" Mode="In" Type="String" />
+            <Parameter Name="ModifiedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ShipDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="InsertOrderDetails" ReturnType="Collection(AdventureWorksSuperModel.InsertOrderDetails_Result)">
+            <Parameter Name="SalesOrderID" Mode="In" Type="Int32" />
+            <Parameter Name="OrderQty" Mode="In" Type="Int16" />
+            <Parameter Name="ProductID" Mode="In" Type="Int32" />
+            <Parameter Name="UnitPrice" Mode="In" Type="Decimal" />
+            <Parameter Name="UnitPriceDiscount" Mode="In" Type="Decimal" />
+            <Parameter Name="LineTotal" Mode="In" Type="Decimal" />
+            <Parameter Name="rowguid" Mode="In" Type="Guid" />
+            <Parameter Name="ModifiedDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="OrderDetailsPaging" ReturnType="Collection(AdventureWorksSuperModel.OrderDetailsPaging_Result)">
+            <Parameter Name="orderid" Mode="In" Type="Int32" />
+            <Parameter Name="startRowIndex" Mode="In" Type="Int32" />
+            <Parameter Name="MaxRows" Mode="In" Type="Int32" />
+            <Parameter Name="totalRows" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="OrderDetailsWithProductInfo" ReturnType="Collection(AdventureWorksSuperModel.OrderDetailsWithProductInfo_Result)">
+            <Parameter Name="orderid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="TotalSalesForYear" ReturnType="Collection(Decimal)">
+            <Parameter Name="fiscalyear" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateCustomer">
+            <Parameter Name="CustomerID" Mode="In" Type="Int32" />
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="MiddleName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="Suffix" Mode="In" Type="String" />
+            <Parameter Name="CompanyName" Mode="In" Type="String" />
+            <Parameter Name="SalesPerson" Mode="In" Type="String" />
+            <Parameter Name="EmailAddress" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="ModifiedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="TimeStamp" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateCustomerMini">
+            <Parameter Name="CustomerID" Mode="In" Type="Int32" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="CompanyName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateOrder">
+            <Parameter Name="SalesOrderID" Mode="In" Type="Int32" />
+            <Parameter Name="OrderDate" Mode="In" Type="DateTime" />
+            <Parameter Name="DueDate" Mode="In" Type="DateTime" />
+            <Parameter Name="OnlineOrderFlag" Mode="In" Type="Boolean" />
+            <Parameter Name="PurchaseOrderNumber" Mode="In" Type="String" />
+            <Parameter Name="AccountNumber" Mode="In" Type="String" />
+            <Parameter Name="CustomerID" Mode="In" Type="Int32" />
+            <Parameter Name="BillToAddressID" Mode="In" Type="Int32" />
+            <Parameter Name="CreditCardApprovalCode" Mode="In" Type="String" />
+            <Parameter Name="SubTotal" Mode="In" Type="Decimal" />
+            <Parameter Name="Comment" Mode="In" Type="String" />
+            <Parameter Name="ModifiedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ShipDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateOrderDetails" ReturnType="Collection(AdventureWorksSuperModel.UpdateOrderDetails_Result)">
+            <Parameter Name="SalesOrderID" Mode="In" Type="Int32" />
+            <Parameter Name="SalesOrderDetailID" Mode="In" Type="Int32" />
+            <Parameter Name="OrderQty" Mode="In" Type="Int16" />
+            <Parameter Name="ProductID" Mode="In" Type="Int32" />
+            <Parameter Name="UnitPrice" Mode="In" Type="Decimal" />
+            <Parameter Name="UnitPriceDiscount" Mode="In" Type="Decimal" />
+            <Parameter Name="LineTotal" Mode="In" Type="Decimal" />
+            <Parameter Name="rowguid" Mode="In" Type="Guid" />
+            <Parameter Name="ModifiedDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="ufnGetAllCategories_Result">
+          <Property Name="ParentProductCategoryName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProductCategoryName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProductCategoryID" Type="Int32" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ufnGetCustomerInformation_Result">
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </ComplexType>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="AddressLine1" Type="String" Nullable="false" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="AddressLine2" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="StateProvince" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CountryRegion" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PostalCode" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CustomerAddresses" Relationship="AdventureWorksSuperModel.FK_CustomerAddress_Address_AddressID" FromRole="Address" ToRole="CustomerAddress" />
+          <NavigationProperty Name="SalesOrderHeaders" Relationship="AdventureWorksSuperModel.FK_SalesOrderHeader_Address_BillTo_AddressID" FromRole="Address" ToRole="SalesOrderHeader" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Suffix" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="SalesPerson" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" p1:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="CustomerAddresses" Relationship="AdventureWorksSuperModel.FK_CustomerAddress_Customer_CustomerID" FromRole="Customer" ToRole="CustomerAddress" />
+          <NavigationProperty Name="SalesOrderHeaders" Relationship="AdventureWorksSuperModel.FK_SalesOrderHeader_Customer_CustomerID" FromRole="Customer" ToRole="SalesOrderHeader" />
+        </EntityType>
+        <EntityType Name="CustomerAddress">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="AddressID" Type="Int32" Nullable="false" />
+          <Property Name="AddressType" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Address" Relationship="AdventureWorksSuperModel.FK_CustomerAddress_Address_AddressID" FromRole="CustomerAddress" ToRole="Address" />
+          <NavigationProperty Name="Customer" Relationship="AdventureWorksSuperModel.FK_CustomerAddress_Customer_CustomerID" FromRole="CustomerAddress" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProductNumber" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="Color" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="StandardCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ListPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Size" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="Weight" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="ProductCategoryID" Type="Int32" />
+          <Property Name="ProductModelID" Type="Int32" />
+          <Property Name="SellStartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SellEndDate" Type="DateTime" Precision="3" />
+          <Property Name="DiscontinuedDate" Type="DateTime" Precision="3" />
+          <Property Name="ThumbNailPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ThumbnailPhotoFileName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ProductCategory" Relationship="AdventureWorksSuperModel.FK_Product_ProductCategory_ProductCategoryID" FromRole="Product" ToRole="ProductCategory" />
+          <NavigationProperty Name="ProductModel" Relationship="AdventureWorksSuperModel.FK_Product_ProductModel_ProductModelID" FromRole="Product" ToRole="ProductModel" />
+          <NavigationProperty Name="SalesOrderDetails" Relationship="AdventureWorksSuperModel.FK_SalesOrderDetail_Product_ProductID" FromRole="Product" ToRole="SalesOrderDetail" />
+        </EntityType>
+        <EntityType Name="ProductCategory">
+          <Key>
+            <PropertyRef Name="ProductCategoryID" />
+          </Key>
+          <Property Name="ProductCategoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentProductCategoryID" Type="Int32" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Products" Relationship="AdventureWorksSuperModel.FK_Product_ProductCategory_ProductCategoryID" FromRole="ProductCategory" ToRole="Product" />
+          <NavigationProperty Name="ProductCategory1" Relationship="AdventureWorksSuperModel.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" FromRole="ProductCategory" ToRole="ProductCategory1" />
+          <NavigationProperty Name="ProductCategory2" Relationship="AdventureWorksSuperModel.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" FromRole="ProductCategory1" ToRole="ProductCategory" />
+        </EntityType>
+        <EntityType Name="ProductDescription">
+          <Key>
+            <PropertyRef Name="ProductDescriptionID" />
+          </Key>
+          <Property Name="ProductDescriptionID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ProductModelProductDescriptions" Relationship="AdventureWorksSuperModel.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" FromRole="ProductDescription" ToRole="ProductModelProductDescription" />
+        </EntityType>
+        <EntityType Name="ProductModel">
+          <Key>
+            <PropertyRef Name="ProductModelID" />
+          </Key>
+          <Property Name="ProductModelID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CatalogDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Products" Relationship="AdventureWorksSuperModel.FK_Product_ProductModel_ProductModelID" FromRole="ProductModel" ToRole="Product" />
+          <NavigationProperty Name="ProductModelProductDescriptions" Relationship="AdventureWorksSuperModel.FK_ProductModelProductDescription_ProductModel_ProductModelID" FromRole="ProductModel" ToRole="ProductModelProductDescription" />
+        </EntityType>
+        <EntityType Name="ProductModelProductDescription">
+          <Key>
+            <PropertyRef Name="ProductModelID" />
+            <PropertyRef Name="ProductDescriptionID" />
+            <PropertyRef Name="Culture" />
+          </Key>
+          <Property Name="ProductModelID" Type="Int32" Nullable="false" />
+          <Property Name="ProductDescriptionID" Type="Int32" Nullable="false" />
+          <Property Name="Culture" Type="String" Nullable="false" MaxLength="6" Unicode="true" FixedLength="true" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ProductDescription" Relationship="AdventureWorksSuperModel.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" FromRole="ProductModelProductDescription" ToRole="ProductDescription" />
+          <NavigationProperty Name="ProductModel" Relationship="AdventureWorksSuperModel.FK_ProductModelProductDescription_ProductModel_ProductModelID" FromRole="ProductModelProductDescription" ToRole="ProductModel" />
+        </EntityType>
+        <EntityType Name="SalesOrderDetail">
+          <Key>
+            <PropertyRef Name="SalesOrderID" />
+            <PropertyRef Name="SalesOrderDetailID" />
+          </Key>
+          <Property Name="SalesOrderID" Type="Int32" Nullable="false" />
+          <Property Name="SalesOrderDetailID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderQty" Type="Int16" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="UnitPriceDiscount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="LineTotal" Type="Decimal" Nullable="false" Precision="38" Scale="6" p1:StoreGeneratedPattern="Computed" />
+          <Property Name="rowguid" Type="Guid" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="AdventureWorksSuperModel.FK_SalesOrderDetail_Product_ProductID" FromRole="SalesOrderDetail" ToRole="Product" />
+          <NavigationProperty Name="SalesOrderHeader" Relationship="AdventureWorksSuperModel.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" FromRole="SalesOrderDetail" ToRole="SalesOrderHeader" />
+        </EntityType>
+        <EntityType Name="SalesOrderHeader">
+          <Key>
+            <PropertyRef Name="SalesOrderID" />
+          </Key>
+          <Property Name="SalesOrderID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DueDate" Type="DateTime" Precision="3" />
+          <Property Name="OnlineOrderFlag" Type="Boolean" Nullable="false" />
+          <Property Name="SalesOrderNumber" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" p1:StoreGeneratedPattern="Computed" />
+          <Property Name="PurchaseOrderNumber" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="AccountNumber" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="BillToAddressID" Type="Int32" />
+          <Property Name="CreditCardApprovalCode" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="SubTotal" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ShipDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Address" Relationship="AdventureWorksSuperModel.FK_SalesOrderHeader_Address_BillTo_AddressID" FromRole="SalesOrderHeader" ToRole="Address" />
+          <NavigationProperty Name="Customer" Relationship="AdventureWorksSuperModel.FK_SalesOrderHeader_Customer_CustomerID" FromRole="SalesOrderHeader" ToRole="Customer" />
+          <NavigationProperty Name="SalesOrderDetails" Relationship="AdventureWorksSuperModel.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" FromRole="SalesOrderHeader" ToRole="SalesOrderDetail" />
+          <NavigationProperty Name="SalesOrderHeaderShipping" Relationship="AdventureWorksSuperModel.FK_SalesOrderHeaderShipping_SalesOrderHeader" FromRole="SalesOrderHeader" ToRole="SalesOrderHeaderShipping" />
+        </EntityType>
+        <EntityType Name="SalesOrderHeaderShipping">
+          <Key>
+            <PropertyRef Name="SalesOrderID" />
+          </Key>
+          <Property Name="SalesOrderID" Type="Int32" Nullable="false" />
+          <Property Name="ShipDate" Type="DateTime" Precision="3" />
+          <Property Name="ShipToAddressID" Type="Int32" />
+          <Property Name="ShipMethod" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="SalesOrderHeader" Relationship="AdventureWorksSuperModel.FK_SalesOrderHeaderShipping_SalesOrderHeader" FromRole="SalesOrderHeaderShipping" ToRole="SalesOrderHeader" />
+        </EntityType>
+        <EntityType Name="custview">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="vSalesOrderDetail">
+          <Key>
+            <PropertyRef Name="SalesOrderID" />
+            <PropertyRef Name="SalesOrderDetailID" />
+            <PropertyRef Name="LineTotal" />
+          </Key>
+          <Property Name="SalesOrderID" Type="Int32" Nullable="false" />
+          <Property Name="SalesOrderDetailID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderQty" Type="Int16" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="UnitPriceDiscount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="LineTotal" Type="Decimal" Nullable="false" Precision="38" Scale="6" />
+          <Property Name="rowguid" Type="Guid" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="vGetAllCategory">
+          <Key>
+            <PropertyRef Name="ParentProductCategoryName" />
+          </Key>
+          <Property Name="ParentProductCategoryName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProductCategoryName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProductCategoryID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vProductAndDescription">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="ProductModel" />
+            <PropertyRef Name="Culture" />
+            <PropertyRef Name="Description" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProductModel" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Culture" Type="String" Nullable="false" MaxLength="6" Unicode="true" FixedLength="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="vProductModelCatalogDescription">
+          <Key>
+            <PropertyRef Name="ProductModelID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="rowguid" />
+            <PropertyRef Name="ModifiedDate" />
+          </Key>
+          <Property Name="ProductModelID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Summary" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Manufacturer" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Copyright" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="ProductURL" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="WarrantyPeriod" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="WarrantyDescription" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="NoOfYears" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="MaintenanceDescription" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Wheel" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Saddle" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Pedal" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="BikeFrame" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Crankset" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="PictureAngle" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="PictureSize" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="ProductPhotoID" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Material" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Color" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="ProductLine" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Style" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="RiderExperience" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_CustomerAddress_Address_AddressID">
+          <End Role="Address" Type="AdventureWorksSuperModel.Address" Multiplicity="1" />
+          <End Role="CustomerAddress" Type="AdventureWorksSuperModel.CustomerAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="CustomerAddress">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderHeader_Address_BillTo_AddressID">
+          <End Role="Address" Type="AdventureWorksSuperModel.Address" Multiplicity="0..1" />
+          <End Role="SalesOrderHeader" Type="AdventureWorksSuperModel.SalesOrderHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="SalesOrderHeader">
+              <PropertyRef Name="BillToAddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerAddress_Customer_CustomerID">
+          <End Role="Customer" Type="AdventureWorksSuperModel.Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CustomerAddress" Type="AdventureWorksSuperModel.CustomerAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="CustomerAddress">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderHeader_Customer_CustomerID">
+          <End Role="Customer" Type="AdventureWorksSuperModel.Customer" Multiplicity="1" />
+          <End Role="SalesOrderHeader" Type="AdventureWorksSuperModel.SalesOrderHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="SalesOrderHeader">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductCategory_ProductCategoryID">
+          <End Role="ProductCategory" Type="AdventureWorksSuperModel.ProductCategory" Multiplicity="0..1" />
+          <End Role="Product" Type="AdventureWorksSuperModel.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategory">
+              <PropertyRef Name="ProductCategoryID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductModel_ProductModelID">
+          <End Role="ProductModel" Type="AdventureWorksSuperModel.ProductModel" Multiplicity="0..1" />
+          <End Role="Product" Type="AdventureWorksSuperModel.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductModel">
+              <PropertyRef Name="ProductModelID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderDetail_Product_ProductID">
+          <End Role="Product" Type="AdventureWorksSuperModel.Product" Multiplicity="0..1" />
+          <End Role="SalesOrderDetail" Type="AdventureWorksSuperModel.SalesOrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="SalesOrderDetail">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID">
+          <End Role="ProductCategory" Type="AdventureWorksSuperModel.ProductCategory" Multiplicity="0..1" />
+          <End Role="ProductCategory1" Type="AdventureWorksSuperModel.ProductCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategory">
+              <PropertyRef Name="ProductCategoryID" />
+            </Principal>
+            <Dependent Role="ProductCategory1">
+              <PropertyRef Name="ParentProductCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID">
+          <End Role="ProductDescription" Type="AdventureWorksSuperModel.ProductDescription" Multiplicity="1" />
+          <End Role="ProductModelProductDescription" Type="AdventureWorksSuperModel.ProductModelProductDescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDescription">
+              <PropertyRef Name="ProductDescriptionID" />
+            </Principal>
+            <Dependent Role="ProductModelProductDescription">
+              <PropertyRef Name="ProductDescriptionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductModelProductDescription_ProductModel_ProductModelID">
+          <End Role="ProductModel" Type="AdventureWorksSuperModel.ProductModel" Multiplicity="1" />
+          <End Role="ProductModelProductDescription" Type="AdventureWorksSuperModel.ProductModelProductDescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductModel">
+              <PropertyRef Name="ProductModelID" />
+            </Principal>
+            <Dependent Role="ProductModelProductDescription">
+              <PropertyRef Name="ProductModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID">
+          <End Role="SalesOrderHeader" Type="AdventureWorksSuperModel.SalesOrderHeader" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SalesOrderDetail" Type="AdventureWorksSuperModel.SalesOrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesOrderHeader">
+              <PropertyRef Name="SalesOrderID" />
+            </Principal>
+            <Dependent Role="SalesOrderDetail">
+              <PropertyRef Name="SalesOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderHeaderShipping_SalesOrderHeader">
+          <End Role="SalesOrderHeader" Type="AdventureWorksSuperModel.SalesOrderHeader" Multiplicity="1" />
+          <End Role="SalesOrderHeaderShipping" Type="AdventureWorksSuperModel.SalesOrderHeaderShipping" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SalesOrderHeader">
+              <PropertyRef Name="SalesOrderID" />
+            </Principal>
+            <Dependent Role="SalesOrderHeaderShipping">
+              <PropertyRef Name="SalesOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="CustomerOrders_Result">
+          <Property Type="DateTime" Name="OrderDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="SalesOrderNumber" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="PurchaseOrderNumber" Nullable="true" MaxLength="25" />
+        </ComplexType>
+        <ComplexType Name="GetCustomerNamesWithSalesOrderTotals_Result">
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OrderCount" Nullable="true" />
+          <Property Type="Decimal" Name="OrderTotal" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="GetDetailsModifiedNames_Result">
+          <Property Type="Int32" Name="OrderID" Nullable="false" />
+          <Property Type="Int32" Name="OrderDetailID" Nullable="false" />
+          <Property Type="Int16" Name="OrderQty" Nullable="true" />
+          <Property Type="Int32" Name="ProductID" Nullable="true" />
+          <Property Type="Decimal" Name="UnitPrice" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="UnitPriceDiscount" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="LineTotal" Nullable="false" Precision="38" Scale="6" />
+          <Property Type="Guid" Name="rowguid" Nullable="true" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GetOrderDetailsForOrder_Result">
+          <Property Type="Int32" Name="SalesOrderID" Nullable="false" />
+          <Property Type="Int32" Name="SalesOrderDetailID" Nullable="false" />
+          <Property Type="Int16" Name="OrderQty" Nullable="true" />
+          <Property Type="Int32" Name="ProductID" Nullable="true" />
+          <Property Type="Decimal" Name="UnitPrice" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="UnitPriceDiscount" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="LineTotal" Nullable="false" Precision="38" Scale="6" />
+          <Property Type="Guid" Name="rowguid" Nullable="true" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="InsertOrder_Result">
+          <Property Type="Int32" Name="SalesOrderID" Nullable="false" />
+          <Property Type="String" Name="SalesOrderNumber" Nullable="false" MaxLength="25" />
+        </ComplexType>
+        <ComplexType Name="InsertOrderDetails_Result">
+          <Property Type="Int32" Name="SalesOrderDetailID" Nullable="false" />
+          <Property Type="Guid" Name="rowguid" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="OrderDetailsPaging_Result">
+          <Property Type="Int32" Name="SalesOrderDetailID" Nullable="false" />
+          <Property Type="Int32" Name="SalesOrderID" Nullable="false" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="Guid" Name="rowguid" Nullable="true" />
+          <Property Type="Decimal" Name="LineTotal" Nullable="false" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="UnitPriceDiscount" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="UnitPrice" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="ProductID" Nullable="true" />
+          <Property Type="Int16" Name="OrderQty" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="OrderDetailsWithProductInfo_Result">
+          <Property Type="Int32" Name="SalesOrderID" Nullable="false" />
+          <Property Type="Int32" Name="SalesOrderDetailID" Nullable="false" />
+          <Property Type="Int16" Name="OrderQty" Nullable="true" />
+          <Property Type="Int32" Name="ProductID" Nullable="true" />
+          <Property Type="Decimal" Name="UnitPrice" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="UnitPriceDiscount" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="LineTotal" Nullable="false" Precision="38" Scale="6" />
+          <Property Type="Guid" Name="rowguid" Nullable="true" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="ProductID1" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ProductNumber" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="Color" Nullable="true" MaxLength="15" />
+          <Property Type="Decimal" Name="StandardCost" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="ListPrice" Nullable="false" Precision="19" />
+          <Property Type="String" Name="Size" Nullable="true" MaxLength="5" />
+          <Property Type="Decimal" Name="Weight" Nullable="true" Precision="8" Scale="2" />
+          <Property Type="Int32" Name="ProductCategoryID" Nullable="true" />
+          <Property Type="Int32" Name="ProductModelID" Nullable="true" />
+          <Property Type="DateTime" Name="SellStartDate" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="SellEndDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="DiscontinuedDate" Nullable="true" Precision="23" />
+          <Property Type="Binary" Name="ThumbNailPhoto" Nullable="true" />
+          <Property Type="String" Name="ThumbnailPhotoFileName" Nullable="true" MaxLength="50" />
+          <Property Type="Guid" Name="rowguid1" Nullable="false" />
+          <Property Type="DateTime" Name="ModifiedDate1" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="UpdateOrderDetails_Result">
+          <Property Type="Int32" Name="SalesOrderID" Nullable="false" />
+          <Property Type="Int32" Name="SalesOrderDetailID" Nullable="false" />
+          <Property Type="Int16" Name="OrderQty" Nullable="true" />
+          <Property Type="Int32" Name="ProductID" Nullable="true" />
+          <Property Type="Decimal" Name="UnitPrice" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="UnitPriceDiscount" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="LineTotal" Nullable="false" Precision="38" Scale="6" />
+          <Property Type="Guid" Name="rowguid" Nullable="true" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AdventureWorksSuperModelStoreContainer" CdmEntityContainer="AdventureWorksSuperEntities">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="AdventureWorksSuperModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
+                <ScalarProperty Name="CountryRegion" ColumnName="CountryRegion" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="AdventureWorksSuperModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="SalesPerson" ColumnName="SalesPerson" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerAddresses">
+            <EntityTypeMapping TypeName="AdventureWorksSuperModel.CustomerAddress">
+              <MappingFragment StoreEntitySet="CustomerAddress">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="AddressType" ColumnName="AddressType" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="AdventureWorksSuperModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+                <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+                <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+                <ScalarProperty Name="SellStartDate" ColumnName="SellStartDate" />
+                <ScalarProperty Name="SellEndDate" ColumnName="SellEndDate" />
+                <ScalarProperty Name="DiscontinuedDate" ColumnName="DiscontinuedDate" />
+                <ScalarProperty Name="ThumbNailPhoto" ColumnName="ThumbNailPhoto" />
+                <ScalarProperty Name="ThumbnailPhotoFileName" ColumnName="ThumbnailPhotoFileName" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCategories">
+            <EntityTypeMapping TypeName="AdventureWorksSuperModel.ProductCategory">
+              <MappingFragment StoreEntitySet="ProductCategory">
+                <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+                <ScalarProperty Name="ParentProductCategoryID" ColumnName="ParentProductCategoryID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductDescriptions">
+            <EntityTypeMapping TypeName="AdventureWorksSuperModel.ProductDescription">
+              <MappingFragment StoreEntitySet="ProductDescription">
+                <ScalarProperty Name="ProductDescriptionID" ColumnName="ProductDescriptionID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductModels">
+            <EntityTypeMapping TypeName="AdventureWorksSuperModel.ProductModel">
+              <MappingFragment StoreEntitySet="ProductModel">
+                <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CatalogDescription" ColumnName="CatalogDescription" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductModelProductDescriptions">
+            <EntityTypeMapping TypeName="AdventureWorksSuperModel.ProductModelProductDescription">
+              <MappingFragment StoreEntitySet="ProductModelProductDescription">
+                <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+                <ScalarProperty Name="ProductDescriptionID" ColumnName="ProductDescriptionID" />
+                <ScalarProperty Name="Culture" ColumnName="Culture" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesOrderDetails">
+            <EntityTypeMapping TypeName="AdventureWorksSuperModel.SalesOrderDetail">
+              <MappingFragment StoreEntitySet="SalesOrderDetail">
+                <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+                <ScalarProperty Name="SalesOrderDetailID" ColumnName="SalesOrderDetailID" />
+                <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+                <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesOrderHeaders">
+            <EntityTypeMapping TypeName="AdventureWorksSuperModel.SalesOrderHeader">
+              <MappingFragment StoreEntitySet="SalesOrderHeader">
+                <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="OnlineOrderFlag" ColumnName="OnlineOrderFlag" />
+                <ScalarProperty Name="SalesOrderNumber" ColumnName="SalesOrderNumber" />
+                <ScalarProperty Name="PurchaseOrderNumber" ColumnName="PurchaseOrderNumber" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="BillToAddressID" ColumnName="BillToAddressID" />
+                <ScalarProperty Name="CreditCardApprovalCode" ColumnName="CreditCardApprovalCode" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesOrderHeaderShippings">
+            <EntityTypeMapping TypeName="AdventureWorksSuperModel.SalesOrderHeaderShipping">
+              <MappingFragment StoreEntitySet="SalesOrderHeaderShipping">
+                <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+                <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+                <ScalarProperty Name="ShipToAddressID" ColumnName="ShipToAddressID" />
+                <ScalarProperty Name="ShipMethod" ColumnName="ShipMethod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="custviews">
+            <EntityTypeMapping TypeName="AdventureWorksSuperModel.custview">
+              <MappingFragment StoreEntitySet="custview">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vSalesOrderDetails">
+            <EntityTypeMapping TypeName="AdventureWorksSuperModel.vSalesOrderDetail">
+              <MappingFragment StoreEntitySet="vSalesOrderDetail">
+                <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+                <ScalarProperty Name="SalesOrderDetailID" ColumnName="SalesOrderDetailID" />
+                <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+                <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vGetAllCategories">
+            <EntityTypeMapping TypeName="AdventureWorksSuperModel.vGetAllCategory">
+              <MappingFragment StoreEntitySet="vGetAllCategories">
+                <ScalarProperty Name="ParentProductCategoryName" ColumnName="ParentProductCategoryName" />
+                <ScalarProperty Name="ProductCategoryName" ColumnName="ProductCategoryName" />
+                <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vProductAndDescriptions">
+            <EntityTypeMapping TypeName="AdventureWorksSuperModel.vProductAndDescription">
+              <MappingFragment StoreEntitySet="vProductAndDescription">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProductModel" ColumnName="ProductModel" />
+                <ScalarProperty Name="Culture" ColumnName="Culture" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vProductModelCatalogDescriptions">
+            <EntityTypeMapping TypeName="AdventureWorksSuperModel.vProductModelCatalogDescription">
+              <MappingFragment StoreEntitySet="vProductModelCatalogDescription">
+                <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Copyright" ColumnName="Copyright" />
+                <ScalarProperty Name="ProductURL" ColumnName="ProductURL" />
+                <ScalarProperty Name="WarrantyPeriod" ColumnName="WarrantyPeriod" />
+                <ScalarProperty Name="WarrantyDescription" ColumnName="WarrantyDescription" />
+                <ScalarProperty Name="NoOfYears" ColumnName="NoOfYears" />
+                <ScalarProperty Name="MaintenanceDescription" ColumnName="MaintenanceDescription" />
+                <ScalarProperty Name="Wheel" ColumnName="Wheel" />
+                <ScalarProperty Name="Saddle" ColumnName="Saddle" />
+                <ScalarProperty Name="Pedal" ColumnName="Pedal" />
+                <ScalarProperty Name="BikeFrame" ColumnName="BikeFrame" />
+                <ScalarProperty Name="Crankset" ColumnName="Crankset" />
+                <ScalarProperty Name="PictureAngle" ColumnName="PictureAngle" />
+                <ScalarProperty Name="PictureSize" ColumnName="PictureSize" />
+                <ScalarProperty Name="ProductPhotoID" ColumnName="ProductPhotoID" />
+                <ScalarProperty Name="Material" ColumnName="Material" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="ProductLine" ColumnName="ProductLine" />
+                <ScalarProperty Name="Style" ColumnName="Style" />
+                <ScalarProperty Name="RiderExperience" ColumnName="RiderExperience" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionName="AdventureWorksSuperModel.Store.ufnGetAllCategories" FunctionImportName="ufnGetAllCategories">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorksSuperModel.ufnGetAllCategories_Result">
+                <ScalarProperty Name="ParentProductCategoryName" ColumnName="ParentProductCategoryName" />
+                <ScalarProperty Name="ProductCategoryName" ColumnName="ProductCategoryName" />
+                <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="AdventureWorksSuperModel.Store.ufnGetCustomerInformation" FunctionImportName="ufnGetCustomerInformation">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorksSuperModel.ufnGetCustomerInformation_Result">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="annualCustomerSales" FunctionName="AdventureWorksSuperModel.Store.annualCustomerSales" />
+          <FunctionImportMapping FunctionImportName="CustomerOrders" FunctionName="AdventureWorksSuperModel.Store.CustomerOrders">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorksSuperModel.CustomerOrders_Result">
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="SalesOrderNumber" ColumnName="SalesOrderNumber" />
+                <ScalarProperty Name="PurchaseOrderNumber" ColumnName="PurchaseOrderNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CustomersWithOrdersGreaterThan" FunctionName="AdventureWorksSuperModel.Store.CustomersWithOrdersGreaterThan" />
+          <FunctionImportMapping FunctionImportName="DeleteCustomer" FunctionName="AdventureWorksSuperModel.Store.DeleteCustomer" />
+          <FunctionImportMapping FunctionImportName="DeleteOrder" FunctionName="AdventureWorksSuperModel.Store.DeleteOrder" />
+          <FunctionImportMapping FunctionImportName="DeleteOrderDetails" FunctionName="AdventureWorksSuperModel.Store.DeleteOrderDetails" />
+          <FunctionImportMapping FunctionImportName="GetCountByLastName" FunctionName="AdventureWorksSuperModel.Store.GetCountByLastName" />
+          <FunctionImportMapping FunctionImportName="GetCustomerNamesWithSalesOrderTotals" FunctionName="AdventureWorksSuperModel.Store.GetCustomerNamesWithSalesOrderTotals">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorksSuperModel.GetCustomerNamesWithSalesOrderTotals_Result">
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="OrderCount" ColumnName="OrderCount" />
+                <ScalarProperty Name="OrderTotal" ColumnName="OrderTotal" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetDetailsModifiedNames" FunctionName="AdventureWorksSuperModel.Store.GetDetailsModifiedNames">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorksSuperModel.GetDetailsModifiedNames_Result">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+                <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+                <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetOrderDetailsForOrder" FunctionName="AdventureWorksSuperModel.Store.GetOrderDetailsForOrder">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorksSuperModel.GetOrderDetailsForOrder_Result">
+                <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+                <ScalarProperty Name="SalesOrderDetailID" ColumnName="SalesOrderDetailID" />
+                <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+                <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InsertCustomer" FunctionName="AdventureWorksSuperModel.Store.InsertCustomer" />
+          <FunctionImportMapping FunctionImportName="InsertCustomerMini" FunctionName="AdventureWorksSuperModel.Store.InsertCustomerMini" />
+          <FunctionImportMapping FunctionImportName="InsertOrder" FunctionName="AdventureWorksSuperModel.Store.InsertOrder">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorksSuperModel.InsertOrder_Result">
+                <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+                <ScalarProperty Name="SalesOrderNumber" ColumnName="SalesOrderNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InsertOrderDetails" FunctionName="AdventureWorksSuperModel.Store.InsertOrderDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorksSuperModel.InsertOrderDetails_Result">
+                <ScalarProperty Name="SalesOrderDetailID" ColumnName="SalesOrderDetailID" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="OrderDetailsPaging" FunctionName="AdventureWorksSuperModel.Store.OrderDetailsPaging">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorksSuperModel.OrderDetailsPaging_Result">
+                <ScalarProperty Name="SalesOrderDetailID" ColumnName="SalesOrderDetailID" />
+                <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+                <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="OrderDetailsWithProductInfo" FunctionName="AdventureWorksSuperModel.Store.OrderDetailsWithProductInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorksSuperModel.OrderDetailsWithProductInfo_Result">
+                <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+                <ScalarProperty Name="SalesOrderDetailID" ColumnName="SalesOrderDetailID" />
+                <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+                <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ProductID1" ColumnName="ProductID1" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+                <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+                <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+                <ScalarProperty Name="SellStartDate" ColumnName="SellStartDate" />
+                <ScalarProperty Name="SellEndDate" ColumnName="SellEndDate" />
+                <ScalarProperty Name="DiscontinuedDate" ColumnName="DiscontinuedDate" />
+                <ScalarProperty Name="ThumbNailPhoto" ColumnName="ThumbNailPhoto" />
+                <ScalarProperty Name="ThumbnailPhotoFileName" ColumnName="ThumbnailPhotoFileName" />
+                <ScalarProperty Name="rowguid1" ColumnName="rowguid1" />
+                <ScalarProperty Name="ModifiedDate1" ColumnName="ModifiedDate1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TotalSalesForYear" FunctionName="AdventureWorksSuperModel.Store.TotalSalesForYear" />
+          <FunctionImportMapping FunctionImportName="UpdateCustomer" FunctionName="AdventureWorksSuperModel.Store.UpdateCustomer" />
+          <FunctionImportMapping FunctionImportName="UpdateCustomerMini" FunctionName="AdventureWorksSuperModel.Store.UpdateCustomerMini" />
+          <FunctionImportMapping FunctionImportName="UpdateOrder" FunctionName="AdventureWorksSuperModel.Store.UpdateOrder" />
+          <FunctionImportMapping FunctionImportName="UpdateOrderDetails" FunctionName="AdventureWorksSuperModel.Store.UpdateOrderDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorksSuperModel.UpdateOrderDetails_Result">
+                <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+                <ScalarProperty Name="SalesOrderDetailID" ColumnName="SalesOrderDetailID" />
+                <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+                <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
