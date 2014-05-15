@@ -46,70 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Address.cs">
-      <DependentUpon>AWModel2013.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AWModel2013.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AWModel2013.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AWModel2013.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AWModel2013.tt</DependentUpon>
-    </Compile>
     <Compile Include="AWModel2013.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AWModel2013.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Customer.cs">
-      <DependentUpon>AWModel2013.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerAddress.cs">
-      <DependentUpon>AWModel2013.tt</DependentUpon>
-    </Compile>
-    <Compile Include="custview.cs">
-      <DependentUpon>AWModel2013.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Product.cs">
-      <DependentUpon>AWModel2013.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductCategory.cs">
-      <DependentUpon>AWModel2013.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductDescription.cs">
-      <DependentUpon>AWModel2013.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductModel.cs">
-      <DependentUpon>AWModel2013.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductModelProductDescription.cs">
-      <DependentUpon>AWModel2013.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SalesOrderDetail.cs">
-      <DependentUpon>AWModel2013.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SalesOrderHeader.cs">
-      <DependentUpon>AWModel2013.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SalesOrderHeaderShipping.cs">
-      <DependentUpon>AWModel2013.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vGetAllCategory.cs">
-      <DependentUpon>AWModel2013.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vProductAndDescription.cs">
-      <DependentUpon>AWModel2013.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vProductModelCatalogDescription.cs">
-      <DependentUpon>AWModel2013.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vSalesOrderDetail.cs">
-      <DependentUpon>AWModel2013.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="AWModel2013.edmx">
@@ -117,18 +59,8 @@
       <LastGenOutput>AWModel2013.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="App.Config" />
-    <None Include="AWModel2013.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AWModel2013.edmx</DependentUpon>
-      <LastGenOutput>AWModel2013.Context.cs</LastGenOutput>
-    </None>
     <None Include="AWModel2013.edmx.diagram">
       <DependentUpon>AWModel2013.edmx</DependentUpon>
-    </None>
-    <None Include="AWModel2013.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AWModel2013.edmx</DependentUpon>
-      <LastGenOutput>AWModel2013.cs</LastGenOutput>
     </None>
     <None Include="ClassDiagram2013.cd" />
     <None Include="packages.config" />
