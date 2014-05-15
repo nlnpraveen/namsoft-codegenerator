@@ -34,6 +34,7 @@
       <HintPath>..\AWModel2013\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
@@ -46,6 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AWModelPOCO2013.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AWModelPOCO2013.tt</DependentUpon>
+    </Compile>
     <Compile Include="AWModelPOCO2013.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -62,6 +68,11 @@
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="AWModelPOCO2013.edmx.diagram">
+      <DependentUpon>AWModelPOCO2013.edmx</DependentUpon>
+    </None>
+    <None Include="AWModelPOCO2013.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AWModelPOCO2013.cs</LastGenOutput>
       <DependentUpon>AWModelPOCO2013.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
