@@ -1,1 +1,0 @@
-For this course (T4 Templates in EF4), you can start with the AFTER solution from the "Accessing Data in Entity Framework 4" folder.
