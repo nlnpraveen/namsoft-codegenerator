@@ -9,11 +9,11 @@ namespace TrainingCompany.Controllers
 {
     public class CacheExpireController : ApiController
     {
-        public IEnumerable<course> Get()
+        public IEnumerable<CacheExpirationConfiguration> Get()
         {
-            return courses;
+            return cacheex;
         }
-        public HttpResponseMessage Post([FromBody]course c)
+        /*public HttpResponseMessage Post([FromBody]course c)
         {
             c.id = courses.Count;
             courses.Add(c);
@@ -66,14 +66,15 @@ namespace TrainingCompany.Controllers
                        where c.label.ToLower().Contains(term.ToLower())
                        select c);
             return ret;
-        }
+        }*/
 
-        static List<course> courses = InitCourses();
+        static List<CacheExpirationConfiguration> cacheex = InitCache();
 
-        private static List<course> InitCourses()
+        private static List<CacheExpirationConfiguration> InitCache()
         {
             var ret = new List<CacheExpirationConfiguration>();
-            ret.Add(new CacheExpirationConfiguration {  });
+            ret.Add(new CacheExpirationConfiguration { Id = 1, CacheType = "Memcache", ClassName = "ParticipantManager", MethodName = "GetOrganizationIdByParticipantId" });
+            ret.Add(new CacheExpirationConfiguration { Id = 2, CacheType = "HttpContextCache", ClassName = "ParticipantWorkflowManager", MethodName = "GetParticipantWorkflows" });
             return ret;
         }
     }
