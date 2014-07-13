@@ -46,8 +46,67 @@
   }
   </style>
   <script type="text/javascript">
+          var bar = $("<div></div>")
+              .appendTo("body")
+              .progressbar({
+                  complete: function (event, data) {
+                      alert("Callbacks are great!");
+                  }
+              })
+              .bind("progressbarcomplete", function (event, data) {
+                  alert("Events bubble and support many handlers for extreme flexibility.");
+                  alert("The progress bar value is " + data.value);
+              });
 
-  (function( $ ) {
+          bar.progressbar("option", "value", 90);
+
+
+          $.widget("custom.superDialog", $.ui.dialog, {
+              red: function () {
+                  this.element.css("color", "red");
+              }
+          });
+
+          // Create a new <div>, convert it into a superDialog, and call the red() method.
+          /*$("<div>I am red</div>")
+              .superDialog()
+              .superDialog("red");*/
+
+          $(function () {
+              var availableTags = [
+                "ActionScript",
+                "AppleScript",
+                "Asp",
+                "BASIC",
+                "C",
+                "C++",
+                "Clojure",
+                "COBOL",
+                "ColdFusion",
+                "Erlang",
+                "Fortran",
+                "Groovy",
+                "Haskell",
+                "Java",
+                "JavaScript",
+                "Lisp",
+                "Perl",
+                "PHP",
+                "Python",
+                "Ruby",
+                "Scala",
+                "Scheme"
+              ];
+              $("#tags").autocomplete({
+                  source: availableTags
+                  //, change: function (event, ui) { alert('change'); }
+                  , close: function (event, ui) { alert('close'); }
+              });
+          });
+
+
+      (function ($) {
+
     $.widget( "custom.combobox", {
       _create: function() {
         this.wrapper = $( "<span>" )
@@ -218,6 +277,8 @@
   });
   </script>
 
+<label for="tags">Tags: </label>
+<input id="tags">
 <div class="ui-widget">
   <label>Your preferred programming language: </label>
   <select id="combobox">
