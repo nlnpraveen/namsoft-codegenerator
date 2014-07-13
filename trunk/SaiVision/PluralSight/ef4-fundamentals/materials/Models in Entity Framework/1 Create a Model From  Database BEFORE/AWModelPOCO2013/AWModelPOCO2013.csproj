@@ -47,11 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AWModelPOCO2013.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AWModelPOCO2013.tt</DependentUpon>
-    </Compile>
     <Compile Include="AWModelPOCO2013.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -68,11 +63,6 @@
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="AWModelPOCO2013.edmx.diagram">
-      <DependentUpon>AWModelPOCO2013.edmx</DependentUpon>
-    </None>
-    <None Include="AWModelPOCO2013.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AWModelPOCO2013.cs</LastGenOutput>
       <DependentUpon>AWModelPOCO2013.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
